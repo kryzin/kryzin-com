@@ -1,11 +1,18 @@
 import React from 'react';
 import Layout from '../components/layout';
+import Metadata from '../components/metadata';
 
 const Contact = () => {
   return (
     <Layout>
-      <h1>Contact Page</h1>
-      <p>You can find Ibas on Twitter via @ibaslogic</p>
+      <Metadata
+        title="Contact"
+        description="Follow me on my socials!"
+      />
+      <h1>Contact Info</h1>
+      <p>You can find me here: </p>
+      <li><a href="https://twitter.com/rawmaii">Twitter @rawmaii</a></li>
+      <li><a href="https://instagram.com/rawmaii">Instagram @rawmaii</a></li>
     </Layout>
   );
 };

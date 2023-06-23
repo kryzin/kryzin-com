@@ -1,13 +1,12 @@
 ---
 title: "First Gatsby Blog Post"
 date: "2020-01-18"
+featured: "../images/gatsby-tutorial.jpg"
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
 ## Excepturi maxime
-
-<!-- ![gatsby tutorial](../images/gatsby-tutorial.png) -->
 
 reprehenderit accusamus, explicabo eligendi necessitatibus soluta! Ipsam mollitia alias temporibus dicta
 
