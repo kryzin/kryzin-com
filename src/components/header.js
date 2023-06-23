@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import * as headerStyles from './header.module.scss';
+import * as headerStyles from '../styles/header.module.scss';
 
 const Header = () => {
   const data = useStaticQuery(
@@ -40,6 +40,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/about/" activeClassName={headerStyles.activeMenuItem}>About</Link>
+          </li>
+          <li>
+            <Link to="/repos/" activeClassName={headerStyles.activeMenuItem}>Github</Link>
           </li>
         </ul>
       </nav>

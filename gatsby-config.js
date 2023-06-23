@@ -4,6 +4,11 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const { githubApiQuery } = require('./github-api');
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -14,6 +19,30 @@ module.exports = {
     author: `kryzin`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-omni-font-loader',
+      options: {
+        enableListener: true,
+        preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
+        web: [
+          {
+            name: `Courier Prime`,
+          file: `https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap`,
+          }
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-source-github-api',
+      options: {
+        url: "https://api.github.com/graphql",
+        token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+        graphQLQuery: githubApiQuery,
+        variables: {
+          github_login: process.env.GITHUB_LOGIN
+        }
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     `gatsby-plugin-image`,
@@ -47,9 +76,6 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },

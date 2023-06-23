@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 
 import Img from 'gatsby-image';
-import * as blogStyles from '../pages/blog.module.scss';
+import * as blogStyles from '../styles/blog.module.scss';
 
 const getCategories = (items) => {
     let categoryItems = items.map((item) => {

@@ -1,0 +1,25 @@
+.main-border {
+    border: solid;
+    border-width: 1px;
+    border-color: #8d8d8d;
+    margin: 2rem ;
+    padding: 1rem;
+}
+.image {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 0.75rem;
+}
+.read-me {
+    max-height: 200px;
+    overflow: auto;
+    border: 1px dashed gray;
+    margin: 1rem;
+    padding: 1rem;
+}

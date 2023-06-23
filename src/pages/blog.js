@@ -6,7 +6,6 @@ import Metadata from "../components/metadata";
 import BlogItems from '../components/blogItems';
 
 const Blog = ({data}) => {
-
   return (
     <Layout>
       <Metadata
