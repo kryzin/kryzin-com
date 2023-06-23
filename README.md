@@ -1,13 +1,13 @@
 # Website made with Gatsby (tutorial by Ibas Majid)
 
 ## Currently working on: 
-Adding next: 
+**Adding next:**
 - Deploy app on Netlify (or Github Pages)
 - Add styling to Contact Page
 - Fix title styling in Header
 
 
-Might add in the future:
+**Might add in the future:**
 - Dark Mode switch
 - Font Size switch
 - Scrolling animations
