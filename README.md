@@ -1,8 +1,22 @@
-# Gatsby's starter - blog website
+# Website made with Gatsby (tutorial by Ibas Majid)
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## Currently working on: 
+Adding next: 
+- Deploy app on Netlify (or Github Pages)
+- Add styling to Contact Page
+- Fix title styling in Header
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+
+Might add in the future:
+- Dark Mode switch
+- Font Size switch
+- Scrolling animations
+- Instagram card (gatsby-source-instagram)
+- Breadcrumbs
+- Shareable blog posts
+- i18n support
+- Pop-up for newsletter? 
+- Search bar in Blog Page
 
 ## 🚀 Quick start
 
@@ -32,12 +46,3 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
