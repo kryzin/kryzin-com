@@ -50,4 +50,25 @@
       }
     }
   }
+  .filterButton {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
   
+  .filterButton button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 3px;
+    background: #e6e6e6;
+    border: none;
+    color: #040404;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  
+  .filterButton button:hover {
+    background: #555;
+    color: #fff;
+  }

@@ -2,6 +2,7 @@
 title: "First Gatsby Blog Post"
 date: "2020-01-18"
 featured: "../images/gatsby-tutorial.jpg"
+category: "Cats"
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit.

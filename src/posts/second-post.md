@@ -2,6 +2,7 @@
 title: "Second Gatsby Blog Post"
 date: "2020-01-19"
 featured: "../images/second-post.jpg"
+category: "Dogs"
 ---
 Seprehenderit accusamus, explicabo eligendi necessitatibus soluta!
 
