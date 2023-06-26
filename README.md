@@ -6,7 +6,6 @@
 
 **Adding next:**
 
-- Usable Contact Form (with Netlify)
 - Scrolling animations
 - Instagram card (gatsby-source-instagram)
 - Shareable blog posts
