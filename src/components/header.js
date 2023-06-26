@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import * as headerStyles from '../styles/header.module.scss';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const Header = () => {
   const data = useStaticQuery(
@@ -30,19 +31,19 @@ const Header = () => {
       <nav className={headerStyles.navContainer}>
         <ul className={headerStyles.navList}>
           <li>
-            <Link to="/" activeClassName={headerStyles.activeMenuItem}>Home</Link>
+            <AniLink cover direction="up" bg="white" to="/" activeClassName={headerStyles.activeMenuItem}>Home</AniLink>
           </li>
           <li>
-            <Link to="/blog/" activeClassName={headerStyles.activeMenuItem}>Blog</Link>
+            <AniLink cover direction="up" bg="white" to="/blog/" activeClassName={headerStyles.activeMenuItem}>Blog</AniLink>
           </li>
           <li>
-            <Link to="/contact/" activeClassName={headerStyles.activeMenuItem}>Contact</Link>
+            <AniLink cover direction="up" bg="white" to="/contact/" activeClassName={headerStyles.activeMenuItem}>Contact</AniLink>
           </li>
           <li>
-            <Link to="/about/" activeClassName={headerStyles.activeMenuItem}>About</Link>
+            <AniLink cover direction="up" bg="white" to="/about/" activeClassName={headerStyles.activeMenuItem}>About</AniLink>
           </li>
           <li>
-            <Link to="/repos/" activeClassName={headerStyles.activeMenuItem}>Github</Link>
+            <AniLink cover direction="up" bg="white" to="/repos/" activeClassName={headerStyles.activeMenuItem}>Github</AniLink>
           </li>
         </ul>
       </nav>

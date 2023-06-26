@@ -16,12 +16,17 @@
     "gatsby-plugin-react-helmet": "^6.11.0",
     "gatsby-plugin-sass": "^6.11.0",
     "gatsby-plugin-sharp": "^5.11.0",
+<<<<<<< HEAD
     "gatsby-plugin-transition-link": "1.20.5",
+=======
+    "gatsby-plugin-transition-link": "^1.20.5",
+>>>>>>> 0842608c349d21ef875160ef3e8e75883bf8f787
     "gatsby-remark-images": "^7.11.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-source-github-api": "^1.0.0",
     "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
+    "gsap": "^3.12.1",
     "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
