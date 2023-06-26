@@ -14,7 +14,6 @@ const Contact = () => {
         <div className={formStyles.formContainer}>
           <p className={formStyles.title}>Use this form to get in touch!</p>
           <form name="contact" method="post" netlify>
-            <input class="hidden" name="hpfield"/>
             <p>
               <label>Your Name: </label>
             </p>
