@@ -16,20 +16,14 @@ const Contact = () => {
           <form name="contact" method="post" netlify>
             <p>
               <label>Your Name: </label>
-            </p>
-            <p>
               <input type="text" name="name" id="name" />
             </p>
             <p>
               <label>Your Email: </label>
-            </p>
-            <p>
               <input type="email" name="email" id="email"/>
             </p>
             <p>
               <label>Message: </label>
-            </p>
-            <p>
               <textarea name="message" id="message"></textarea>
             </p>
             <p className={formStyles.btnContainer}>
