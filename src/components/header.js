@@ -18,14 +18,14 @@ const Header = () => {
   
   return (
     <header className={headerStyles.header}>
-    <div className="{headerStyles.overlay}"></div>
+    <div className={headerStyles.overlay}></div>
       <div className={headerStyles.heroContent}>
-        <p className={headerStyles.brand}>
+        <div className={headerStyles.brand}>
           <Link to="/">{data.site.siteMetadata.title}</Link>
-        </p>
-        <p className={headerStyles.description}>
+        </div>
+        <div className={headerStyles.description}>
           {data.site.siteMetadata.description}
-        </p>
+        </div>
       </div>
       <nav className={headerStyles.navContainer}>
         <ul className={headerStyles.navList}>
