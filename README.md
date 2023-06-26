@@ -5,18 +5,16 @@
 **Adding next:**
 
 - Deploy app on Netlify (or Github Pages)
-- ✅ Add styling to Contact Page
-- ✅ Fix title styling in Header
+- Scrolling animations
+- Instagram card (gatsby-source-instagram)
+- Shareable blog posts
 
 **Might add in the future:**
 
-- Usable Contact Form
+- Usable Contact Form (with Netlify)
 - Dark Mode switch
 - Font Size switch
-- Scrolling animations
-- Instagram card (gatsby-source-instagram)
 - Breadcrumbs
-- Shareable blog posts
 - i18n support
 - Pop-up for newsletter?
 - Search bar in Blog Page
