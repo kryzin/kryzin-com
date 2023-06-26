@@ -6,12 +6,10 @@
 
 **Adding next:**
 
-- Scrolling animations
 - Instagram card (gatsby-source-instagram)
 
 **Might add in the future:**
 
-- Fix Layout sizing (home/about)
 - Dark Mode switch
 - Font Size switch
 - Breadcrumbs
