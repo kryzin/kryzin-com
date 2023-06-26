@@ -1,0 +1,51 @@
+{
+    "site": {
+        "description": "Stworzona na podstawie poradnika (Ibas Majid)"
+    },
+    "layout": {
+        "test": "testowanie i18n"
+    },
+    "footer": {
+        "devby": "Strona stworzona przez "
+    },
+    "blogitems": {
+        "posted": "Dodany",
+        "read": "min czytania",
+        "more": "Czytaj dalej"
+    },
+    "header": {
+        "home": "Główna",
+        "contact": "Kontakt",
+        "about": "O mnie"
+    },
+    "error": {
+        "404": "404: Nie Znaleziono Strony",
+        "404mess": "Sprawdź moje ostatnie posty"
+    },
+    "about": {
+        "title": "O mnie",
+        "description": ":)",
+        "content": "Karolina jest studentką Informatyki na UWM."
+    },
+    "blog": {
+        "description": "Wszystkie moje artykuły"
+    },
+    "contact": {
+        "title": "Kontakt",
+        "description": "Zaobserwuj mnie!",
+        "form": "Użyj formy żeby się ze mną skontaktować!",
+        "name": "Twoje Imię:",
+        "email": "Twój Email:",
+        "mess": "Twoja Wiadomość:",
+        "send": "Wyślij",
+        "find": "Możesz znależć mnie też na:"
+    },
+    "index": {
+        "content": "??"
+    },
+    "github": {
+        "title": "Repozytoria na Githubie",
+        "description": "Aktualne projekty @Github",
+        "updated": "Ostatnia aktualizacja"
+    }
+}

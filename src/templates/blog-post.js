@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import * as postStyles from './blogPost.module.scss';
 
-import Layout from '../components/layout';
 import Comments from '../components/comments';
 import { FacebookShareButton, FacebookIcon } from 'react-share'; 
 import { LinkedinShareButton, LinkedinIcon } from 'react-share';
@@ -34,7 +33,7 @@ export const query = graphql`
 const BlogPost = (props) => {
 
   return (
-    <Layout>
+    <>
       <div className={postStyles.content}>
         <h1>{props.data.markdownRemark.frontmatter.title}</h1>
         <span className={postStyles.meta}>
@@ -81,7 +80,7 @@ const BlogPost = (props) => {
         ></div>
       </div>
       <Comments/>
-    </Layout>
+    </>
   );
 };
 

@@ -1,17 +1,19 @@
 import React from 'react';
-import Layout from '../components/layout';
 import Metadata from '../components/metadata';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation()
+
   return (
-    <Layout>
+    <>
       <Metadata
-        title="About"
-        description="All the info you need about me :)"
+        title={t('about.title')}
+        description={t('about.description')}
       />
-      <h1>About Me</h1>
-      <p>Karolina is currently doing a Bachelor of Science degree in Computer Science at UWM.</p>
-    </Layout>
+      <h1>{t('about.title')}</h1>
+      <p>{t('about.content')}</p>
+    </>
   );
 };
 

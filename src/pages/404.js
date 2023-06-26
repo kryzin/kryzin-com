@@ -1,15 +1,17 @@
 import React from 'react';
-import Layout from '../components/layout';
 import { Link } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
+  const { t } = useTranslation()
+
   return (
-    <Layout>
-      <h1>404: Page Not Found</h1>
+    <>
+      <h1>{t('error.404')}</h1>
       <p>
-        <Link to="/blog/">Check my latest articles</Link>
+        <Link to="/blog/">{t('error.404mess')}</Link>
       </p>
-    </Layout>
+    </>
   );
 };
 

@@ -1,43 +1,47 @@
 import React from 'react';
-import Layout from '../components/layout';
 import Metadata from '../components/metadata';
 import * as formStyles from '../styles/contactform.module.scss';
+import { useTranslation } from 'react-i18next';
+
+// 5471154894 ig profilepage tag
 
 const Contact = () => {
+  const { t } = useTranslation()
+
   return (
-    <Layout>
+    <>
       <Metadata
-        title="Contact"
-        description="Follow me on my socials!"
+        title={t('contact.title')}
+        description={t('contact.description')}
       />
-      <h1>Contact Me!</h1>
+      <h1>{t('contact.title')}</h1>
         <div className={formStyles.formContainer}>
-          <p className={formStyles.title}>Use this form to get in touch!</p>
+          <p className={formStyles.title}>{t('contact.form')}</p>
           <form name="contact" method="post" netlify>
             <input type="hidden" name="form-name" value="contact" />
             <p>
-              <label>Your Name: </label>
+              <label>{t('contact.name')} </label>
               <input type="text" name="name" id="name" />
             </p>
             <p>
-              <label>Your Email: </label>
+              <label>{t('contact.email')} </label>
               <input type="email" name="email" id="email"/>
             </p>
             <p>
-              <label>Message: </label>
+              <label>{t('contact.mess')} </label>
               <textarea name="message" id="message"></textarea>
             </p>
             <p className={formStyles.btnContainer}>
-            <button type="submit" className={formStyles.btn}>Send</button>
+            <button type="submit" className={formStyles.btn}>{t('contact.send')}</button>
             </p>
           </form>
         </div>
         <div className={formStyles.links}>
-          <p>You can find me here: </p>
+          <p>{t('contact.find')} </p>
           <li><a href="https://twitter.com/rawmaii">Twitter @rawmaii</a></li>
           <li><a href="https://instagram.com/rawmaii">Instagram @rawmaii</a></li>
         </div>
-    </Layout>
+    </>
   );
 };
 

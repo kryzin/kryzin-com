@@ -5,6 +5,9 @@ $mainWhite: #fff;
 * {
   box-sizing: border-box;
 }
+html {
+  width: 100vw;
+}
 body {
   color: $primaryColor;
   font-size: 100%;
