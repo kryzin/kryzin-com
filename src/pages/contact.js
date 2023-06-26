@@ -1,11 +1,12 @@
 import React from 'react';
-import Layout from '../components/layout';
 import Metadata from '../components/metadata';
 import * as formStyles from '../styles/contactform.module.scss';
 
+// 5471154894 ig profilepage tag
+
 const Contact = () => {
   return (
-    <Layout>
+    <>
       <Metadata
         title="Contact"
         description="Follow me on my socials!"
@@ -37,7 +38,7 @@ const Contact = () => {
           <li><a href="https://twitter.com/rawmaii">Twitter @rawmaii</a></li>
           <li><a href="https://instagram.com/rawmaii">Instagram @rawmaii</a></li>
         </div>
-    </Layout>
+    </>
   );
 };
 

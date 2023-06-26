@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/layout';
 import Metadata from '../components/metadata';
 import ReactMarkdown from 'react-markdown';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -48,7 +47,7 @@ const GitRepos = () => {
     const repos = data.allGithubData.nodes[0].data.user.repositories.nodes
 
     return (
-        <Layout>
+        <>
             <Metadata
                 title="Github Repos"
                 description="My current projects @Github"
@@ -91,7 +90,7 @@ const GitRepos = () => {
                 </li>
             )}
             </ul>
-        </Layout>
+        </>
     );
 };
 

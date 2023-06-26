@@ -6,16 +6,17 @@
 
 **Adding next:**
 
-- Instagram card (gatsby-source-instagram)
+- Breadcrumbs
+- i18n support
+- fix transitions (stopped working after layout plugin - cause layout doesnt unmount now)
 
 **Might add in the future:**
 
 - Dark Mode switch
 - Font Size switch
-- Breadcrumbs
-- i18n support
 - Pop-up for newsletter?
 - Search bar in Blog Page
+- Instagram card (gatsby-source-instagram)
 
 ## 🚀 Quick start
 
