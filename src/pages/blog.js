@@ -1,15 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 
 import Metadata from "../components/metadata";
 import BlogItems from '../components/blogItems';
 
 const Blog = ({data}) => {
+  const { t } = useTranslation()
+  
   return (
     <>
       <Metadata
         title="Blog"
-        description="For all my super smart articles"
+        description={t('blog.description')}
       />
       <BlogItems items={data}/>
     </>

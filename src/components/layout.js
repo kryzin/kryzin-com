@@ -4,8 +4,9 @@ import Footer from "./footer";
 import "../styles/style.scss";
 import * as layoutStyles from "../styles/layout.module.scss";
 import { motion } from 'framer-motion';
+import { withTrans } from '../i18n/withTrans';
 
-const Layout = props => {
+const Layout = ({ children, t, i18n }) => {
   return (
     <div className={layoutStyles.container}>
       <div className={layoutStyles.content}>
@@ -22,7 +23,7 @@ const Layout = props => {
               duration: 0.5
             }}
           >
-            {props.children}
+            {children}
           </motion.main>
         </div>
       </div>
@@ -31,4 +32,4 @@ const Layout = props => {
   )
 }
 
-export default Layout;
+export default withTrans(Layout);

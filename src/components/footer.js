@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import * as footerStyles from '../styles/footer.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
     const data = useStaticQuery(
@@ -15,11 +16,13 @@ const Footer = () => {
         `
     );
 
+    const { t } = useTranslation()
+
     return (
         <footer className={footerStyles.siteFooter}>
         <div className={footerStyles.container}>
             <p>
-            Site developed by {data.site.siteMetadata.author} &copy;{' '}
+            {t('footer.devby')}{data.site.siteMetadata.author} &copy;{' '}
             {new Date().getFullYear().toString()}{' '}
             </p>
         </div>

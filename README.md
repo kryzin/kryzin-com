@@ -7,8 +7,9 @@
 **Adding next:**
 
 - Breadcrumbs
-- i18n support
 - fix transitions (stopped working after layout plugin - cause layout doesnt unmount now)
+- fix translations on blogItems (extends com, can't add {t} )
+- change language setting to small dropdown menu
 
 **Might add in the future:**
 

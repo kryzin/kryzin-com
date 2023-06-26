@@ -3,8 +3,10 @@ import Metadata from '../components/metadata';
 import ReactMarkdown from 'react-markdown';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as repoStyles from '../styles/repos.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const GitRepos = () => {
+  
     const data = useStaticQuery(
         graphql`
           query MyQuery {
@@ -45,14 +47,14 @@ const GitRepos = () => {
         `
     ) 
     const repos = data.allGithubData.nodes[0].data.user.repositories.nodes
-
+    const { t } = useTranslation()
     return (
         <>
             <Metadata
-                title="Github Repos"
-                description="My current projects @Github"
+                title="Github"
+                description={t('github.description')}
             />
-            <h1>Projects: Github Repos</h1>
+            <h1>{t('github.title')}</h1>
             <ul>
             {repos.map(repo =>
                 <li key={repo.id}>
@@ -70,7 +72,7 @@ const GitRepos = () => {
                         <div className={repoStyles.info}>
                         <span style={{ marginRight: '1rem' }}>{repo.forkCount} 🍴</span>
                         <span style={{ marginRight: '1rem' }}>{repo.stargazers.totalCount} ⭐</span>
-                        <span style={{ marginRight: '1rem' }}>Updated {repo.updatedAt}</span>
+                        <span style={{ marginRight: '1rem' }}>{t('github.updated')} {repo.updatedAt}</span>
                         <span>{repo.name}</span>
                         </div>
                     </div>
