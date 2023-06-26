@@ -43,6 +43,8 @@ module.exports = {
         }
       }
     },
+    'gatsby-plugin-transition-link',
+    `gatsby-plugin-scroll-reveal`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     `gatsby-plugin-image`,

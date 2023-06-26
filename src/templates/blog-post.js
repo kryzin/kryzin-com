@@ -33,9 +33,6 @@ export const query = graphql`
 
 const BlogPost = (props) => {
 
-  const slugUrl = data.markdownRemark.frontmatter.title
-  const fullUrl = `${url}${slugUrl}`;
-
   return (
     <Layout>
       <div className={postStyles.content}>
