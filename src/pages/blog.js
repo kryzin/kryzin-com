@@ -12,7 +12,7 @@ const Blog = ({data}) => {
         title="Blog"
         description="For all my super smart articles"
       />
-      <BlogItems items={data} />
+      <BlogItems items={data}/>
     </Layout>
   );
 };
