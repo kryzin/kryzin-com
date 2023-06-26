@@ -1,10 +1,8 @@
 import React, { useState } from "react"
-import Select from '@mui/material'
-import MenuItem from '@mui/material'
 import { useTranslation } from "react-i18next"
 
 const LanguageMenu = () => {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   
   const [values, setValues] = useState({
     language: 'en'
