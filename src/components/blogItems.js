@@ -101,7 +101,7 @@ class BlogItems extends Component {
 }
 // document.documentElement.classList = '';
 
-if (typeof window !== `undefined`) {
+if (typeof document !== `undefined`) {
   const root = document.documentElement
 }
 
