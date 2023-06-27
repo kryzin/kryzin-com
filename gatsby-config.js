@@ -13,6 +13,9 @@ const { githubApiQuery } = require('./github-api');
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  flags: {
+    DEV_SSR: true
+  },
   siteMetadata: {
     title: `Kryzin`,
     description: `Created based on tutorial by Ibas Majid`,
