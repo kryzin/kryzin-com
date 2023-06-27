@@ -28,5 +28,6 @@
     ```shell
     git clone https://github.com/kryzin/kryzin-com.git
     cd kryzin-com/
+    npm install
     gatsby develop
     ```
