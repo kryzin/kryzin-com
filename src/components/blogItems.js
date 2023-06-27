@@ -101,15 +101,14 @@ class BlogItems extends Component {
 }
 // document.documentElement.classList = '';
 
+const backgroundColor = '#fff';
+const color = '#000';
+
 if (typeof document !== `undefined`) {
   const root = document.documentElement
   const backgroundColor = getComputedStyle(root).getPropertyValue('--secondary-color');
   const color = getComputedStyle(root).getPropertyValue('--primary-color');
-} else {
-  const backgroundColor = '#fff';
-  const color = '#000';
 }
-
 
 const activeButtonClass = {
     backgroundColor: backgroundColor,
