@@ -101,7 +101,9 @@ class BlogItems extends Component {
 }
 // document.documentElement.classList = '';
 
-const root = document.documentElement
+if (typeof window !== `undefined`) {
+  const root = document.documentElement
+}
 
 const backgroundColor = getComputedStyle(root).getPropertyValue('--secondary-color');
 const color = getComputedStyle(root).getPropertyValue('--primary-color');

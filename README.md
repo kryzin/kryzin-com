@@ -6,6 +6,7 @@
 
 **Adding next:**
 
+- edge cases for themes and langs
 - implement consistend theme (for light+dark)
 - fix translations on blogItems (extends com, can't add {t} )
 - change language setting to small dropdown menu
