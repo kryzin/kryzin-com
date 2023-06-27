@@ -103,10 +103,13 @@ class BlogItems extends Component {
 
 if (typeof document !== `undefined`) {
   const root = document.documentElement
+  const backgroundColor = getComputedStyle(root).getPropertyValue('--secondary-color');
+  const color = getComputedStyle(root).getPropertyValue('--primary-color');
+} else {
+  const backgroundColor = '#fff';
+  const color = '#000';
 }
 
-const backgroundColor = getComputedStyle(root).getPropertyValue('--secondary-color');
-const color = getComputedStyle(root).getPropertyValue('--primary-color');
 
 const activeButtonClass = {
     backgroundColor: backgroundColor,
