@@ -1,4 +1,4 @@
-# [KRYZIN - made with Gatsby] (https://kryzin.netlify.app/)
+# [KRYZIN - made with Gatsby](https://kryzin.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/057db4e3-0b0b-4fa6-9ff0-df60a20f3780/deploy-status)](https://app.netlify.com/sites/kryzin/deploys)
 
@@ -9,13 +9,11 @@
 - edge cases for themes and langs
 - implement consistend theme (for light+dark)
 - fix translations on blogItems (extends com, can't add {t} )
-- change language setting to small dropdown menu
 
 **Might add in the future:**
 
 - Correct responsiveness
 - Breadcrumbs
-- Dark Mode based on operating system preference
 - Font Size switch
 - Search bar in Blog Page
 - Instagram card (gatsby-source-instagram)
@@ -23,13 +21,15 @@
 
 **Styles, themes, modes etc.**
 
-- Add pics to about me
+- fix blog post pics
+- Add pics to about
 - Check for theme in blogItems
 - 3d retro borders?
 - fix bg color (set for all + correct bugs)
 - fix moving dark mode switch
 - check for system mode
 - check for system language
+- useEffect on document in blogItems
 
 ## Quick start
 
