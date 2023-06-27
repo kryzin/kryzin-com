@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { withTrans } from '../i18n/withTrans';
 
 const Layout = ({ children, t, i18n }) => {
+
   return (
     <div className={layoutStyles.container}>
       <div className={layoutStyles.content}>

@@ -6,14 +6,15 @@
 
 **Adding next:**
 
-- fix transitions (stopped working after layout plugin - cause layout doesnt unmount now)
+- Dark Mode switch
 - fix translations on blogItems (extends com, can't add {t} )
-- change language setting to small dropdown menu (maybe try mui-material plug-in)
+- change language setting to small dropdown menu
+- convert styling to themes
 
 **Might add in the future:**
 
 - Breadcrumbs
-- Dark Mode switch
+- Dark Mode based on operating system preference
 - Font Size switch
 - Search bar in Blog Page
 - Instagram card (gatsby-source-instagram)

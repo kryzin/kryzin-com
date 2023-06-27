@@ -13,9 +13,9 @@
       margin: 0 0 10px;
       text-align: center;
       a {
-        color: #555;
+        color: var(--content-secondary);
         &:hover {
-          color: #222;
+          color: var(--content-primary);
         }
       }
     }
@@ -40,13 +40,13 @@
     text-align: center;
     padding: 20px 0;
     a {
-      color: #555;
+      color: var(--content-secondary);
       padding: 8px 12px;
-      border: 1px solid #555;
+      border: 1px solid var(--content-secondary);
       &:hover {
-        color: #fff;
-        border-color: #222;
-        background-color: #222;
+        color: var(--text-title);
+        border-color: var(--content-primary);
+        background-color: var(--content-primary);
       }
     }
   }
@@ -61,14 +61,14 @@
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
     border-radius: 3px;
-    background: #e6e6e6;
+    background: var(--text-title);
     border: none;
-    color: #040404;
+    color: var(--shadow-color);
     text-transform: capitalize;
     cursor: pointer;
   }
   
   .filterButton button:hover {
-    background: #555;
-    color: #fff;
+    background: var(--content-secondary);
+    color: var(--text-title);
   }

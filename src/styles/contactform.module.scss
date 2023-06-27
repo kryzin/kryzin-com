@@ -1,6 +1,3 @@
-$color-a: #d3b3c2;
-$color-b: #e6c5d7;
-
 li {
     font-size: 18px;
 }
@@ -16,12 +13,12 @@ li {
 }
 .form-container {
     flex: 1;
-    background-color: $color-a;
+    background-color: var(--form-a);
     padding: 1rem;
 }
 .title {
     font-size: 20px;
-    color: #464646;
+    color: var(--primary-color);
     margin-left: 1rem;
     text-align: center;
 }
@@ -29,16 +26,16 @@ li {
     align-self: center;
 }
 .btn {
-    background-color: $color-b;
+    background-color: var(--form-b);
     border: solid;
     border-radius: 2px;
-    border-color: hsl(0, 0%, 90%);
+    border-color: var(--form-btn);
 }
 form {
     box-sizing: border-box;
     padding: 2rem;
-    background-color: hsl(0, 0%, 100%);
-    border: 4px solid hsl(0, 0%, 90%);
+    background-color: var(--bg-color);
+    border: 4px solid var(--form-btn);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;

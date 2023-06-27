@@ -1,6 +1,34 @@
-$primaryColor: #464646;
-$secondaryColor: #692245;
-$mainWhite: #fff;
+:root {
+  --primary-color: #464646;
+  --secondary-color: #692245;
+  --bg-color: #fff;
+  --bg-contrast: #000;
+  --shadow-color: #000;
+  --nav-container: rgba(255, 255, 255, 0.1);
+  --content-primary: #222;
+  --content-secondary: #555;
+  --form-a: #d3b3c2;
+  --form-b: #e6c5d7;
+  --form-btn: hsl(0, 0%, 90%);
+  --git-a: #8d8d8d;
+  --text-title: #fff;
+}
+
+:root.dark {
+  --primary-color: #a3a3a3;
+  --secondary-color: #ff9dce;
+  --bg-color: #380823;
+  --bg-contrast: #b1b1b1;
+  --shadow-color: #000;
+  --nav-container: rgba(255, 255, 255, 0.1);
+  --content-primary: #d1d1d1;
+  --content-secondary: #aaaaaa;
+  --form-a: #421b2d;
+  --form-b: #472438;
+  --form-btn: hsl(0, 0%, 0%);
+  --git-a: #000000;
+  --text-title: #fff;
+}
 
 * {
   box-sizing: border-box;
@@ -9,7 +37,7 @@ html {
   width: 100vw;
 }
 body {
-  color: $primaryColor;
+  color: var(--primary-color);
   font-size: 100%;
   margin: 0;
   line-height: 1.4283;
@@ -21,6 +49,6 @@ h3 {
   font-weight: 400;
 }
 a {
-  color: $secondaryColor;
+  color: var(--secondary-color);
   text-decoration: none;
 }

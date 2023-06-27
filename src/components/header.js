@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import * as headerStyles from '../styles/header.module.scss';
 import { useTranslation } from 'react-i18next';
 import LanguageMenu from './langMenu';
 
 const Header = () => {
+  const [theme, SetTheme] = useState('');
+  const [toggleTheme, SetToggleTheme] = useState(false);
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -19,10 +22,24 @@ const Header = () => {
   );
 
   const { t } = useTranslation()
+
+  function handleDarkMode () {
+    if (toggleTheme) {
+      SetTheme("dark");
+    } else {
+      SetTheme("");
+    }
+    if (theme === "dark") {
+      document.documentElement.classList = 'dark';
+    } else {
+      document.documentElement.classList = '';
+    }
+    SetToggleTheme(!toggleTheme);
+  }
   
   return (
     <header className={headerStyles.header}>
-    <div className={headerStyles.overlay}><LanguageMenu/></div>
+    <div className={headerStyles.overlay}></div>
       <div className={headerStyles.heroContent}>
         <div className={headerStyles.brand}>
           <Link to="/">{data.site.siteMetadata.title}</Link>
@@ -47,6 +64,12 @@ const Header = () => {
           </li>
           <li>
             <Link to="/repos/" activeClassName={headerStyles.activeMenuItem}>Github</Link>
+          </li>
+          <li>
+            <LanguageMenu/>
+          </li>
+          <li>
+            <button onClick={handleDarkMode}>Mode</button>
           </li>
         </ul>
       </nav>

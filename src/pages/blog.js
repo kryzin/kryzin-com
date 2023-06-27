@@ -7,6 +7,7 @@ import BlogItems from '../components/blogItems';
 import Transition from '../components/transitions';
 
 const Blog = ({data}) => {
+
   const { t } = useTranslation()
   
   return (
