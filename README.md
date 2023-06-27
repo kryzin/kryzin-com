@@ -6,18 +6,29 @@
 
 **Adding next:**
 
-- fix transitions (stopped working after layout plugin - cause layout doesnt unmount now)
+- implement consistend theme (for light+dark)
 - fix translations on blogItems (extends com, can't add {t} )
-- change language setting to small dropdown menu (maybe try mui-material plug-in)
+- change language setting to small dropdown menu
 
 **Might add in the future:**
 
+- Correct responsiveness
 - Breadcrumbs
-- Dark Mode switch
+- Dark Mode based on operating system preference
 - Font Size switch
 - Search bar in Blog Page
 - Instagram card (gatsby-source-instagram)
 - Testing and stuff (Sentry?)
+
+**Styles, themes, modes etc.**
+
+- Add pics to about me
+- Check for theme in blogItems
+- 3d retro borders?
+- fix bg color (set for all + correct bugs)
+- fix moving dark mode switch
+- check for system mode
+- check for system language
 
 ## Quick start
 
@@ -28,5 +39,6 @@
     ```shell
     git clone https://github.com/kryzin/kryzin-com.git
     cd kryzin-com/
+    npm install
     gatsby develop
     ```

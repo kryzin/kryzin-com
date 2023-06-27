@@ -4,18 +4,20 @@ import { useTranslation } from 'react-i18next';
 
 import Metadata from "../components/metadata";
 import BlogItems from '../components/blogItems';
+import Transition from '../components/transitions';
 
 const Blog = ({data}) => {
+
   const { t } = useTranslation()
   
   return (
-    <>
+    <Transition>
       <Metadata
         title="Blog"
         description={t('blog.description')}
       />
       <BlogItems items={data}/>
-    </>
+    </Transition>
   );
 };
 

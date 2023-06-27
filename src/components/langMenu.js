@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
+import * as headerStyles from '../styles/header.module.scss'
 
 const LanguageMenu = () => {
   const { i18n } = useTranslation()
@@ -19,7 +20,7 @@ const LanguageMenu = () => {
 
   return (
     <div>
-      <button value={'pl'} onClick={handleChange}>Polski</button>
+      <button value={'pl'} onClick={handleChange} className={headerStyles.langmen}>Polski</button>
       <button value={'en'} onClick={handleChange}>English</button>
     </div>
   );

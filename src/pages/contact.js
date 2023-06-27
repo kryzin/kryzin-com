@@ -2,6 +2,7 @@ import React from 'react';
 import Metadata from '../components/metadata';
 import * as formStyles from '../styles/contactform.module.scss';
 import { useTranslation } from 'react-i18next';
+import Transition from '../components/transitions';
 
 // 5471154894 ig profilepage tag
 
@@ -9,7 +10,7 @@ const Contact = () => {
   const { t } = useTranslation()
 
   return (
-    <>
+    <Transition>
       <Metadata
         title={t('contact.title')}
         description={t('contact.description')}
@@ -37,11 +38,11 @@ const Contact = () => {
           </form>
         </div>
         <div className={formStyles.links}>
-          <p>{t('contact.find')} </p>
+          <p className={formStyles.contactLabel}>{t('contact.find')} </p>
           <li><a href="https://twitter.com/rawmaii">Twitter @rawmaii</a></li>
           <li><a href="https://instagram.com/rawmaii">Instagram @rawmaii</a></li>
         </div>
-    </>
+    </Transition>
   );
 };
 

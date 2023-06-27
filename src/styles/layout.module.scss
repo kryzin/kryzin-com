@@ -1,15 +1,15 @@
 .container {
-  font-family: "Courier Prime";
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--bg-color);
 }
-
 .content {
   flex-grow: 1;
+  background-color: var(--bg-color);
 }
-
 .main-content {
+  background-color: var(--bg-color);
   margin: 0 auto;
   max-width: 65%;
   padding: 3rem 1rem 4rem;

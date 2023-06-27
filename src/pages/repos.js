@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as repoStyles from '../styles/repos.module.scss';
 import { useTranslation } from 'react-i18next';
+import Transition from '../components/transitions';
 
 const GitRepos = () => {
   
@@ -49,7 +50,7 @@ const GitRepos = () => {
     const repos = data.allGithubData.nodes[0].data.user.repositories.nodes
     const { t } = useTranslation()
     return (
-        <>
+        <Transition>
             <Metadata
                 title="Github"
                 description={t('github.description')}
@@ -92,7 +93,7 @@ const GitRepos = () => {
                 </li>
             )}
             </ul>
-        </>
+        </Transition>
     );
 };
 
