@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import Img from 'gatsby-image';
 import * as blogStyles from '../styles/blog.module.scss';
+import '../styles/style.scss';
 
 const getCategories = (items) => {
     let categoryItems = items.map((item) => {
@@ -98,10 +99,16 @@ class BlogItems extends Component {
     );
   }
 }
+// document.documentElement.classList = '';
+
+const root = document.documentElement
+
+const backgroundColor = getComputedStyle(root).getPropertyValue('--secondary-color');
+const color = getComputedStyle(root).getPropertyValue('--primary-color');
 
 const activeButtonClass = {
-    backgroundColor: '#555',
-    color: '#fff',
+    backgroundColor: backgroundColor,
+    color: color,
 };
 
 export default BlogItems;

@@ -22,12 +22,13 @@
 
 **Styles, themes, modes etc.**
 
-- Add settings to header
-- Add nav to header
-- Config colors for github
-- Config contact form
 - Add pics to about me
 - Check for theme in blogItems
+- 3d retro borders?
+- fix bg color (set for all + correct bugs)
+- fix moving dark mode switch
+- check for system mode
+- check for system language
 
 ## Quick start
 

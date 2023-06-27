@@ -1,7 +1,3 @@
-li {
-    font-size: 18px;
-}
-
 .links {
     flex: 1;
     align-items: center;
@@ -13,7 +9,8 @@ li {
 }
 .form-container {
     flex: 1;
-    background-color: var(--form-a);
+    width: 100%;
+    background-color: var(--secondary-color);
     padding: 1rem;
 }
 .title {
@@ -23,20 +20,18 @@ li {
     text-align: center;
 }
 .btn-container {
-    align-self: center;
+    align-content: center;
 }
 .btn {
-    background-color: var(--form-b);
-    border: solid;
-    border-radius: 2px;
-    border-color: var(--form-btn);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 form {
+    width: 100%;
     box-sizing: border-box;
     padding: 2rem;
     background-color: var(--bg-color);
-    border: 4px solid var(--form-btn);
-    display: grid;
+    display: table;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 }
@@ -51,16 +46,20 @@ textarea {
     box-sizing: border-box;
     width: 100%;
     padding: 0.5rem 0.75rem;
+    background-color: var(--form-input);
 }
 
 input {
     font: 1.25rem;
-    display: table-row;
     box-sizing: border-box;
     width: 100%;
     padding: 0.5rem;
+    background-color: var(--form-input);
+}
+.contact-label {
+    color: var(--secondary-color);
 }
 
-label {
-    display: table-row;
-}
+// label {
+//     display: table-row;
+// }

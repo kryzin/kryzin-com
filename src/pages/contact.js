@@ -38,7 +38,7 @@ const Contact = () => {
           </form>
         </div>
         <div className={formStyles.links}>
-          <p>{t('contact.find')} </p>
+          <p className={formStyles.contactLabel}>{t('contact.find')} </p>
           <li><a href="https://twitter.com/rawmaii">Twitter @rawmaii</a></li>
           <li><a href="https://instagram.com/rawmaii">Instagram @rawmaii</a></li>
         </div>

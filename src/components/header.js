@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import * as headerStyles from '../styles/header.module.scss';
 import { useTranslation } from 'react-i18next';
-import LanguageMenu from './langMenu';
+import Sun from '../images/sun.png';
+import Moon from '../images/moon.png';
 
 const Header = () => {
-  const [theme, SetTheme] = useState('');
-  const [toggleTheme, SetToggleTheme] = useState(false);
-
   const data = useStaticQuery(
     graphql`
       query {
@@ -20,29 +18,50 @@ const Header = () => {
       }
     `
   );
-
   const { t } = useTranslation()
 
-  function handleDarkMode () {
+  const [toggleTheme, SetToggleTheme] = useState(false);
+  const [image, SetImage] = useState(Moon);
+
+  function handleMode () {
     if (toggleTheme) {
-      SetTheme("dark");
-    } else {
-      SetTheme("");
-    }
-    if (theme === "dark") {
+      SetImage(Sun);
       document.documentElement.classList = 'dark';
     } else {
+      SetImage(Moon);
       document.documentElement.classList = '';
     }
     SetToggleTheme(!toggleTheme);
+  } 
+
+  const { i18n } = useTranslation()
+  const [toggleLanguage, SetToggletanguage] = useState(true);
+  const [language, SetLanguage] = useState('EN');
+
+  function handleLanguage () {
+    if (toggleLanguage){
+      i18n.changeLanguage('en');
+      SetLanguage('EN');
+    } else {
+      i18n.changeLanguage('pl');
+      SetLanguage('PL');
+    }
+    SetToggletanguage(!toggleLanguage);
   }
-  
+
   return (
     <header className={headerStyles.header}>
-    <div className={headerStyles.overlay}></div>
-      <div className={headerStyles.heroContent}>
-        <div className={headerStyles.brand}>
-          <Link to="/">{data.site.siteMetadata.title}</Link>
+      <div className={headerStyles.settings}>
+        <button className={headerStyles.mode} onClick={handleMode}>
+          <img src={image}/>
+        </button>
+        <button className={headerStyles.mode} onClick={handleLanguage}>
+          {language}
+        </button>
+      </div>
+      <div className={headerStyles.content}>
+        <div className={headerStyles.title}>
+          <Link to="/" className={headerStyles.link}>{data.site.siteMetadata.title}</Link>
         </div>
         <div className={headerStyles.description}>
           {t('site.description')}
@@ -51,25 +70,29 @@ const Header = () => {
       <nav className={headerStyles.navContainer}>
         <ul className={headerStyles.navList}>
           <li>
-            <Link to="/" activeClassName={headerStyles.activeMenuItem}>{t('header.home')}</Link>
+            <Link to="/" activeClassName={headerStyles.menuItem}>
+              <h3>{t('header.home')}</h3>
+            </Link>
           </li>
           <li>
-            <Link to="/blog/" activeClassName={headerStyles.activeMenuItem}>Blog</Link>
+            <Link to="/blog/" activeClassName={headerStyles.menuItem}>
+              <h3>Blog</h3>
+            </Link>
           </li>
           <li>
-            <Link to="/contact/" activeClassName={headerStyles.activeMenuItem}>{t('header.contact')}</Link>
+            <Link to="/contact/" activeClassName={headerStyles.menuItem}>
+              <h3>{t('header.contact')}</h3>
+            </Link>
           </li>
           <li>
-            <Link to="/about/" activeClassName={headerStyles.activeMenuItem}>{t('header.about')}</Link>
+            <Link to="/about/" activeClassName={headerStyles.menuItem}>
+              <h3>{t('header.about')}</h3>
+            </Link>
           </li>
           <li>
-            <Link to="/repos/" activeClassName={headerStyles.activeMenuItem}>Github</Link>
-          </li>
-          <li>
-            <LanguageMenu/>
-          </li>
-          <li>
-            <button onClick={handleDarkMode}>Mode</button>
+            <Link to="/repos/" activeClassName={headerStyles.menuItem}>
+              <h3>Github</h3>
+            </Link>
           </li>
         </ul>
       </nav>

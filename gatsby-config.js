@@ -27,7 +27,11 @@ module.exports = {
         web: [
           {
             name: `Courier Prime`,
-          file: `https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap`,
+            file: `https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap`,
+          },
+          {
+            name: `VT323`,
+            file: `https://fonts.googleapis.com/css2?family=VT323&display=swap`,
           }
         ]
       }

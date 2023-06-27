@@ -1,54 +1,35 @@
+// main color palette - 2 main colors + black/white
+// backgroud light, container bg white, elements light + black
 :root {
-  --primary-color: #464646;
-  --secondary-color: #692245;
+  --primary-color: #eba8de;
+  --secondary-color: #7c366e;
+  --element-color: #000;
   --bg-color: #fff;
-  --bg-contrast: #000;
-  --shadow-color: #000;
-  --nav-container: rgba(255, 255, 255, 0.1);
-  --content-primary: #222;
-  --content-secondary: #555;
-  --form-a: #d3b3c2;
-  --form-b: #e6c5d7;
-  --form-btn: hsl(0, 0%, 90%);
-  --git-a: #8d8d8d;
-  --text-title: #fff;
+  --form-input: #ecc3e4;
 }
 
 :root.dark {
-  --primary-color: #a3a3a3;
-  --secondary-color: #ff9dce;
-  --bg-color: #380823;
-  --bg-contrast: #b1b1b1;
-  --shadow-color: #000;
-  --nav-container: rgba(255, 255, 255, 0.1);
-  --content-primary: #d1d1d1;
-  --content-secondary: #aaaaaa;
-  --form-a: #421b2d;
-  --form-b: #472438;
-  --form-btn: hsl(0, 0%, 0%);
-  --git-a: #000000;
-  --text-title: #fff;
+  --primary-color: #3d0075;
+  --secondary-color: #b67deb;
+  --element-color: #fff;
+  --bg-color: #240046;
+  --form-input: #caa9e9;
 }
 
 * {
+  // background-color: var(--primary-color);
   box-sizing: border-box;
+  font-family: 'VT323';
 }
 html {
   width: 100vw;
 }
-body {
-  color: var(--primary-color);
-  font-size: 100%;
-  margin: 0;
-  line-height: 1.4283;
-  font-family: "Segoe UI", Roboto, Verdana, "Helvetica Neue", sans-serif;
+h1, h2, label, a, li {
+  font-family: 'VT323';
+  color: var(--element-color);
 }
-h1,
-h2,
 h3 {
-  font-weight: 400;
-}
-a {
   color: var(--secondary-color);
+  font-size: 25px;
   text-decoration: none;
 }
