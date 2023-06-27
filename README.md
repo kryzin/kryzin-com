@@ -6,19 +6,28 @@
 
 **Adding next:**
 
-- Dark Mode switch
+- implement consistend theme (for light+dark)
 - fix translations on blogItems (extends com, can't add {t} )
 - change language setting to small dropdown menu
-- convert styling to themes
 
 **Might add in the future:**
 
+- Correct responsiveness
 - Breadcrumbs
 - Dark Mode based on operating system preference
 - Font Size switch
 - Search bar in Blog Page
 - Instagram card (gatsby-source-instagram)
 - Testing and stuff (Sentry?)
+
+**Styles, themes, modes etc.**
+
+- Add settings to header
+- Add nav to header
+- Config colors for github
+- Config contact form
+- Add pics to about me
+- Check for theme in blogItems
 
 ## Quick start
 
