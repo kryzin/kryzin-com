@@ -13,22 +13,15 @@ const { githubApiQuery } = require('./github-api');
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  flags: {
-    DEV_SSR: true
-  },
+  // flags: {
+  //   DEV_SSR: true
+  // },
   siteMetadata: {
     title: `Kryzin`,
     description: `Created based on tutorial by Ibas Majid`,
     author: `kryzin`,
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `5471154894`,
-      },
-    },
     {
       resolve: 'gatsby-omni-font-loader',
       options: {
