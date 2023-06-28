@@ -7,7 +7,7 @@
   background-color: var(--primary-color);
 }
 .settings {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .content {
   position: absolute;
@@ -40,20 +40,20 @@
   color: var(--secondary-color);
 }
 .mode {
+  overflow: hidden;
   border: 1px solid var(--bg-color);
   font-size: 20px;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
   background-color: var(--bg-color);
   border-radius: 100%;
   margin-left: 1rem;
-  align-items: center;
-  justify-content: center;
   color: var(--element-color);
 }
 img {
-  max-width: 2rem;
-  max-height: 2rem;
+  position:relative;
+  max-width: 1.1rem;
+  max-height: 1.1rem;
 }
 .nav-container {
   position: absolute;

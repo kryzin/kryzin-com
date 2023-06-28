@@ -99,20 +99,10 @@ class BlogItems extends Component {
     );
   }
 }
-// document.documentElement.classList = '';
-
-const backgroundColor = '#fff';
-const color = '#000';
-
-if (typeof document !== `undefined`) {
-  const root = document.documentElement
-  const backgroundColor = getComputedStyle(root).getPropertyValue('--secondary-color');
-  const color = getComputedStyle(root).getPropertyValue('--primary-color');
-}
 
 const activeButtonClass = {
-    backgroundColor: backgroundColor,
-    color: color,
+    backgroundColor: '#000',
+    color: '#fff',
 };
 
 export default BlogItems;

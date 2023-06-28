@@ -6,8 +6,7 @@
 
 **Adding next:**
 
-- edge cases for themes and langs
-- implement consistend theme (for light+dark)
+- implement consistent theme (↓ tasks in Styles.. ↓)
 - fix translations on blogItems (extends com, can't add {t} )
 
 **Might add in the future:**
@@ -18,18 +17,15 @@
 - Search bar in Blog Page
 - Instagram card (gatsby-source-instagram)
 - Testing and stuff (Sentry?)
+- custom cursor
 
 **Styles, themes, modes etc.**
 
 - fix blog post pics
 - Add pics to about
-- Check for theme in blogItems
 - 3d retro borders?
-- fix bg color (set for all + correct bugs)
-- fix moving dark mode switch
-- check for system mode
-- check for system language
-- useEffect on document in blogItems
+- *fix bg color (set for all + correct bugs)
+- fix moving dark mode switch (dynamic img size change?)
 
 ## Quick start
 

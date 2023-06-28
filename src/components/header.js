@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import * as headerStyles from '../styles/header.module.scss';
 import { useTranslation } from 'react-i18next';
@@ -18,42 +18,79 @@ const Header = () => {
       }
     `
   );
+  
   const { t } = useTranslation()
-
-  const [toggleTheme, SetToggleTheme] = useState(false);
+  const { i18n } = useTranslation()
+  const [language, SetLanguage] = useState('EN');
   const [image, SetImage] = useState(Moon);
+  const preferredTheme = useRef('dark');
+  const preferredLanguage = useRef('en');
 
-  function handleMode () {
-    if (toggleTheme) {
+  useEffect (() => {
+    if (!localStorage.getItem('current-theme')){
+      if (!localStorage.getItem('preferred-theme')){
+        preferredTheme.current = 'dark';
+        localStorage.setItem('current-theme', preferredTheme);
+      } else {
+        preferredTheme.current = localStorage.getItem('preferred-theme');
+      localStorage.setItem('current-theme', preferredTheme);
+      }
+    } else {
+      preferredTheme.current = localStorage.getItem('current-theme');
+    }
+    if (preferredTheme.current === 'dark') {
       SetImage(Sun);
       document.documentElement.classList = 'dark';
     } else {
       SetImage(Moon);
       document.documentElement.classList = '';
     }
-    SetToggleTheme(!toggleTheme);
-  } 
 
-  const { i18n } = useTranslation()
-  const [toggleLanguage, SetToggletanguage] = useState(true);
-  const [language, SetLanguage] = useState('EN');
+    if (!localStorage.getItem('current-language')){
+      if (!localStorage.getItem('gatsby-i18next-language')){
+        preferredLanguage.current = 'en';
+        localStorage.setItem('current-language', preferredLanguage.current);
+      } else {
+        preferredLanguage.current = localStorage.getItem('gatsby-i18next-language');
+        localStorage.setItem('current-language', preferredLanguage.current);
+      }
+    } else {
+      preferredLanguage.current = localStorage.getItem('current-language');
+    }
+    
+    i18n.changeLanguage(preferredLanguage.current)
+    SetLanguage(preferredLanguage.current.toUpperCase());
+  }, [preferredLanguage, i18n])
 
   function handleLanguage () {
-    if (toggleLanguage){
+    if (language === 'PL'){
+      localStorage.setItem('current-language', 'en');
       i18n.changeLanguage('en');
       SetLanguage('EN');
     } else {
+      localStorage.setItem('current-language', 'pl');
       i18n.changeLanguage('pl');
       SetLanguage('PL');
     }
-    SetToggletanguage(!toggleLanguage);
   }
+
+  function handleMode () {
+    if (localStorage.getItem('current-theme') === 'dark'){
+      localStorage.setItem('current-theme', 'light');
+      SetImage(Moon);
+      document.documentElement.classList = '';
+    } else {
+      localStorage.setItem('current-theme', 'dark');
+      SetImage(Sun);
+      document.documentElement.classList = 'dark';
+    }
+  };
 
   return (
     <header className={headerStyles.header}>
       <div className={headerStyles.settings}>
         <button className={headerStyles.mode} onClick={handleMode}>
-          <img src={image}/>
+          <img src={image} alt="Dark/Light mode"/>
         </button>
         <button className={headerStyles.mode} onClick={handleLanguage}>
           {language}
