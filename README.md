@@ -20,11 +20,7 @@
 
 **Styles, themes, modes etc.**
 
-- fix blog post pics
-- Add pics to about
 - 3d retro borders?
-- *fix bg color (set for all + correct bugs)
-- fix moving dark mode switch (dynamic img size change?)
 
 ## Quick start
 

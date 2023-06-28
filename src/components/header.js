@@ -92,6 +92,8 @@ const Header = () => {
         <button className={headerStyles.mode} onClick={handleMode}>
           <img src={image} alt="Dark/Light mode"/>
         </button>
+      </div>
+      <div className={headerStyles.settings}>
         <button className={headerStyles.mode} onClick={handleLanguage}>
           {language}
         </button>
