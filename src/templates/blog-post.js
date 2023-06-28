@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import * as postStyles from './blogPost.module.scss';
+import * as postStyles from '../styles/blogPost.module.scss';
 
 import Comments from '../components/comments';
 import { FacebookShareButton, FacebookIcon } from 'react-share'; 
@@ -31,7 +31,6 @@ export const query = graphql`
 `;
 
 const BlogPost = (props) => {
-
   return (
     <>
       <div className={postStyles.content}>

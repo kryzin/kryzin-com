@@ -22,6 +22,13 @@ module.exports = {
     author: `kryzin`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `5471154894`,
+      },
+    },
     {
       resolve: 'gatsby-omni-font-loader',
       options: {

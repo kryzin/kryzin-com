@@ -5,6 +5,7 @@ featured: "../images/second-post.jpg"
 category: "Dogs"
 ---
 Seprehenderit accusamus, explicabo eligendi necessitatibus soluta!
+![gatsby tutorial](../images/gatsby-tutorial.jpg)
 
 ## Ipsam mollitia
 

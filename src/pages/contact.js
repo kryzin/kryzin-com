@@ -4,8 +4,6 @@ import * as formStyles from '../styles/contactform.module.scss';
 import { useTranslation } from 'react-i18next';
 import Transition from '../components/transitions';
 
-// 5471154894 ig profilepage tag
-
 const Contact = () => {
   const { t } = useTranslation()
 
