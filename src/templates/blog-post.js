@@ -46,19 +46,19 @@ const BlogPost = (props) => {
               url={url}
               quote={'Dummy text!'}
             >
-              <img src={Fb} height={16}/>
+              <img src={Fb} height={16} alt="Facebook"/>
             </FacebookShareButton>
             <TwitterShareButton
               url={url}
               quote={'Dummy text!'}
             >
-              <img src={Tw} height={16}/>
+              <img src={Tw} height={16} alt="Twitter"/>
             </TwitterShareButton>
             <LinkedinShareButton
               url={url}
               quote={'Dummy text!'}
             >
-              <img src={Li} height={16}/>
+              <img src={Li} height={16} alt="Linkedin"/>
             </LinkedinShareButton>
           </span>
         </span>

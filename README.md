@@ -6,12 +6,11 @@
 
 **Adding next:**
 
-- implement consistent theme (↓ tasks in Styles.. ↓)
+- Correct responsiveness
 - fix translations on blogItems (extends com, can't add {t} )
 
 **Might add in the future:**
 
-- Correct responsiveness
 - Breadcrumbs
 - Font Size switch
 - Search bar in Blog Page
