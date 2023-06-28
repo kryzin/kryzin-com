@@ -48,6 +48,7 @@ const GitRepos = () => {
         `
     ) 
     const repos = data.allGithubData.nodes[0].data.user.repositories.nodes
+    console.log(repos.openGraphImageUrl)
     const { t } = useTranslation()
     return (
         <Transition>
@@ -56,9 +57,8 @@ const GitRepos = () => {
                 description={t('github.description')}
             />
             <h1>{t('github.title')}</h1>
-            <ul>
+            <div>
             {repos.map(repo =>
-                <li key={repo.id}>
                 <div className={repoStyles.mainBorder}>
                     <div className={repoStyles.image}>
                     <div style={{ flexBasis: '80%' }}>
@@ -77,8 +77,11 @@ const GitRepos = () => {
                         <span>{repo.name}</span>
                         </div>
                     </div>
-                    <div style={{ flexBasis: '20%' }}>
-                        <img src={repo.openGraphImageUrl} alt="repo showcase" width="100"/>
+                    <div style={{ flex: '1', flexBasis: '10%' }}>
+                        <img
+                          src={repo.openGraphImageUrl}
+                          alt="repo showcase"
+                        />
                     </div>
                     </div>
                     {
@@ -90,9 +93,8 @@ const GitRepos = () => {
                     </div>
                     }
                 </div>
-                </li>
             )}
-            </ul>
+            </div>
         </Transition>
     );
 };

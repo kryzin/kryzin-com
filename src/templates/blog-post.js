@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import * as postStyles from '../styles/blogPost.module.scss';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Comments from '../components/comments';
 import { FacebookShareButton, FacebookIcon } from 'react-share'; 
@@ -18,9 +18,7 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         featured {
           childImageSharp {
-            fluid(maxWidth: 750) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(width:750)
           }
         }
       }
@@ -31,12 +29,15 @@ export const query = graphql`
 `;
 
 const BlogPost = (props) => {
+  const posting = props.data.markdownRemark.frontmatter
+  let image = getImage(posting.featured?.childImageSharp?.gatsbyImageData)
+
   return (
     <>
       <div className={postStyles.content}>
-        <h1>{props.data.markdownRemark.frontmatter.title}</h1>
+        <h1>{posting.title}</h1>
         <span className={postStyles.meta}>
-          Posted on {props.data.markdownRemark.frontmatter.date}{' '}
+          Posted on {posting.date}{' '}
           <span> / </span> {props.data.markdownRemark.timeToRead} min
           read
           <span>
@@ -61,14 +62,11 @@ const BlogPost = (props) => {
           </span>
         </span>
         {
-          props.data.markdownRemark.frontmatter.featured && (
-            <Img
+          posting.featured && (
+            <GatsbyImage
               className={postStyles.featured}
-              fluid={
-                props.data.markdownRemark.frontmatter.featured.childImageSharp
-                  .fluid
-              }
-              alt={props.data.markdownRemark.frontmatter.title}
+              image={image}
+              alt={posting.title}
             />
           )
         }

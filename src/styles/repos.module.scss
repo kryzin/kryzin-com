@@ -1,9 +1,11 @@
 .main-border {
+    color: var(--element-color);
+    width: 99%;
     border: solid;
     border-width: 1px;
-    border-color: var(--git-a);
-    margin: 2rem ;
+    border-color: var(--element-color);
     padding: 1rem;
+    margin-bottom: 1rem;
 }
 .image {
     display: flex;
@@ -11,15 +13,22 @@
     justify-content: space-between;
 }
 .info {
+    color: var(--element-color);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     font-size: 0.75rem;
 }
 .read-me {
-    max-height: 200px;
+    color: var(--element-color);
+    max-height: 300px;
     overflow: auto;
-    border: 1px dashed var(--git-a);
+    border: 1px dashed var(--element-color);
     margin: 1rem;
     padding: 1rem;
+}
+
+img {
+    max-height: 250px;
+    max-width: 200px;
 }

@@ -15,7 +15,6 @@
 - Breadcrumbs
 - Font Size switch
 - Search bar in Blog Page
-- Instagram card (gatsby-source-instagram)
 - Testing and stuff (Sentry?)
 - custom cursor
 
