@@ -4,9 +4,10 @@ import * as postStyles from '../styles/blogPost.module.scss';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Comments from '../components/comments';
-import { FacebookShareButton, FacebookIcon } from 'react-share'; 
-import { LinkedinShareButton, LinkedinIcon } from 'react-share';
-import { TwitterShareButton, TwitterIcon } from 'react-share';  
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'; 
+import Fb from '../images/facebook.png';
+import Li from '../images/linkedin.png';
+import Tw from '../images/twitter.png';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -45,19 +46,19 @@ const BlogPost = (props) => {
               url={url}
               quote={'Dummy text!'}
             >
-              <FacebookIcon size={16} round />
+              <img src={Fb} height={16}/>
             </FacebookShareButton>
             <TwitterShareButton
               url={url}
               quote={'Dummy text!'}
             >
-              <TwitterIcon size={16} round />
+              <img src={Tw} height={16}/>
             </TwitterShareButton>
             <LinkedinShareButton
               url={url}
               quote={'Dummy text!'}
             >
-              <LinkedinIcon size={16} round />
+              <img src={Li} height={16}/>
             </LinkedinShareButton>
           </span>
         </span>
