@@ -43,15 +43,16 @@
   overflow: hidden;
   border: 1px solid var(--bg-color);
   font-size: 20px;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: var(--bg-color);
   border-radius: 100%;
   margin-left: 1rem;
   color: var(--element-color);
+  align-items: center;
 }
 img {
-  position:relative;
+  position: sticky;
   margin-top: 0.2rem;
   width: 1.1rem;
 }
