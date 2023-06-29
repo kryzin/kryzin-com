@@ -90,7 +90,7 @@ const Header = () => {
     <header className={headerStyles.header}>
       <div className={headerStyles.settings}>
         <button className={headerStyles.mode} onClick={handleMode}>
-          <img src={image} alt="Dark/Light mode"/>
+          <img className={headerStyles.images} src={image} alt="Dark/Light mode"/>
         </button>
       </div>
       <div className={headerStyles.settings}>

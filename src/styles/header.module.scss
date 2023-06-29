@@ -51,10 +51,9 @@
   color: var(--element-color);
   align-items: center;
 }
-img {
-  position: sticky;
+.images {
   margin-top: 0.2rem;
-  width: 1.1rem;
+  max-width: 1.1rem;
 }
 .nav-container {
   position: absolute;

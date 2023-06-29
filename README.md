@@ -7,8 +7,8 @@
 **Adding next:**
 
 - Correct responsiveness
-- fix translations on blogItems (extends com, can't add {t} )
 - sample blog post on home page (check this out!)
+- displaying categories - limit the number, sort by popularity?
 
 **Might add in the future:**
 
@@ -20,7 +20,7 @@
 
 **Styles, themes, modes etc.**
 
-- Pixel Logo!
+
 - 3d retro borders?
 
 ## Quick start

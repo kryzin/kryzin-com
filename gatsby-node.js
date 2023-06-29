@@ -42,11 +42,6 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
           }
-          next {
-            fields {
-              slug
-            }
-          }
         }
       }
     }
@@ -58,7 +53,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: edge.node.fields.slug,
       },
-      next: next ? `/blog/${edge.next.fields.slug}` : ''
     });
   });
 };

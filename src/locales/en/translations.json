@@ -28,7 +28,11 @@
         "content": "Karolina is currently doing a Bachelor of Science degree in Computer Science at UWM."
     },
     "blog": {
-        "description": "For all my super smart articles"
+        "description": "For all my super smart articles",
+        "read": "min read",
+        "posted": "Posted on",
+        "previous": "← Previous Post",
+        "next": "Next Post →"
     },
     "contact": {
         "title": "Contact",

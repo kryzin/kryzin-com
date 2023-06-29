@@ -70,8 +70,8 @@ class BlogItems extends Component {
               </h2>
               <div className={blogStyles.meta}>
                 <span>
-                  Posted on {edge.node.frontmatter.date}{' '}
-                  <span> / </span> {edge.node.timeToRead} min read
+                  {Language(0)} {edge.node.frontmatter.date}{' '}
+                  <span> / </span> {edge.node.timeToRead} {Language(1)}
                 </span>
               </div>
               {edge.node.frontmatter.featured && (
@@ -89,7 +89,7 @@ class BlogItems extends Component {
               </p>
               <div className={blogStyles.button}>
                 <Link to={`/blog/${edge.node.fields.slug}/`}>
-                  Read More
+                  {Language(2)}
                 </Link>
               </div>
             </li>
@@ -104,5 +104,20 @@ const activeButtonClass = {
     backgroundColor: '#000',
     color: '#fff',
 };
+
+const Language = (id) => {
+  const lang = localStorage.getItem('current-language');
+  const readMore = (lang === 'pl') ? "Czytaj dalej" : 'Read More'
+  const posted = (lang === 'pl') ? "Dodano" : 'Posted on'
+  const read = (lang === 'pl') ? "min czytania" : 'min read'
+  if (id === 0){
+    return posted
+  }
+  if (id === 1){
+    return read
+  } else {
+    return readMore
+  }
+}
 
 export default BlogItems;

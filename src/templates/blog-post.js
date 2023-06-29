@@ -8,6 +8,7 @@ import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 're
 import Fb from '../images/facebook.png';
 import Li from '../images/linkedin.png';
 import Tw from '../images/twitter.png';
+import { useTranslation } from 'react-i18next';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -49,6 +50,7 @@ export const query = graphql`
 `;
 
 const BlogPost = (props) => {
+  const { t } = useTranslation()
   const posting = props.data.markdownRemark.frontmatter
   let image = getImage(posting.featured?.childImageSharp?.gatsbyImageData)
   const slug = props.pageContext.slug
@@ -70,9 +72,8 @@ const BlogPost = (props) => {
       <div className={postStyles.content}>
         <h1>{posting.title}</h1>
         <span className={postStyles.meta}>
-          Posted on {posting.date}{' '}
-          <span> / </span> {props.data.markdownRemark.timeToRead} min
-          read
+          {t('blog.posted')} {posting.date}{' '}
+          <span> / </span> {props.data.markdownRemark.timeToRead} {t('blog.read')}
         </span>
         {
           posting.featured && (
@@ -115,14 +116,14 @@ const BlogPost = (props) => {
         <div className={postStyles.previous}>
           {previous.current !== null && (
             <Link to={`/blog/${previous.current}`}>
-              ← Previous Post
+              {t('blog.previous')}
             </Link>
           )}
         </div>
         <div className={postStyles.next}>
           {next.current !== null && (
             <Link to={`/blog/${next.current}`}>
-              Next Post →
+              {t('blog.next')}
             </Link>
           )}
         </div>
