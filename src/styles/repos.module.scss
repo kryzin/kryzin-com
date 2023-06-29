@@ -28,7 +28,8 @@
     padding: 1rem;
 }
 
-img {
-    max-height: 250px;
-    max-width: 200px;
+.image {
+    display: flex;
+    width: 2000px;
+    max-width: 100%;
 }

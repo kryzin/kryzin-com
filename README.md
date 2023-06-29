@@ -6,12 +6,11 @@
 
 **Adding next:**
 
-- implement consistent theme (↓ tasks in Styles.. ↓)
-- fix translations on blogItems (extends com, can't add {t} )
+- Correct responsiveness
+- sample blog post on home page (check this out!)
 
 **Might add in the future:**
 
-- Correct responsiveness
 - Breadcrumbs
 - Font Size switch
 - Search bar in Blog Page
@@ -20,11 +19,7 @@
 
 **Styles, themes, modes etc.**
 
-- fix blog post pics
-- Add pics to about
 - 3d retro borders?
-- *fix bg color (set for all + correct bugs)
-- fix moving dark mode switch (dynamic img size change?)
 
 ## Quick start
 

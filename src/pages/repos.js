@@ -79,6 +79,7 @@ const GitRepos = () => {
                     </div>
                     <div style={{ flex: '1', flexBasis: '10%' }}>
                         <img
+                          className={repoStyles.image}
                           src={repo.openGraphImageUrl}
                           alt="repo showcase"
                         />
