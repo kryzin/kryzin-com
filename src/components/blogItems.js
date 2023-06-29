@@ -12,7 +12,7 @@ const getCategories = (items) => {
     let uniqueCategories = new Set(categoryItems);
     let categories = Array.from(uniqueCategories);
     categories = ['all posts', ...categories];
-    return categories;
+    return categories.splice(0, 10);
 };
 
 class BlogItems extends Component {

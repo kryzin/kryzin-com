@@ -8,7 +8,6 @@
 
 - Correct responsiveness
 - sample blog post on home page (check this out!)
-- displaying categories - limit the number, sort by popularity?
 
 **Might add in the future:**
 
@@ -19,7 +18,6 @@
 - custom cursor
 
 **Styles, themes, modes etc.**
-
 
 - 3d retro borders?
 
