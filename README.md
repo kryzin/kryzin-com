@@ -9,7 +9,6 @@
 - how to add translations to blogItems??? (convert class -> const/function)
 - Correct responsiveness
 - sample blog post on home page (check this out!)
-- code highlighting in posts
 
 **Might add in the future:**
 
@@ -18,7 +17,6 @@
 - Breadcrumbs
 - Font Size switch
 - Search bar in Blog Page
-- Testing and stuff (Sentry?)
 - custom cursor
 - fix light mode flash
 
