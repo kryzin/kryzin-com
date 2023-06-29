@@ -6,8 +6,6 @@
 
 **Adding next:**
 
-- move share button to bottom
-- add a "previous post" arrow?
 - Correct responsiveness
 - fix translations on blogItems (extends com, can't add {t} )
 - sample blog post on home page (check this out!)

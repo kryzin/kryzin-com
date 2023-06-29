@@ -2,6 +2,8 @@ import React from 'react';
 import Metadata from '../components/metadata';
 import { useTranslation } from 'react-i18next';
 import Transition from '../components/transitions';
+import { Link } from 'gatsby';
+import BlogPost from '../templates/blog-post';
 
 const Index = () => {
   const { t } = useTranslation()
