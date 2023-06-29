@@ -106,7 +106,11 @@ const activeButtonClass = {
 };
 
 const Language = (id) => {
-  const lang = localStorage.getItem('current-language');
+  if (typeof window !== 'undefined') {
+    const lang = localStorage.getItem('current-language');
+  } else {
+    const lang = 'en'
+  }
   const readMore = (lang === 'pl') ? "Czytaj dalej" : 'Read More'
   const posted = (lang === 'pl') ? "Dodano" : 'Posted on'
   const read = (lang === 'pl') ? "min czytania" : 'min read'
