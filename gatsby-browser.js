@@ -9,3 +9,6 @@ import {AnimatePresence} from 'framer-motion';
 export const wrapPageElement = ({element}) => (
   <AnimatePresence mode='wait'>{element}</AnimatePresence>
 );
+
+require("prismjs/themes/prism-tomorrow.css")
+require("prismjs/plugins/line-numbers/prism-line-numbers.css")
