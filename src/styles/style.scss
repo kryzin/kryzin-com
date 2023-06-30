@@ -19,7 +19,8 @@
 }
 
 * {
-  // background-color: var(--primary-color);
+  // transition: color 0.3s ease-out;
+  // transition: background-color 0.3s ease-out;
   box-sizing: border-box;
   font-family: 'VT323';
 }
@@ -27,7 +28,7 @@ html {
   width: 100vw;
   background-color: var(--primary-color);
 }
-h1, h2, label, a, li {
+h1, h2, h3, label, a, li {
   font-family: 'VT323';
   color: var(--element-color);
 }
@@ -35,4 +36,7 @@ h3 {
   color: var(--secondary-color);
   font-size: 25px;
   text-decoration: none;
+}
+title {
+  color: var(--element-color);
 }
