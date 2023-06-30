@@ -15,7 +15,6 @@
 
 - Font Size switch
 - Search bar in Blog Page
-- dark/light mode fade transition
 
 **Styles, themes, modes etc.**
 

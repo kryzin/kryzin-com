@@ -22,6 +22,7 @@ module.exports = {
     author: `kryzin`,
   },
   plugins: [
+    `gatsby-plugin-fix-fouc`,
     {
       resolve: 'gatsby-omni-font-loader',
       options: {
