@@ -4,12 +4,18 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import { useTranslation } from 'react-i18next';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React, { useRef, useState } from "react";
+import SearchBar from './searchbar';
+import { useFlexSearch } from 'react-use-flexsearch';
 
 const Posts = () => {
     const { t } = useTranslation()
     const data = useStaticQuery(
         graphql`
           query {
+            localSearchPosts {
+              index
+              store
+            }
             allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
                 edges {
                     node {
@@ -35,6 +41,8 @@ const Posts = () => {
           }
         `
     );
+    const index = data.localSearchPosts.index
+    const store = data.localSearchPosts.store
     const getCategories = (items) => {
         let categoryItems = items.map((item) => {
             return item.node.frontmatter.category;
@@ -67,7 +75,25 @@ const Posts = () => {
         setItems(blogItems.current)
     };
 
+    const unFlattenResults = results =>
+    results.map(post => {
+        const { date, slug, category, title, id, featured, excerpt} = post;
+        return {node: { id, excerpt, fields : { slug }, frontmatter: { title, date, category, featured } }};
+    });
+
+    const { search } = window.location;
+    const query = new URLSearchParams(search).get('s')
+    const [searchQuery, setSearchQuery] = useState(query || '');
+    const results = useFlexSearch(searchQuery, index, store);
+    const posts = searchQuery ? unFlattenResults(results) : items;
+    console.log(JSON.stringify(posts))
+
     return (
+      <div>
+        <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        />
         <ul className={blogStyles.posts}>
             <div className={blogStyles.filterButton}>
                 {categories.current.map((category, index) => {
@@ -85,7 +111,7 @@ const Posts = () => {
                     );
                 })}
             </div>
-            {items && (items.map((edge) => {
+            {posts && (posts.map((edge) => {
                 return (
                     <li className={blogStyles.post} key={edge.node.id}>
                       <h2>
@@ -122,6 +148,7 @@ const Posts = () => {
 
             }
         </ul>
+      </div>
     );
 
 };

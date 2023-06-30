@@ -7,7 +7,7 @@ import Transition from '../components/transitions';
 
 const Blog = () => {
   const { t } = useTranslation()
-  
+
   return (
     <Transition>
       <Metadata

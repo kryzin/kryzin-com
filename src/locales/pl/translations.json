@@ -11,7 +11,8 @@
     "blogitems": {
         "posted": "Dodany",
         "read": "min czytania",
-        "more": "Czytaj dalej"
+        "more": "Czytaj dalej",
+        "home": "Najnowszy post:"
     },
     "header": {
         "home": "Główna",

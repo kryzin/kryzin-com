@@ -8,13 +8,14 @@
 
 - Responsivness
   - icons in settings are not centered on mobile
-- sample blog post on home page (check this out!)
-- fix flash of unstyled content
 
 **Might add in the future:**
 
 - Font Size switch
-- Search bar in Blog Page
+  - Move posts query to blog.js and pass items into Posts component
+- Better sample posts
+- Change categories to tags (+ multi)
+- Make searchbar + tags work together
 
 **Styles, themes, modes etc.**
 
