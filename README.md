@@ -33,5 +33,12 @@
     git clone https://github.com/kryzin/kryzin-com.git
     cd kryzin-com/
     npm install
+    ```
+
+    create a .env file and add: GITHUB_LOGIN, GITHUB_PERSONAL_ACCESS_TOKEN
+
+    to get the token check out [this tutorial!](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html)
+
+    ```shell
     gatsby develop
     ```
