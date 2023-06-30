@@ -6,11 +6,8 @@
 
 **Adding next:**
 
-- Move language handling to layout
-- Bootstrap in layout
-- Correct responsiveness:
-  - Header nav turns into one dropdown
-  - Header gets shorter (only title + settings stay)
+- Responsivness
+  - icons in settings are not centered on mobile
 - sample blog post on home page (check this out!)
 - fix flash of unstyled content
 

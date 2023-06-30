@@ -96,7 +96,7 @@ const Header = () => {
         </button>
       </div>
       <div className={headerStyles.settings}>
-        <button className={headerStyles.mode} onClick={handleLanguage}>
+        <button className={headerStyles.mode} onClick={handleLanguage} >
           {language}
         </button>
       </div>

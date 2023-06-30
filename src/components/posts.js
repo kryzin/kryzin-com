@@ -3,7 +3,7 @@ import * as blogStyles from '../styles/blog.module.scss';
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { useTranslation } from 'react-i18next';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 const Posts = () => {
     const { t } = useTranslation()
@@ -57,7 +57,7 @@ const Posts = () => {
             selectedItem.current = category
         } else {
             blogItems.current = []
-            allItems.map((edge) => {
+            allItems.map(edge => {
             if (edge.node.frontmatter.category === category) {
                 blogItems.current = [...blogItems.current, edge]
             }
