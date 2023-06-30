@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
 import * as headerStyles from '../styles/header.module.scss';
-import { useTranslation } from 'react-i18next';
+
 import Sun from '../images/sun.png';
 import Moon from '../images/moon.png';
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
+
 
 const Header = () => {
   const data = useStaticQuery(

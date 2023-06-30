@@ -6,19 +6,19 @@
 
 **Adding next:**
 
-- how to add translations to blogItems??? (convert class -> const/function)
-- Correct responsiveness
+- Move language handling to layout
+- Bootstrap in layout
+- Correct responsiveness:
+  - Header nav turns into one dropdown
+  - Header gets shorter (only title + settings stay)
 - sample blog post on home page (check this out!)
+- fix flash of unstyled content
 
 **Might add in the future:**
 
-- set up performance monitoring
-- Navigation shortcut in footer
-- Breadcrumbs
 - Font Size switch
 - Search bar in Blog Page
-- custom cursor
-- fix light mode flash
+- dark/light mode fade transition
 
 **Styles, themes, modes etc.**
 
@@ -28,11 +28,20 @@
 
 1. **Start developing.**
 
-    Navigate into directory and start it up.
+    Navigate into directory and in shell/git bash:
 
     ```shell
     git clone https://github.com/kryzin/kryzin-com.git
     cd kryzin-com/
     npm install
+    ```
+
+    then create a .env file and add: GITHUB_LOGIN, GITHUB_PERSONAL_ACCESS_TOKEN
+
+    to get the token check out [this tutorial!](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html)
+
+    save and inside your project dir run:
+
+    ```shell
     gatsby develop
     ```

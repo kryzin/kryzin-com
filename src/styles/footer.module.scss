@@ -4,6 +4,19 @@
   }
 .container {
   margin: 0 auto;
+  display: flex;
+  align-items: center;
   max-width: 750px;
   padding: 1rem;
+}
+.left {
+  margin-right: auto;
+}
+.right {
+  margin-left: auto;
+}
+
+.link {
+  padding: 1rem;
+  color: var(--secondary-color);
 }
