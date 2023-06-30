@@ -6,10 +6,10 @@
 
 **Adding next:**
 
-- how to add translations to blogItems??? (convert class -> const/function)
+- Bootstrap in layout
 - Correct responsiveness:
-    * Header nav turns into one dropdown
-    * Header gets shorter (only title + settings stay)
+  - Header nav turns into one dropdown
+  - Header gets shorter (only title + settings stay)
 - sample blog post on home page (check this out!)
 - fix flash of unstyled content
 
@@ -17,7 +17,6 @@
 
 - Font Size switch
 - Search bar in Blog Page
-- custom cursor
 - dark/light mode fade transition
 
 **Styles, themes, modes etc.**
