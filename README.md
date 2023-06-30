@@ -7,18 +7,18 @@
 **Adding next:**
 
 - how to add translations to blogItems??? (convert class -> const/function)
-- Correct responsiveness
+- Correct responsiveness:
+    * Header nav turns into one dropdown
+    * Header gets shorter (only title + settings stay)
 - sample blog post on home page (check this out!)
+- fix flash of unstyled content
 
 **Might add in the future:**
 
-- set up performance monitoring
-- Navigation shortcut in footer
-- Breadcrumbs
 - Font Size switch
 - Search bar in Blog Page
 - custom cursor
-- fix light mode flash
+- dark/light mode fade transition
 
 **Styles, themes, modes etc.**
 

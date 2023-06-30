@@ -11,6 +11,7 @@
     "gatsby": "^5.11.0",
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.2",
+    "gatsby-plugin-fix-fouc": "^1.0.4",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-layout": "^4.11.0",
     "gatsby-plugin-local-search": "^2.0.1",

@@ -1,8 +1,9 @@
+import "../styles/style.scss";
+import * as layoutStyles from "../styles/layout.module.scss";
+
 import React from 'react';
 import Header from './header';
 import Footer from "./footer";
-import "../styles/style.scss";
-import * as layoutStyles from "../styles/layout.module.scss";
 import { motion } from 'framer-motion';
 import { withTrans } from '../i18n/withTrans';
 
