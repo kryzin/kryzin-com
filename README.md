@@ -12,10 +12,13 @@
 **Might add in the future:**
 
 - Font Size switch
-  - Move posts query to blog.js and pass items into Posts component
 - Better sample posts
-- Change categories to tags (+ multi)
 - Make searchbar + tags work together
+- Add pagination
+  - turn posts into archive template
+  - add navigation
+- Adjust utterance with Theme Mode
+  - Done BUT - needs page reload to change
 
 **Styles, themes, modes etc.**
 
@@ -33,7 +36,12 @@
     npm install
     ```
 
-    then create a .env file and add: GITHUB_LOGIN, GITHUB_PERSONAL_ACCESS_TOKEN
+    then create a .env file and add:
+
+    ```shell
+    GITHUB_LOGIN=your_login
+    GITHUB_PERSONAL_ACCESS_TOKEN=your_token
+    ```
 
     to get the token check out [this tutorial!](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html)
 
