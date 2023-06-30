@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.0",
     "dotenv": "^16.3.1",
     "flexsearch": "^0.7.31",
     "framer-motion": "^10.12.17",
