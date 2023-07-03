@@ -8,15 +8,19 @@
 
 - Responsivness
   - icons in settings are not centered on mobile
+- Search highlighting (match input)
 
 **Might add in the future:**
 
 - Font Size switch
-- Better sample posts
+- Search hide (initial on icon, onClick - expand fron right)
 - Make searchbar + tags work together
 - Add pagination
+  - separate posts.js and the main .map (= template?)
   - turn posts into archive template
   - add navigation
+  - pagination on categories
+  - modify search to fit pagination
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
 
