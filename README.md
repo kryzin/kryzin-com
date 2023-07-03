@@ -9,9 +9,11 @@
 - Bugs
   - icons in settings are not centered on mobile
   - pressing enter on search doesn't pass params to url
+  - language button not working (sth wrong with margins?)
 - Layout:
   - Header:
-    - move settings to offcanvas button
+    - settings buttons on the right
+    - navbar button on the left
     - make the header into a narrow top bar with 2 buttons + title
 
 **Might add in the future:**
@@ -22,6 +24,7 @@
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
 - Some basic cookie policy in footer + settings + pop-up banner
+- tep to top of the page bottom bar
 
 **Styles, themes, modes etc.**
 
