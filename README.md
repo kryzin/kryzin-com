@@ -9,17 +9,23 @@
 - Bugs
   - icons in settings are not centered on mobile
   - pressing enter on search doesn't pass params to url
+- Layout:
+  - Header:
+    - move settings to offcanvas button
+    - make the header into a narrow top bar with 2 buttons + title
 
 **Might add in the future:**
 
+- complete NO translations
 - testing with jest/react testing lib
 - Font Size switch
-- Search hide (initial on icon, onClick - expand fron right)
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
+- Some basic cookie policy in footer + settings + pop-up banner
 
 **Styles, themes, modes etc.**
 
+- fix offcanvas navbar styles
 - 3d retro borders?
 
 ## Quick start

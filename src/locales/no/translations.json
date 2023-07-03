@@ -1,7 +1,7 @@
 {
     "site": {
         "description": "Created based on tutorial by Ibas Majid",
-        "search": "Search"
+        "search": "Søke"
     },
     "layout": {
         "test": "testing i18n"
@@ -16,8 +16,8 @@
         "home": "Newest post:"
     },
     "header": {
-        "home": "Home",
-        "contact": "Contact",
+        "home": "Startside",
+        "contact": "Kontakt",
         "about": "About"
     },
     "error": {
@@ -30,7 +30,7 @@
         "content": "Karolina is currently doing a Bachelor of Science degree in Computer Science at UWM."
     },
     "blog": {
-        "title": "Blog",
+        "title": "Blogg",
         "description": "For all my super smart articles",
         "read": "min read",
         "posted": "Posted on",
@@ -38,7 +38,7 @@
         "next": "Next Post →"
     },
     "contact": {
-        "title": "Contact",
+        "title": "Kontakt",
         "description": "Follow me on my socials!",
         "form": "Use this form to get in touch!",
         "name": "Your Name:",

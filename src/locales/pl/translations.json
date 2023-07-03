@@ -1,6 +1,7 @@
 {
     "site": {
-        "description": "Stworzona na podstawie poradnika (Ibas Majid)"
+        "description": "Stworzona na podstawie poradnika (Ibas Majid)",
+        "search": "Szukaj"
     },
     "layout": {
         "test": "testowanie i18n"
@@ -29,6 +30,7 @@
         "content": "Karolina jest studentką Informatyki na UWM."
     },
     "blog": {
+        "title": "Blog",
         "description": "Wszystkie moje artykuły",
         "read": "min czytania",
         "posted": "Dodano",
