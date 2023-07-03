@@ -6,10 +6,9 @@
 
 **Adding next:**
 
-- Abandon categories -> change to tags
-  - change in flexsearch index
-- Responsivness
+- Bugs
   - icons in settings are not centered on mobile
+  - pressing enter on search doesn't pass params to url
 
 **Might add in the future:**
 
