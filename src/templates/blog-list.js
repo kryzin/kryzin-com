@@ -22,11 +22,11 @@ const BlogItems = (props) => {
 
     const unFlattenResults = results =>
     results.map(post => {
-        const { date, slug, category, title, id, featured, excerpt} = post;
-        return {node: { id, excerpt, fields : { slug }, frontmatter: { title, date, category, featured } }};
+        const { date, slug, tags, title, id, featured, excerpt} = post;
+        return {node: { id, excerpt, fields : { slug }, frontmatter: { title, date, tags, featured } }};
     });
 
-    const { search } = typeof window !== 'undefined' ? window.location : '';
+    const { search } = ``;
     const query = new URLSearchParams(search).get('s')
     const [searchQuery, setSearchQuery] = useState(query || '');
     const results = useFlexSearch(searchQuery, index, store);
@@ -105,7 +105,7 @@ export const blogListQuery = graphql`
                 slug
             }
             frontmatter {
-                category
+                tags
                 date
                 title
                 featured {

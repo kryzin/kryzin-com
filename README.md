@@ -10,10 +10,10 @@
   - change in flexsearch index
 - Responsivness
   - icons in settings are not centered on mobile
-- Search highlighting (match input)
 
 **Might add in the future:**
 
+- testing with jest/react testing lib
 - Font Size switch
 - Search hide (initial on icon, onClick - expand fron right)
 - Adjust utterance with Theme Mode

@@ -2,11 +2,10 @@ import React from "react";
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => (
     <form
-        action="/"
+        action={`/blog/`}
         method="get"
         autoComplete="off"
     >
-        {/* <div class="input-group rounded"> */}
             <input
                 value={searchQuery}
                 onInput={(e) => setSearchQuery(e.target.value)}
@@ -16,7 +15,6 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
                 aria-label="Search"
                 aria-describedby="search-addon"
             />
-        {/* </div> */}
     </form>
     
 );

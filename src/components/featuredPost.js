@@ -19,7 +19,7 @@ const MainPost = () => {
                             slug
                         }
                         frontmatter {
-                            category
+                            tags
                             date
                             featured {
                                 childImageSharp {
