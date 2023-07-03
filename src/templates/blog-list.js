@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import * as blogStyles from '../styles/blog.module.scss';
 import '../styles/style.scss';
+import moment from 'moment';
 import PageButtons from '../components/pageButtons';
 import SearchBar from '../components/searchbar';
 import { useFlexSearch } from 'react-use-flexsearch';
@@ -19,6 +20,20 @@ const BlogItems = (props) => {
     const items = data.allMarkdownRemark.edges
     const index = data.localSearchPosts.index
     const store = data.localSearchPosts.store
+
+    const FormatDate = date => {
+        let day, month, year;
+        day= moment(date).format("DD");
+        month= moment(date).format("MMMM");
+        year= moment(date).format("YYYY");
+        console.log(year)
+        let currentYear = JSON.stringify(new Date().getFullYear());
+        if (currentYear === year){
+            return (`${day} ${month}`);}
+        else {
+            return (`${day} ${month}, ${year}`);
+        }
+    }
 
     const unFlattenResults = results =>
     results.map(post => {
@@ -54,7 +69,7 @@ const BlogItems = (props) => {
                 </h2>
                 <div className={blogStyles.meta}>
                     <span>
-                    {t('blogitems.posted')} {edge.node.frontmatter.date}{' '}
+                    {t('blogitems.posted')} {FormatDate(edge.node.frontmatter.date)}{' '}
                     <span> / </span> {edge.node.timeToRead} {t('blogitems.read')}
                     </span>
                 </div>
