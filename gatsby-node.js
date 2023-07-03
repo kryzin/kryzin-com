@@ -34,7 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allMarkdownRemark (
         sort: { frontmatter: { date: DESC }}
-        limit: 100
+        limit: 1000
       ){
         edges {
           node {
@@ -60,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const postsPerPage = 4
+  const postsPerPage = 10
   const numberOfPages = Math.ceil(posts.length / postsPerPage)
 
   Array.from({ length: numberOfPages }).forEach((_, index) => {

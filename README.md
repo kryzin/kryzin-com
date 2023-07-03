@@ -6,10 +6,8 @@
 
 **Adding next:**
 
-- Add pagination
-  - navigation:
-    - add search back
-    - excerpt is missing from posts list
+- Abandon categories -> change to tags
+  - change in flexsearch index
 - Responsivness
   - icons in settings are not centered on mobile
 - Search highlighting (match input)
@@ -18,7 +16,6 @@
 
 - Font Size switch
 - Search hide (initial on icon, onClick - expand fron right)
-- Make searchbar + tags work together
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
 
