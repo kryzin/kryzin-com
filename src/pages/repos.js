@@ -56,8 +56,8 @@ const GitRepos = () => {
                 title="Github"
                 description={t('github.description')}
             />
-            <h1>{t('github.title')}</h1>
-            <div>
+            <h1 className={repoStyles.content}>{t('github.title')}</h1>
+            <div className={repoStyles.repos}>
             {repos.map(repo =>
                 <div className={repoStyles.mainBorder}>
                     <div className={repoStyles.image}>

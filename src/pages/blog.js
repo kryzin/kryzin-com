@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import Metadata from "../components/metadata";
@@ -8,7 +7,7 @@ import Transition from '../components/transitions';
 
 const Blog = () => {
   const { t } = useTranslation()
-  
+
   return (
     <Transition>
       <Metadata

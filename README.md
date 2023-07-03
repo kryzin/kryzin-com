@@ -6,19 +6,23 @@
 
 **Adding next:**
 
-- Move language handling to layout
-- Bootstrap in layout
-- Correct responsiveness:
-  - Header nav turns into one dropdown
-  - Header gets shorter (only title + settings stay)
-- sample blog post on home page (check this out!)
-- fix flash of unstyled content
+- Responsivness
+  - icons in settings are not centered on mobile
+- Search highlighting (match input)
 
 **Might add in the future:**
 
 - Font Size switch
-- Search bar in Blog Page
-- dark/light mode fade transition
+- Search hide (initial on icon, onClick - expand fron right)
+- Make searchbar + tags work together
+- Add pagination
+  - separate posts.js and the main .map (= template?)
+  - turn posts into archive template
+  - add navigation
+  - pagination on categories
+  - modify search to fit pagination
+- Adjust utterance with Theme Mode
+  - Done BUT - needs page reload to change
 
 **Styles, themes, modes etc.**
 
@@ -36,7 +40,12 @@
     npm install
     ```
 
-    then create a .env file and add: GITHUB_LOGIN, GITHUB_PERSONAL_ACCESS_TOKEN
+    then create a .env file and add:
+
+    ```shell
+    GITHUB_LOGIN=your_login
+    GITHUB_PERSONAL_ACCESS_TOKEN=your_token
+    ```
 
     to get the token check out [this tutorial!](https://catalyst.zoho.com/help/tutorials/githubbot/generate-access-token.html)
 

@@ -11,6 +11,7 @@ import Tw from '../images/twitter.png';
 import { useTranslation } from 'react-i18next';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
+const theme = typeof window !== 'undefined' ? localStorage.getItem('current-theme') : '';
 
 export const query = graphql`
   query ($slug: String!) {
@@ -61,7 +62,6 @@ const BlogPost = (props) => {
 
   if (currentIndex > 0){
     next.current = JSON.stringify(allPosts[currentIndex - 1].node.fields.slug).replace(`"`,'').replace(`"`,'');
-    console.log('NEW NEXT '+next.current)
   }
   if (currentIndex < allPosts.length - 1) {
     previous.current = JSON.stringify(allPosts[currentIndex + 1].node.fields.slug).replace(`"`,'').replace(`"`,'');
@@ -128,7 +128,7 @@ const BlogPost = (props) => {
           )}
         </div>
       </div>
-      <Comments/>
+      <Comments />
     </>
   );
 };

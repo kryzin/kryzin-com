@@ -11,7 +11,8 @@
     "blogitems": {
         "posted": "Posted on",
         "read": "min read",
-        "more": "Read more"
+        "more": "Read more",
+        "home": "Newest post:"
     },
     "header": {
         "home": "Home",
