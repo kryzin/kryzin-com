@@ -1,7 +1,7 @@
 ---
 title: "Long?"
 date: "2023-01-20"
-category: "#deep"
+tags: ["#deep", 'writing', 'text']
 ---
 
 Commodo aute sint culpa et ea consequat cupidatat sit duis quis. Incididunt et deserunt ullamco qui eu enim adipisicing sit adipisicing voluptate deserunt. Laboris proident esse eu duis consectetur amet dolor enim tempor ut mollit fugiat. Laborum duis duis id eiusmod amet enim deserunt dolor reprehenderit pariatur elit commodo nostrud ullamco.

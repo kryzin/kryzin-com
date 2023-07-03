@@ -38,7 +38,7 @@ module.exports = {
                             slug
                         }
                         frontmatter {
-                            category
+                            tags
                             date
                             featured {
                                 childImageSharp {
@@ -54,8 +54,8 @@ module.exports = {
           }
         `,
         ref: 'slug',
-        index: ['category', 'title'],
-        store:['title', 'excerpt', 'date', 'slug', 'id', 'category', 'featured'],
+        index: ['tags', 'title'],
+        store:['title', 'excerpt', 'date', 'slug', 'id', 'tags', 'featured'],
         normalizer: ({data}) => 
           data.allMarkdownRemark.edges.map(item => ({
             title: item.node.frontmatter.title,
@@ -63,7 +63,7 @@ module.exports = {
             date: item.node.frontmatter.date,
             slug: item.node.fields.slug,
             id: item.node.id,
-            category: item.node.frontmatter.category,
+            tags: item.node.frontmatter.tags,
             featured: item.node.frontmatter.featured,
           })),
       }
@@ -75,10 +75,6 @@ module.exports = {
         enableListener: true,
         preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
         web: [
-          {
-            name: `Courier Prime`,
-            file: `https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap`,
-          },
           {
             name: `VT323`,
             file: `https://fonts.googleapis.com/css2?family=VT323&display=swap`,

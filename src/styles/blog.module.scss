@@ -75,3 +75,44 @@
   .filterButton button:hover {
     background: var(--primary-color);
   }
+
+.btn-container {
+  display:flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  margin: 2px;
+  display: inline;
+  text-align: center;
+  padding: 20px 0;
+  span {
+    background-color: var(--secondary-color);
+    overflow: hidden;
+    padding: 8px 12px;
+    border: 1px solid var(--element-color);
+    &:hover {
+      color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+  }
+}
+.btn-active {
+  margin: 2px;
+  display: inline;
+  text-align: center;
+  padding: 20px 0;
+  span {
+    color: var(--element-color);
+    padding: 8px 12px;
+    border: 1px solid var(--bg-color);
+    &:hover {
+      color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+  }
+}
+.btn-label {
+  font-size: 20px;
+}

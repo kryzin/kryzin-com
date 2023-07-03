@@ -11,7 +11,6 @@ import Tw from '../images/twitter.png';
 import { useTranslation } from 'react-i18next';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
-const theme = typeof window !== 'undefined' ? localStorage.getItem('current-theme') : '';
 
 export const query = graphql`
   query ($slug: String!) {
