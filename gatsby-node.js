@@ -7,15 +7,6 @@
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
-}
 
 const path = require('path');
 
@@ -33,9 +24,18 @@ exports.onCreateNode = ({ node, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+
+  const templates = {
+    post: path.resolve('./src/templates/blog-post.js'),
+    postList: path.resolve('./src/templates/blog-list.js')
+  }
+
   const response = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark (
+        sort: { frontmatter: { date: DESC }}
+        limit: 100
+      ){
         edges {
           node {
             fields {
@@ -46,13 +46,33 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  response.data.allMarkdownRemark.edges.forEach((edge) => {
+
+  if (response.errors) return Promise.reject(response.errors)
+  const posts = response.data.allMarkdownRemark.edges
+
+  posts.forEach((edge) => {
     createPage({
       path: `/blog/${edge.node.fields.slug}`,
-      component: path.resolve('./src/templates/blog-post.js'),
+      component: templates.post,
       context: {
         slug: edge.node.fields.slug,
       },
     });
   });
+
+  const postsPerPage = 4
+  const numberOfPages = Math.ceil(posts.length / postsPerPage)
+
+  Array.from({ length: numberOfPages }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? `/blog` : `blog/${index + 1}`,
+      component: templates.postList,
+      context: {
+        limit: postsPerPage,
+        skip: index * postsPerPage,
+        numberOfPages: numberOfPages,
+        currentPage: index + 1,
+      },
+    })
+  })
 };

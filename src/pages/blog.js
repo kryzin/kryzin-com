@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { graphql } from 'gatsby';
 
 import Metadata from "../components/metadata";
-import Posts from '../components/posts';
+// import Posts from '../components/posts';
 import Transition from '../components/transitions';
+import BlogItems from '../templates/blog-list';
 
 const Blog = () => {
   const { t } = useTranslation()
@@ -14,7 +16,8 @@ const Blog = () => {
         title="Blog"
         description={t('blog.description')}
       />
-      <Posts/>
+      {/* <Posts/> */}
+      <BlogItems page={3}/>
     </Transition>
   );
 };
