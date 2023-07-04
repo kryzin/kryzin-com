@@ -23,6 +23,15 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-page-progress`,
+      options: {
+        includePaths: [{ regex: "^/blog/" }],
+        excludePaths: ['/blog'],
+        height: 2,
+        color: `#EBA8DE`,
+      }
+    },
+    {
       resolve: 'gatsby-plugin-local-search',
       options: {
         name: 'posts',

@@ -11,7 +11,7 @@
 
 **Might add in the future:**
 
-- Progress bar on blog posts scroll
+- Title of post stays at the top of window
 - Author token at top of post
 - testing with jest/react testing lib
 - Font Size switch
