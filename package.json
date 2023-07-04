@@ -62,6 +62,7 @@
   "jest": {
     "testEnvironment": "jsdom",
     "moduleNameMapper":{
+      "^~/(.*)$": "<rootDir>/",
       "\\.(css|less|scss|sass)$": "identity-obj-proxy" 
     },
     "transformIgnorePatterns": [
