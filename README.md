@@ -7,11 +7,12 @@
 **Adding next:**
 
 - Bugs
-  - icons in settings are not centered on mobile
   - pressing enter on search doesn't pass params to url
 
 **Might add in the future:**
 
+- Progress bar on blog posts scroll
+- Author token at top of post
 - testing with jest/react testing lib
 - Font Size switch
 - Adjust utterance with Theme Mode
@@ -20,7 +21,6 @@
 
 **Styles, themes, modes etc.**
 
-- fix offcanvas navbar styles
 - 3d retro borders?
 
 ## Quick start
