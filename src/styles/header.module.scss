@@ -7,6 +7,8 @@
   background-color: var(--primary-color);
 }
 .settings {
+  position: relative;
+  display: inline-block;
   padding: 0.5rem;
   margin-left: 1rem;
 }
@@ -19,7 +21,7 @@
   text-transform: uppercase;
 }
 .title {
-  margin: 0;
+  margin-top: 1rem;
   padding: 0 0 10px;
   font-size: 60px;
   font-weight: 300;
@@ -40,21 +42,20 @@
 .link {
   color: var(--secondary-color);
 }
-.mode {
-  overflow: hidden;
-  border: 1px solid var(--bg-color);
-  font-size: 20px;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: var(--bg-color);
-  border-radius: 100%;
-  // margin-left: 1rem;
-  color: var(--element-color);
-  align-items: center;
-}
 .images {
   margin-top: 0.2rem;
   max-width: 1.1rem;
+}
+.nav-btn {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary-color);
+  border: solid 2px var(--secondary-color);
+  color: var(--element-color);
 }
 .nav-container {
   position: absolute;

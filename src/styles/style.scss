@@ -8,7 +8,6 @@
   --form-input: #ecc3e4;
   --icons: var(--primary-color)
 }
-
 :root.dark {
   --primary-color: #3d0075;
   --secondary-color: #b67deb;
@@ -17,12 +16,18 @@
   --form-input: #caa9e9;
   --icons: var(--secondary-color)
 }
-
 * {
   transition: color 0.4s ease-out;
   transition: background-color 0.4s ease-out;
   box-sizing: border-box;
   font-family: 'VT323';
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 html {
   width: 100vw;

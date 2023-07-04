@@ -32,8 +32,6 @@
     "blog": {
         "title": "Blog",
         "description": "Wszystkie moje artykuły",
-        "read": "min czytania",
-        "posted": "Dodano",
         "previous": "← Poprzedni Post",
         "next": "Następny Post →"
     },

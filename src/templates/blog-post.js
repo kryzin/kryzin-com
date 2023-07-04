@@ -71,8 +71,8 @@ const BlogPost = (props) => {
       <div className={postStyles.content}>
         <h1>{posting.title}</h1>
         <span className={postStyles.meta}>
-          {t('blog.posted')} {posting.date}{' '}
-          <span> / </span> {props.data.markdownRemark.timeToRead} {t('blog.read')}
+          {t('blogitems.posted')} {posting.date}{' '}
+          <span> / </span> {props.data.markdownRemark.timeToRead} {t('blogitems.read')}
         </span>
         {
           posting.featured && (

@@ -108,16 +108,6 @@ const Header = () => {
 
   return (
     <header className={headerStyles.header}>
-      <div className={headerStyles.settings}>
-        <button className={headerStyles.mode} onClick={handleMode}>
-          <img className={headerStyles.images} src={theme} alt="Dark/Light mode"/>
-        </button>
-      </div>
-      <div className={headerStyles.settings}>
-        <button className={headerStyles.mode} onClick={handleLanguage} >
-          {language}
-        </button>
-      </div>
       <div className={headerStyles.content}>
         <div className={headerStyles.title}>
           <Link to="/" className={headerStyles.link}>{data.site.siteMetadata.title}</Link>
@@ -126,7 +116,8 @@ const Header = () => {
           {t('site.description')}
         </div>
       </div>
-      <button class="btn btn-primary position-absolute" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+      <div className={headerStyles.settings}>
+      <button className={headerStyles.navBtn} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
        <img className={headerStyles.images} src={navigation} alt="Dark/Light mode"/>
       </button>
       <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" data-bs-dismiss="offcanvas">
@@ -165,6 +156,17 @@ const Header = () => {
             </ul>
           </div>
         </div>
+      </div>
+      </div>
+      <div className={headerStyles.settings}>
+        <button className={headerStyles.navBtn} onClick={handleMode}>
+          <img className={headerStyles.images} src={theme} alt="Dark/Light mode"/>
+        </button>
+      </div>
+      <div className={headerStyles.settings}>
+        <button className={headerStyles.navBtn} onClick={handleLanguage} >
+          <a onClick={handleLanguage}>{language}</a>
+        </button>
       </div>
     </header>
   );

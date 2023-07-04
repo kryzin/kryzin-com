@@ -1,58 +1,56 @@
 {
     "site": {
-        "description": "Created based on tutorial by Ibas Majid",
-        "search": "Søke"
+        "description": "Opprettet basert på veiledningen til Ibas Majid",
+        "search": "Søk"
     },
     "layout": {
         "test": "testing i18n"
     },
     "footer": {
-        "devby": "Site developed by "
+        "devby": "Nettsted utviklet av "
     },
     "blogitems": {
-        "posted": "Posted on",
-        "read": "min read",
-        "more": "Read more",
-        "home": "Newest post:"
+        "posted": "Publisert",
+        "read": "min lesing",
+        "more": "Les mer",
+        "home": "Nyeste innlegg:"
     },
     "header": {
         "home": "Startside",
         "contact": "Kontakt",
-        "about": "About"
+        "about": "Om"
     },
     "error": {
-        "404": "404: Page Not Found",
-        "404mess": "Check my latest blog posts"
+        "404": "404: Side ikke funnet",
+        "404mess": "Sjekk mine siste blogginnlegg"
     },
     "about": {
-        "title": "About",
-        "description": "All the info you need about me :)",
-        "content": "Karolina is currently doing a Bachelor of Science degree in Computer Science at UWM."
+        "title": "Om",
+        "description": "All informasjonen du trenger om meg :)",
+        "content": "Karolina studerer for øyeblikket en Bachelor of Science-grad i datavitenskap ved UWM."
     },
     "blog": {
         "title": "Blogg",
-        "description": "For all my super smart articles",
-        "read": "min read",
-        "posted": "Posted on",
-        "previous": "← Previous Post",
-        "next": "Next Post →"
+        "description": "For alle mine superintelligente artikler",
+        "previous": "← Forrige innlegg",
+        "next": "Neste innlegg →"
     },
     "contact": {
         "title": "Kontakt",
-        "description": "Follow me on my socials!",
-        "form": "Use this form to get in touch!",
-        "name": "Your Name:",
-        "email": "Your Email:",
-        "mess": "Your Message:",
+        "description": "Følg meg på sosiale medier!",
+        "form": "Bruk dette skjemaet for å komme i kontakt!",
+        "name": "Ditt navn:",
+        "email": "Din Email:",
+        "mess": "Din melding:",
         "send": "Send",
-        "find": "You can find me here:"
+        "find": "Du kan finne meg her:"
     },
     "index": {
         "content": "??"
     },
     "github": {
         "title": "Github Repos",
-        "description": "My current projects @Github",
-        "updated": "Updated"
+        "description": "Mine nåværende prosjekter @Github",
+        "updated": "Oppdatert"
     }
 }

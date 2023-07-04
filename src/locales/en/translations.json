@@ -32,8 +32,6 @@
     "blog": {
         "title": "Blog",
         "description": "For all my super smart articles",
-        "read": "min read",
-        "posted": "Posted on",
         "previous": "← Previous Post",
         "next": "Next Post →"
     },

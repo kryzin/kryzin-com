@@ -9,16 +9,10 @@
 - Bugs
   - icons in settings are not centered on mobile
   - pressing enter on search doesn't pass params to url
-  - language button not working (sth wrong with margins?)
-- Layout:
-  - Header:
-    - settings buttons on the right
-    - navbar button on the left
-    - make the header into a narrow top bar with 2 buttons + title
+  - scroll still visible on firefox
 
 **Might add in the future:**
 
-- complete NO translations
 - testing with jest/react testing lib
 - Font Size switch
 - Adjust utterance with Theme Mode
