@@ -120,11 +120,7 @@ const Header = () => {
       <button className={headerStyles.navBtn} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
        <img className={headerStyles.images} src={navigation} alt="Dark/Light mode"/>
       </button>
-      <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" data-bs-dismiss="offcanvas">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
+      <div class="offcanvas offcanvas-top h-auto bg-transparent border-0" data-bs-scroll="true" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" data-bs-dismiss="offcanvas">
         <div class="offcanvas-body">
           <div>
             <ul className={headerStyles.navList}>
