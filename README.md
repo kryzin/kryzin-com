@@ -21,7 +21,8 @@
 
 **Styles, themes, modes etc.**
 
-- 3d retro borders?
+- test config env (customEnv for jest??)
+- 3d pixel background (framer-motion onScroll)
 
 ## Quick start
 

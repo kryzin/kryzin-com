@@ -59,6 +59,15 @@
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2"
   },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper":{
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy" 
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(react-syntax-highlighter)/)"
+    ]
+  },
   "keywords": [
     "gatsby"
   ],
@@ -70,6 +79,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "test:unit:coverage": "npm run test:unit -- --coverage",
     "test": "jest"
   },
   "repository": {
