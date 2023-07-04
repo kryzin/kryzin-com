@@ -9,7 +9,6 @@
 - Bugs
   - icons in settings are not centered on mobile
   - pressing enter on search doesn't pass params to url
-  - scroll still visible on firefox
 
 **Might add in the future:**
 
@@ -18,7 +17,6 @@
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
 - Some basic cookie policy in footer + settings + pop-up banner
-- tep to top of the page bottom bar
 
 **Styles, themes, modes etc.**
 
