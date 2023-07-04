@@ -41,7 +41,7 @@ const BlogItems = (props) => {
         return {node: { id, excerpt, fields : { slug }, frontmatter: { title, date, tags, featured } }};
     });
 
-    const { search } = ``;
+    const { search } = '/blog/';
     const query = new URLSearchParams(search).get('s')
     const [searchQuery, setSearchQuery] = useState(query || '');
     const results = useFlexSearch(searchQuery, index, store);
@@ -50,7 +50,7 @@ const BlogItems = (props) => {
     return (
     <Transition>
     <Metadata
-        title="Blog"
+        title={t('blog.title')}
         description={t('blog.description')}
     />
         <div>

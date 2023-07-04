@@ -16,6 +16,9 @@ const Footer = () => {
           }
         `
     );
+    const handleClick = () => {
+      window[`scrollTo`]({ top: 0, behavior: `smooth` })
+    }
 
     const { t } = useTranslation()
 
@@ -30,6 +33,10 @@ const Footer = () => {
               <Link to='/' className={footerStyles.link}>{t('header.home')}</Link>
               <Link to='/contact' className={footerStyles.link}>{t('header.contact')}</Link>
             </p>
+            <p><button className={footerStyles.navBtn} onClick={handleClick}>
+              ⬆
+            </button></p>
+            
         </div>
         </footer>
     );

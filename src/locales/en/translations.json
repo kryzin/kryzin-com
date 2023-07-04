@@ -1,6 +1,7 @@
 {
     "site": {
-        "description": "Created based on tutorial by Ibas Majid"
+        "description": "Created based on tutorial by Ibas Majid",
+        "search": "Search"
     },
     "layout": {
         "test": "testing i18n"
@@ -29,9 +30,8 @@
         "content": "Karolina is currently doing a Bachelor of Science degree in Computer Science at UWM."
     },
     "blog": {
+        "title": "Blog",
         "description": "For all my super smart articles",
-        "read": "min read",
-        "posted": "Posted on",
         "previous": "← Previous Post",
         "next": "Next Post →"
     },

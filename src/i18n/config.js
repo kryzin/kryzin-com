@@ -8,6 +8,9 @@ i18next.init({
         },
         en: {
             translations: require('../locales/en/translations.json')
+        },
+        no: {
+            translations: require('../locales/no/translations.json')
         }
     },
     ns: ['translations'],
@@ -22,6 +25,6 @@ i18next.init({
     },
 });
 
-i18next.languages = ['pl', 'en'];
+i18next.languages = ['pl', 'en', 'no'];
 
 export default i18next;

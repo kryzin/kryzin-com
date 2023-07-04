@@ -14,12 +14,13 @@
 
 - testing with jest/react testing lib
 - Font Size switch
-- Search hide (initial on icon, onClick - expand fron right)
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
+- Some basic cookie policy in footer + settings + pop-up banner
 
 **Styles, themes, modes etc.**
 
+- fix offcanvas navbar styles
 - 3d retro borders?
 
 ## Quick start
