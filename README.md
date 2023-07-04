@@ -8,6 +8,9 @@
 
 - Bugs
   - pressing enter on search doesn't pass params to url
+  - featured show up in front of offcanvas navbar
+  - make footer shorter - covers content on mobile
+  - change 'up' icon - turns to emoji on mobile
 
 **Might add in the future:**
 
