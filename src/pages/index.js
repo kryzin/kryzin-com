@@ -12,7 +12,6 @@ const Index = () => {
     <Transition>
       <Metadata title={t('header.home')}/>
       <h1 className={styles.content}>{t('header.home')}</h1>
-      {/* <h2 className={styles.content}>{t('index.content')}</h2> */}
       <MainPost/>
     </Transition>
   );

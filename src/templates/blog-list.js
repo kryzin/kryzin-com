@@ -61,7 +61,7 @@ const BlogItems = (props) => {
             return (
                 <li className={blogStyles.post} key={edge.node.id}>
                 <h2>
-                    <Link to={`/blog/${edge.node.fields.slug}/`}>
+                    <Link to={`/blog/${edge.node.fields.slug}/`} className={blogStyles.postTitle}>
                     {edge.node.frontmatter.title}
                     </Link>
                 </h2>
@@ -75,7 +75,7 @@ const BlogItems = (props) => {
                     <Img
                         className={blogStyles.featured}
                         fluid={edge.node.frontmatter.featured.childImageSharp.fluid}
-                        alt={edge.node.frontmatter.title}
+                        alt={edge.node.frontmatter.altfeatured}
                     />
                 )}
                 <p className={blogStyles.excerpt}>
@@ -119,6 +119,7 @@ export const blogListQuery = graphql`
                 tags
                 date
                 title
+                altfeatured
                 featured {
                     childImageSharp {
                         fluid(maxWidth: 750) {

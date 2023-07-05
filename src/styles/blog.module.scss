@@ -1,6 +1,6 @@
 button {
   font-family: 'VT323';
-  font-size: 20px;
+  font-size: 25px;
 }
 .posts {
   list-style-type: none;
@@ -23,7 +23,6 @@ button {
     padding-bottom: 0;
   }
   h2 {
-    font-size: 27px;
     margin: 0 0 10px;
     text-align: center;
     a {
@@ -34,8 +33,12 @@ button {
     }
   }
 }
+.post-title {
+  font-size: 26px;
+}
 .meta {
-  font-size: 13px;
+  font-size: 18px;
+  color: var(--secondary-color);
   text-align: center;
   font-weight: 300;
   margin-bottom: 20px;
@@ -54,12 +57,12 @@ button {
   text-align: center;
   padding: 20px 0;
   a {
-    color: var(--element-color);
+    color: var(--secondary-color);
     padding: 8px 12px;
-    border: 1px solid var(--element-color);
+    border: 1px solid var(--secondary-color);
     &:hover {
-      color: var(--secondary-color);
-      border-color: var(--secondary-color);
+      color: var(--element-color);
+      border-color: var(--element-color);
     }
   }
 }

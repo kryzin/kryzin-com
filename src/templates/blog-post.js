@@ -29,6 +29,7 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
             title
             tags
+            altfeatured
             featured {
               childImageSharp {
                 fluid(maxWidth: 750) {
@@ -92,7 +93,7 @@ const BlogPost = (props) => {
         <div className={postStyles.authorContainer}>
           <img className={postStyles.authorPic} src={Author} alt="author of the post"/>
           <div className={postStyles.authorDescrip}>
-            <p>Karolina Ryzińska · <Link to='/contact'>{t('blogitems.follow')}</Link></p>
+            <p>Karolina Ryzińska · <Link to='/contact' className={postStyles.link}>{t('blogitems.follow')}</Link></p>
           </div>
         </div>
         {
@@ -100,7 +101,7 @@ const BlogPost = (props) => {
             <Img
               className={postStyles.featured}
               fluid={posting.frontmatter.featured.childImageSharp.fluid}
-              alt={posting.frontmatter.title}
+              alt={posting.frontmatter.altfeatured}
             />
           )
         }
@@ -108,6 +109,7 @@ const BlogPost = (props) => {
           dangerouslySetInnerHTML={{
             __html: posting.html,
           }}
+          style={{fontSize:'19px'}}
         ></div>
       </div>
       <div>

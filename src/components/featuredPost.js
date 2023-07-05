@@ -39,11 +39,11 @@ const MainPost = () => {
     console.log('POSTS ' + JSON.stringify(posts))
 
     return (
-        <ul className={blogStyles.posts}>
+        <ul className={blogStyles.posts} style={{marginTop:'20px'}}>
             <li className={blogStyles.post} key={posts.id}>
                 <h2>
                     <p>{t('blogitems.home')}</p>
-                    <Link to={`/blog/${posts.fields.slug}/`}>
+                    <Link to={`/blog/${posts.fields.slug}/`} className={blogStyles.postTitle}>
                         {posts.frontmatter.title}
                     </Link>
                 </h2>

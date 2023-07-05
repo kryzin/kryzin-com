@@ -62,7 +62,7 @@ const BlogTags = (props) => {
                         <Img
                             className={blogStyles.featured}
                             fluid={edge.node.frontmatter.featured.childImageSharp.fluid}
-                            alt={edge.node.frontmatter.title}
+                            alt={edge.node.frontmatter.altfeatured}
                         />
                     )}
                     <p className={blogStyles.excerpt}>
@@ -100,6 +100,7 @@ export const blogListQuery = graphql`
                 tags
                 date
                 title
+                altfeatured
                 featured {
                     childImageSharp {
                         fluid(maxWidth: 750) {

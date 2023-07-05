@@ -6,19 +6,11 @@
 
 **Adding next:**
 
-- Breadcrumbs
-- Bugs
-  - pressing enter on search doesn't pass params to url
-  - saved language stopped working?
-
 **Might add in the future:**
 
-- Featured images alt label
-- Increase all fonts
-- Adjust utterance with Theme Mode
-  - Done BUT - needs page reload to change
 - Some basic cookie policy in footer + settings + pop-up banner
 - quiz on home page
+- Breadcrumbs
 
 **Styles, themes, modes etc.**
 

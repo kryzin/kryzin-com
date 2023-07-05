@@ -37,12 +37,16 @@ html {
 h1, h2, h3, label, a, li {
   font-family: 'VT323';
   color: var(--element-color);
+  font-size: 22px;
+}
+h1 {
+  font-size: 28px;
+}
+h2 {
+  font-size: 26px;
 }
 h3 {
   color: var(--secondary-color);
-  font-size: 25px;
+  font-size: 24px;
   text-decoration: none;
-}
-title {
-  color: var(--element-color);
 }
