@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.22.6",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.0",
     "bootstrap-icons": "^1.10.5",
@@ -26,6 +27,7 @@
     "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-remark-images": "^7.11.0",
     "gatsby-remark-prismjs": "^7.11.0",
+    "gatsby-remark-relative-images": "^2.0.5",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-source-github-api": "^1.0.0",
     "gatsby-transformer-remark": "^6.11.0",
@@ -61,9 +63,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "moduleNameMapper":{
+    "moduleNameMapper": {
       "^~/(.*)$": "<rootDir>/",
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy" 
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     },
     "transformIgnorePatterns": [
       "/node_modules/(?!(react-syntax-highlighter)/)"
