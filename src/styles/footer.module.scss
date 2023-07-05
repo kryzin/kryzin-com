@@ -7,6 +7,7 @@
   color: var(--secondary-color);
   background-attachment: scroll;
   background-position: 0% 0%;
+  height: 60px;
 }
 .container {
   margin: 0 auto;
@@ -27,7 +28,7 @@
   color: var(--secondary-color);
 }
 .nav-btn {
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -9,8 +9,7 @@
 - Bugs
   - pressing enter on search doesn't pass params to url
   - featured show up in front of offcanvas navbar
-  - make footer shorter - covers content on mobile
-  - change 'up' icon - turns to emoji on mobile
+  - featured images cut to fit post in list
 
 **Might add in the future:**
 
@@ -18,7 +17,6 @@
 - Author token at top of post
 - testing with jest/react testing lib
   - test config env (customEnv for jest??)
-- Font Size switch
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
 - Some basic cookie policy in footer + settings + pop-up banner
@@ -26,7 +24,6 @@
 
 **Styles, themes, modes etc.**
 
-- replace settings logo with hamburger
 - 3d pixel background (framer-motion onScroll)
 - logo mounted on top left corner?
 

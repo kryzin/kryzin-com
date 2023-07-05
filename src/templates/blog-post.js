@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Link, graphql } from 'gatsby';
 import * as postStyles from '../styles/blogPost.module.scss';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import Img from 'gatsby-image';
 
 import Comments from '../components/comments';
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'; 
@@ -13,25 +13,27 @@ import { useTranslation } from 'react-i18next';
 const url = typeof window !== 'undefined' ? window.location.href : '';
 
 export const query = graphql`
-  query ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date(formatString: "DD MMMM, YYYY")
-        featured {
-          childImageSharp {
-            gatsbyImageData(width:750)
-          }
-        }
-      }
-      timeToRead
-      html
-    }
-    allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+  query{
+    allMarkdownRemark(
+      sort: {frontmatter: {date: DESC}}
+      ) {
       edges {
         node {
+          html
+          timeToRead
           fields {
             slug
+          }
+          frontmatter {
+            date(formatString: "DD MMMM, YYYY")
+            title
+            featured {
+              childImageSharp {
+                fluid(maxWidth: 750) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
         next {
@@ -51,9 +53,11 @@ export const query = graphql`
 
 const BlogPost = (props) => {
   const { t } = useTranslation()
-  const posting = props.data.markdownRemark.frontmatter
-  let image = getImage(posting.featured?.childImageSharp?.gatsbyImageData)
+  console.log(props)
   const slug = props.pageContext.slug
+  const posting = props.data.allMarkdownRemark.edges.find(
+    edge => edge.node.fields.slug === slug
+  ).node;
   const allPosts = props.data.allMarkdownRemark.edges
   const currentIndex = allPosts.findIndex(post => post.node.fields.slug === slug)
   const next = useRef(null);
@@ -74,23 +78,23 @@ const BlogPost = (props) => {
             {t('blogitems.back')}
           </Link>
         </div>
-        <h1>{posting.title}</h1>
+        <h1>{posting.frontmatter.title}</h1>
         <span className={postStyles.meta}>
-          {t('blogitems.posted')} {posting.date}{' '}
-          <span> / </span> {props.data.markdownRemark.timeToRead} {t('blogitems.read')}
+          {t('blogitems.posted')} {posting.frontmatter.date}{' '}
+          <span> / </span> {posting.timeToRead} {t('blogitems.read')}
         </span>
         {
-          posting.featured && (
-            <GatsbyImage
+          posting.frontmatter.featured && (
+            <Img
               className={postStyles.featured}
-              image={image}
-              alt={posting.title}
+              fluid={posting.frontmatter.featured.childImageSharp.fluid}
+              alt={posting.frontmatter.title}
             />
           )
         }
         <div
           dangerouslySetInnerHTML={{
-            __html: props.data.markdownRemark.html,
+            __html: posting.html,
           }}
         ></div>
       </div>

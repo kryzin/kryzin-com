@@ -5,7 +5,7 @@ featured: "../images/second-post.jpg"
 tags: ["cats", 'photos', 'dogs']
 ---
 Seprehenderit accusamus, explicabo eligendi necessitatibus soluta!
-![gatsby tutorial](../images/gatsby-tutorial.jpg)
+![gatsby tutorial](./gatsby-tutorial.jpg)
 
 ## Ipsam mollitia
 
