@@ -1,7 +1,7 @@
 ---
 title: "whatever babes"
 date: "2023-01-20"
-tags: ["Movies", 'text']
+tags: ["movies", 'text']
 ---
 
 Fugiat nisi pariatur deserunt exercitation deserunt aliqua commodo incididunt anim sunt tempor commodo. Dolore cillum non sunt nostrud excepteur nostrud aliqua. Lorem proident pariatur magna labore veniam incididunt deserunt non enim cupidatat in. Amet consequat culpa eiusmod fugiat consequat aliquip aliqua.

@@ -12,9 +12,7 @@ import Img from 'gatsby-image';
 
 const BlogTags = (props) => {
     const { t } = useTranslation()
-    const data = props.data
     const items = props.data.allMarkdownRemark.edges
-    const count = props.data.allMarkdownRemark.totalCount
     const { tag } = props.pageContext
 
     const FormatDate = date => {
@@ -31,8 +29,6 @@ const BlogTags = (props) => {
     }
 
     const posts = items;
-    const allPosts = data.allMarkdownRemark.edges;
-    const catPosts = allPosts.filter(post => post.node.frontmatter.tags.includes('cats'));
 
     return (
         <Transition>
@@ -41,7 +37,12 @@ const BlogTags = (props) => {
             description={t('blog.description')}
         />
             <div>
-            <h1 className={blogStyles.title}>Tag: {tag}</h1>
+            <div>
+                <Link to='/blog/' className={blogStyles.previous}>
+                    {t('blogitems.back')}
+                </Link>
+            </div>
+            <h1 className={blogStyles.title}>{t('blogitems.tag')}: {tag}</h1>
             <ul className={blogStyles.posts}>
                 {posts && posts.map((edge) => {
                 return (

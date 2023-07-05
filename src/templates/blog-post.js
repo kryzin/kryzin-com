@@ -1,4 +1,4 @@
-import React, { Profiler, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Link, graphql } from 'gatsby';
 import * as postStyles from '../styles/blogPost.module.scss';
 import Img from 'gatsby-image';
@@ -55,7 +55,6 @@ export const query = graphql`
 
 const BlogPost = (props) => {
   const { t } = useTranslation()
-  console.log(props)
   const slug = props.pageContext.slug
   const posting = props.data.allMarkdownRemark.edges.find(
     edge => edge.node.fields.slug === slug
@@ -85,14 +84,13 @@ const BlogPost = (props) => {
           <p>{t('blogitems.posted')} {posting.frontmatter.date}{' '}
           <span> / </span> {posting.timeToRead} {t('blogitems.read')}
           <br/>
-            {t('blogitems.tags')}<a>
+            {t('blogitems.tags')}
               {posting.frontmatter.tags.map((tag) => {
                 return (<>  <Link to={`/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
-              </a>
             </p>
         </div>
         <div className={postStyles.authorContainer}>
-          <img className={postStyles.authorPic} src={Author}/>
+          <img className={postStyles.authorPic} src={Author} alt="author of the post"/>
           <div className={postStyles.authorDescrip}>
             <p>Karolina Ryzińska · <Link to='/contact'>{t('blogitems.follow')}</Link></p>
           </div>

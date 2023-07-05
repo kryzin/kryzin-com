@@ -16,7 +16,8 @@
         "home": "Najnowszy post:",
         "back": "← Powrót do Wszystkich Postów",
         "follow": "OBSERWUJ",
-        "tags": "TAGI"
+        "tags": "TAGI",
+        "tag": "TAG"
     },
     "header": {
         "home": "Główna",

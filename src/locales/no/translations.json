@@ -16,7 +16,8 @@
         "home": "Nyeste innlegg:",
         "back": "← Tilbake til Alle Innlegg",
         "follow": "FØLG",
-        "tags": "EMNEKNAGGER"
+        "tags": "EMNEKNAGGER",
+        "tag": "EMNEKNAGG"
     },
     "header": {
         "home": "Startside",

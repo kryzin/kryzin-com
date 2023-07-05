@@ -12,7 +12,6 @@ import Metadata from "../components/metadata";
 import Transition from '../components/transitions';
 import Img from 'gatsby-image';
 
-
 const BlogItems = (props) => {
     const { t } = useTranslation()
 

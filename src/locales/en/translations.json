@@ -16,7 +16,8 @@
         "home": "Newest post:",
         "back": "← Back to All Posts",
         "follow": "FOLLOW",
-        "tags": "TAGS"
+        "tags": "TAGS",
+        "tag": "TAG"
     },
     "header": {
         "home": "Home",
