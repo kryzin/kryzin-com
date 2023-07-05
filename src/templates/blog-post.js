@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { Profiler, useRef } from 'react';
 import { Link, graphql } from 'gatsby';
 import * as postStyles from '../styles/blogPost.module.scss';
 import Img from 'gatsby-image';
@@ -8,6 +8,7 @@ import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 're
 import Fb from '../images/facebook.png';
 import Li from '../images/linkedin.png';
 import Tw from '../images/twitter.png';
+import Author from '../images/profile.png';
 import { useTranslation } from 'react-i18next';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
@@ -27,6 +28,7 @@ export const query = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            tags
             featured {
               childImageSharp {
                 fluid(maxWidth: 750) {
@@ -73,16 +75,28 @@ const BlogPost = (props) => {
   return (
     <>
       <div className={postStyles.content}>
-        <div className={postStyles.previous}>
-          <Link to='/blog/'>
+        <div>
+          <Link to='/blog/' className={postStyles.previous}>
             {t('blogitems.back')}
           </Link>
         </div>
         <h1>{posting.frontmatter.title}</h1>
-        <span className={postStyles.meta}>
-          {t('blogitems.posted')} {posting.frontmatter.date}{' '}
+        <div className={postStyles.meta}>
+          <p>{t('blogitems.posted')} {posting.frontmatter.date}{' '}
           <span> / </span> {posting.timeToRead} {t('blogitems.read')}
-        </span>
+          <br/>
+            {t('blogitems.tags')}<a>
+              {posting.frontmatter.tags.map((tag) => {
+                return (<>  <Link to={`/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
+              </a>
+            </p>
+        </div>
+        <div className={postStyles.authorContainer}>
+          <img className={postStyles.authorPic} src={Author}/>
+          <div className={postStyles.authorDescrip}>
+            <p>Karolina Ryzińska · <Link to='/contact'>{t('blogitems.follow')}</Link></p>
+          </div>
+        </div>
         {
           posting.frontmatter.featured && (
             <Img

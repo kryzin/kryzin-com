@@ -14,7 +14,9 @@
         "read": "min lesing",
         "more": "Les mer",
         "home": "Nyeste innlegg:",
-        "back": "← Tilbake til Alle Innlegg"
+        "back": "← Tilbake til Alle Innlegg",
+        "follow": "FØLG",
+        "tags": "EMNEKNAGGER"
     },
     "header": {
         "home": "Startside",

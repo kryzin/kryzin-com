@@ -9,6 +9,7 @@
  */
 
 const path = require('path');
+const _ = require("lodash")
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -27,12 +28,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const templates = {
     post: path.resolve('./src/templates/blog-post.js'),
-    postList: path.resolve('./src/templates/blog-list.js')
+    postList: path.resolve('./src/templates/blog-list.js'),
+    tagList: path.resolve('./src/templates/blog-tags.js')
   }
 
   const response = await graphql(`
     query {
-      allMarkdownRemark (
+      posts: allMarkdownRemark (
         sort: { frontmatter: { date: DESC }}
         limit: 1000
       ){
@@ -44,11 +46,16 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tags: allMarkdownRemark(limit: 1000) {
+        group(field: { frontmatter: { tags: SELECT } }){
+          fieldValue
+        }
+      }
     }
   `);
 
   if (response.errors) return Promise.reject(response.errors)
-  const posts = response.data.allMarkdownRemark.edges
+  const posts = response.data.posts.edges
 
   posts.forEach((edge) => {
     createPage({
@@ -59,6 +66,17 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  const tags = response.data.tags.group
+  tags.forEach(tag => {
+    createPage({
+      path: `/blog/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: templates.tagList,
+      context: {
+        tag: tag.fieldValue,
+      },
+    })
+  })
 
   const postsPerPage = 10
   const numberOfPages = Math.ceil(posts.length / postsPerPage)

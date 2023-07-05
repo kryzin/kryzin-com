@@ -7,6 +7,12 @@ button {
   margin: 0;
   padding: 0;
 }
+.title {
+  color: var(--secondary-color);
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
 .post {
   padding-bottom: 40px;
   &:last-child {
