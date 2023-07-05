@@ -115,7 +115,7 @@ const NavBar = () => {
 
   return (
     <div>
-        <div className={headerStyles.settings}>
+        <div className={headerStyles.settings} style={{zIndex:100}}>
         <motion.nav
             variants={variants}
             animate={hidden ? "hidden": "visible"}

@@ -8,8 +8,6 @@
 
 - Bugs
   - pressing enter on search doesn't pass params to url
-  - featured show up in front of offcanvas navbar
-  - featured images cut to fit post in list
 
 **Might add in the future:**
 
