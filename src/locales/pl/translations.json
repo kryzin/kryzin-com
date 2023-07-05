@@ -13,7 +13,8 @@
         "posted": "Dodany",
         "read": "min czytania",
         "more": "Czytaj dalej",
-        "home": "Najnowszy post:"
+        "home": "Najnowszy post:",
+        "back": "← Powrót do Wszystkich Postów"
     },
     "header": {
         "home": "Główna",

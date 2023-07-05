@@ -69,6 +69,11 @@ const BlogPost = (props) => {
   return (
     <>
       <div className={postStyles.content}>
+        <div className={postStyles.previous}>
+          <Link to='/blog/'>
+            {t('blogitems.back')}
+          </Link>
+        </div>
         <h1>{posting.title}</h1>
         <span className={postStyles.meta}>
           {t('blogitems.posted')} {posting.date}{' '}

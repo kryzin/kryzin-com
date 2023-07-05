@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, graphql } from 'gatsby';
 
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as blogStyles from '../styles/blog.module.scss';
 import '../styles/style.scss';
 import moment from 'moment';
@@ -77,7 +77,7 @@ const BlogItems = (props) => {
                     <GatsbyImage
                         className={blogStyles.featured}
                         image={
-                        edge.node.frontmatter.featured.childImageSharp.gatsbyImageData
+                        getImage(edge.node.frontmatter.featured.childImageSharp.gatsbyImageData)
                         }
                         alt={edge.node.frontmatter.title}
                     />
