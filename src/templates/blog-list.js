@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, graphql } from 'gatsby';
 
-import { GatsbyImage } from 'gatsby-plugin-image';
 import * as blogStyles from '../styles/blog.module.scss';
 import '../styles/style.scss';
 import moment from 'moment';
@@ -11,6 +10,7 @@ import { useFlexSearch } from 'react-use-flexsearch';
 import { useTranslation } from 'react-i18next';
 import Metadata from "../components/metadata";
 import Transition from '../components/transitions';
+import Img from 'gatsby-image';
 
 
 const BlogItems = (props) => {
@@ -26,7 +26,6 @@ const BlogItems = (props) => {
         day= moment(date).format("DD");
         month= moment(date).format("MMMM");
         year= moment(date).format("YYYY");
-        console.log(year)
         let currentYear = JSON.stringify(new Date().getFullYear());
         if (currentYear === year){
             return (`${day} ${month}`);}
@@ -74,11 +73,9 @@ const BlogItems = (props) => {
                     </span>
                 </div>
                 {edge.node.frontmatter.featured && (
-                    <GatsbyImage
+                    <Img
                         className={blogStyles.featured}
-                        image={
-                        edge.node.frontmatter.featured.childImageSharp.gatsbyImageData
-                        }
+                        fluid={edge.node.frontmatter.featured.childImageSharp.fluid}
                         alt={edge.node.frontmatter.title}
                     />
                 )}
@@ -125,7 +122,9 @@ export const blogListQuery = graphql`
                 title
                 featured {
                     childImageSharp {
-                        gatsbyImageData
+                        fluid(maxWidth: 750) {
+                            ...GatsbyImageSharpFluid
+                        }
                     }
                 }
             }

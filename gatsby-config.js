@@ -23,6 +23,15 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-page-progress`,
+      options: {
+        includePaths: [{ regex: "^/blog/" }],
+        excludePaths: ['/blog'],
+        height: 2,
+        color: `#EBA8DE`,
+      }
+    },
+    {
       resolve: 'gatsby-plugin-local-search',
       options: {
         name: 'posts',
@@ -96,7 +105,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -108,6 +116,9 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -125,6 +136,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

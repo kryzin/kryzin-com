@@ -8,20 +8,24 @@
 
 - Bugs
   - pressing enter on search doesn't pass params to url
+  - featured show up in front of offcanvas navbar
+  - featured images cut to fit post in list
 
 **Might add in the future:**
 
-- Progress bar on blog posts scroll
+- Title of post stays at the top of window
 - Author token at top of post
 - testing with jest/react testing lib
-- Font Size switch
+  - test config env (customEnv for jest??)
 - Adjust utterance with Theme Mode
   - Done BUT - needs page reload to change
 - Some basic cookie policy in footer + settings + pop-up banner
+- quiz on home page
 
 **Styles, themes, modes etc.**
 
-- 3d retro borders?
+- 3d pixel background (framer-motion onScroll)
+- logo mounted on top left corner?
 
 ## Quick start
 

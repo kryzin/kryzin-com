@@ -13,7 +13,8 @@
         "posted": "Publisert",
         "read": "min lesing",
         "more": "Les mer",
-        "home": "Nyeste innlegg:"
+        "home": "Nyeste innlegg:",
+        "back": "← Tilbake til Alle Innlegg"
     },
     "header": {
         "home": "Startside",
