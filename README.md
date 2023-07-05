@@ -12,10 +12,6 @@
 - quiz on home page
 - Breadcrumbs
 
-**Styles, themes, modes etc.**
-
-- 3d pixel background (framer-motion onScroll)
-
 ## Quick start
 
 1. **Start developing.**
