@@ -52,11 +52,16 @@ const NavBar = () => {
         preferredLanguage.current = 'en';
         localStorage.setItem('current-language', preferredLanguage.current);
       } else {
-        preferredLanguage.current = localStorage.getItem('gatsby-i18next-language');
-        localStorage.setItem('current-language', preferredLanguage.current);
+        if (!localStorage.getItem('current-language')){
+          preferredLanguage.current = localStorage.getItem('gatsby-i18next-language');
+          localStorage.setItem('current-language', preferredLanguage.current);
+        }
+        else {
+          preferredLanguage.current = localStorage.getItem('current-language');
+        } 
       }
     } else {
-      preferredLanguage.current = localStorage.getItem('current-language');
+      
     }
     
     i18n.changeLanguage(preferredLanguage.current)
@@ -115,7 +120,7 @@ const NavBar = () => {
 
   return (
     <div>
-        <div className={headerStyles.settings}>
+        <div className={headerStyles.settings} style={{zIndex:100}}>
         <motion.nav
             variants={variants}
             animate={hidden ? "hidden": "visible"}

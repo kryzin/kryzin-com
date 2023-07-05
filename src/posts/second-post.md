@@ -1,6 +1,7 @@
 ---
 title: "Second Gatsby Blog Post"
 date: "2020-01-19"
+altfeatured: "cat"
 featured: "../images/second-post.jpg"
 tags: ["cats", 'photos', 'dogs']
 ---

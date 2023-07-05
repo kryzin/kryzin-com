@@ -14,7 +14,10 @@
         "read": "min read",
         "more": "Read more",
         "home": "Newest post:",
-        "back": "← Back to All Posts"
+        "back": "← Back to All Posts",
+        "follow": "FOLLOW",
+        "tags": "TAGS",
+        "tag": "TAG"
     },
     "header": {
         "home": "Home",

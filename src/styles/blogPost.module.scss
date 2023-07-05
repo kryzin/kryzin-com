@@ -7,11 +7,16 @@
     }
   }
   .meta {
-    font-size: 15px;
-    display: block;
+    font-size: 18px;
+    display: flex;
     text-align: center;
     font-weight: 300;
-    margin-bottom: 20px;
+    align-self: center;
+    justify-content: center;
+    max-width: 750;
+  }
+  .link {
+    font-size: 18px;
   }
   .featured {
     display: flex;
@@ -24,6 +29,31 @@
     margin: 0.3rem;
     width: 1rem;
     height: 1rem;
+  }
+  .author-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 750px;
+    margin-bottom: 20px;
+  }
+  .author-pic {
+    align-self: center;
+    height: 50px;
+    width: auto;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+  .author-descrip {
+    font-size: 16px;
+    margin-left: 0.5rem;
+  }
+  .tags {
+    color: var(--secondary-color);
+    padding: 2px;
+    background-color: var(--primary-color);
+    border: dashed 1px var(--secondary-color);
+    text-decoration: none;
   }
 
   .share-btn {
@@ -42,6 +72,7 @@
     align-items: center;
   }
   .previous {
+    color: var(--secondary-color);
     margin-right: auto;
   }
   .next {

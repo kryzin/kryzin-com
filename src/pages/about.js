@@ -14,7 +14,7 @@ const About = () => {
         description={t('about.description')}
       />
       <h1 className={aboutStyles.content}>{t('about.title')}</h1>
-      <p className={aboutStyles.content}>{t('about.content')}</p>
+      <h3 className={aboutStyles.content}>{t('about.content')}</h3>
     </Transition>
   );
 };

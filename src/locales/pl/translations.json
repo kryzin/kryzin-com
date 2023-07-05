@@ -14,7 +14,10 @@
         "read": "min czytania",
         "more": "Czytaj dalej",
         "home": "Najnowszy post:",
-        "back": "← Powrót do Wszystkich Postów"
+        "back": "← Powrót do Wszystkich Postów",
+        "follow": "OBSERWUJ",
+        "tags": "TAGI",
+        "tag": "TAG"
     },
     "header": {
         "home": "Główna",

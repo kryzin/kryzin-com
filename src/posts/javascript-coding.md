@@ -1,7 +1,7 @@
 ---
 title: "This is how code looks"
 date: "2023-01-26"
-tags: ["JavaScript", 'coding']
+tags: ["java-script", 'coding']
 ---
 
 ```js

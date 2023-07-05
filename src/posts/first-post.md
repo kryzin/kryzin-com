@@ -2,6 +2,7 @@
 title: "First Gatsby Blog Post"
 date: "2020-01-18"
 featured: "../images/gatsby-tutorial.jpg"
+altfeatured: "white dog holding a rose"
 tags: ["dogs", 'list']
 ---
 
