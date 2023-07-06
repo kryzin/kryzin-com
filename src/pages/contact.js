@@ -13,7 +13,7 @@ const Contact = () => {
         title={t('contact.title')}
         description={t('contact.description')}
       />
-      <h1 className={formStyles.content}>{t('contact.title')}</h1>
+      <h1>{t('contact.title')}</h1>
         <div className={formStyles.formContainer}>
           <p className={formStyles.title}>{t('contact.form')}</p>
           <form name="contact" method="post" netlify>

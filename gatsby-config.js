@@ -22,6 +22,7 @@ module.exports = {
     author: `kryzin`,
   },
   plugins: [
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-page-progress`,
       options: {

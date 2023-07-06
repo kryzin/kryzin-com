@@ -23,6 +23,11 @@
   transition: background-color 0.4s ease-out;
   box-sizing: border-box;
 }
+
+::selection {
+  background: var(--highlight);
+  color: var(--bg-color);
+}
 body {
   overflow: auto;
   -ms-overflow-style: none;
@@ -58,6 +63,9 @@ h3 {
   text-decoration: none;
 }
 
+input {
+  color: var(--element-color);
+}
 code {
   color: #f8f5f2;
   padding: 8px;

@@ -8,7 +8,6 @@
 
 - logo for page meta
 - optimize Google font preload (poor Lighthouse report)
-- border around featured in post?
 
 **Might add in the future:**
 
