@@ -120,7 +120,7 @@ const NavBar = () => {
 
   return (
     <div>
-        <div className={headerStyles.settings} style={{zIndex:100}}>
+        <div className={headerStyles.settings} style={{zIndex:10}}>
         <motion.nav
             variants={variants}
             animate={hidden ? "hidden": "visible"}
@@ -132,7 +132,7 @@ const NavBar = () => {
         </motion.nav>
         <div class="offcanvas offcanvas-top h-auto bg-transparent border-0" data-bs-scroll="true" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" data-bs-dismiss="offcanvas">
             <div class="offcanvas-body m-0">
-                <ul className={headerStyles.navList}>
+                <ul className={headerStyles.navList} style={{zIndex:100}}>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href='/'><Link to='/' activeClassName={headerStyles.menuItem}>
                             <h3>{t('header.home')}</h3>

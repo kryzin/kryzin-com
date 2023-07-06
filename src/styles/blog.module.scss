@@ -8,7 +8,6 @@ button {
   padding: 0;
 }
 .previous {
-  color: var(--secondary-color);
   margin-right: auto;
 }
 .title {
@@ -26,7 +25,6 @@ button {
     margin: 0 0 10px;
     text-align: center;
     a {
-      color: var(--element-color);
       &:hover {
         color: var(--secondary-color);
       }
@@ -57,9 +55,8 @@ button {
   text-align: center;
   padding: 20px 0;
   a {
-    color: var(--secondary-color);
     padding: 8px 12px;
-    border: 1px solid var(--secondary-color);
+    border: 2px solid var(--highlight);
     &:hover {
       color: var(--element-color);
       border-color: var(--element-color);
