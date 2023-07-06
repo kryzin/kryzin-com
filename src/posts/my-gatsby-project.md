@@ -40,6 +40,7 @@ This is more or less the full list of all my changes to the gatsby-starter
 - buttons for sharing posts on fb, twitter, linkedin
 - page with my public Github repos with descriptions
 - Deployed on Netlify
+- auto Lighthouse report
 
 ## Smaller stuff
 

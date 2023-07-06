@@ -7,6 +7,7 @@
 **Adding next:**
 
 - logo for page meta
+- footnotes to p1
 
 **Might add in the future:**
 
