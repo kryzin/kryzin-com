@@ -6,14 +6,7 @@
 
 **Adding next:**
 
-- Make share icons bigger
-- different font for post body
 - logo for page meta
-- more padding for tags
-- : in tags post
-- change dark/light mode icons
-- github details in bigger font
-- date formatting in newest post
 
 **Might add in the future:**
 

@@ -85,7 +85,7 @@ const BlogPost = (props) => {
           <p>{t('blogitems.posted')} {posting.frontmatter.date}{' '}
           <span> / </span> {posting.timeToRead} {t('blogitems.read')}
           <br/>
-            {t('blogitems.tags')}
+            {t('blogitems.tags')}:
               {posting.frontmatter.tags.map((tag) => {
                 return (<>  <Link to={`/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
             </p>
@@ -105,12 +105,13 @@ const BlogPost = (props) => {
             />
           )
         }
+        <div className={postStyles.html}>
         <div
           dangerouslySetInnerHTML={{
             __html: posting.html,
           }}
-          style={{fontSize:'19px'}}
         ></div>
+        </div>
       </div>
       <div>
         <span className={postStyles.shareBtn}>

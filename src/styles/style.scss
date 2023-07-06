@@ -20,7 +20,6 @@
   transition: color 0.4s ease-out;
   transition: background-color 0.4s ease-out;
   box-sizing: border-box;
-  font-family: 'VT323';
 }
 body {
   overflow: auto;
@@ -33,6 +32,9 @@ body::-webkit-scrollbar {
 html {
   width: 100vw;
   background-color: var(--primary-color);
+}
+p, div {
+  font-family: 'VT323';
 }
 h1, h2, h3, label, a, li {
   font-family: 'VT323';

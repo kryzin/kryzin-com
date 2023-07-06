@@ -85,9 +85,14 @@ module.exports = {
         preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
         web: [
           {
+            name: `CourierPrime`,
+            file: `https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap`,
+          },
+          {
             name: `VT323`,
             file: `https://fonts.googleapis.com/css2?family=VT323&display=swap`,
-          }
+          },
+          
         ]
       }
     },
