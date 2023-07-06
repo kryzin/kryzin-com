@@ -22,6 +22,12 @@ module.exports = {
     author: `kryzin`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/about`, `/repos`, `/contact`],
+      },
+    },
     `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-page-progress`,

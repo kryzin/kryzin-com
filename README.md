@@ -7,7 +7,6 @@
 **Adding next:**
 
 - logo for page meta
-- optimize Google font preload (poor Lighthouse report)
 
 **Might add in the future:**
 
