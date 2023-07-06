@@ -8,7 +8,7 @@ import {AnimatePresence} from 'framer-motion';
 import "@popperjs/core/dist/umd/popper.min";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min";
-
+import './src/styles/style.scss';
 
 export const wrapPageElement = ({element}) => (
   <AnimatePresence mode='wait'>{element}</AnimatePresence>
@@ -16,4 +16,3 @@ export const wrapPageElement = ({element}) => (
 
 require("prismjs/themes/prism-tomorrow.css")
 require("prismjs/plugins/line-numbers/prism-line-numbers.css")
-

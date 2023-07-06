@@ -81,6 +81,7 @@ module.exports = {
     {
       resolve: 'gatsby-omni-font-loader',
       options: {
+        mode: 'async',
         enableListener: true,
         preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
         web: [
@@ -121,6 +122,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-remark-emoji`,
           {
             resolve: `gatsby-remark-relative-images`,
           },
