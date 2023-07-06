@@ -126,12 +126,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-      },
-    },
-    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
