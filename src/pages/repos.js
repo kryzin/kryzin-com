@@ -67,17 +67,16 @@ const GitRepos = () => {
                             {repo.name}
                         </a>
                         </div>
-                        <div style={{ fontSize: '0.875rem' }}>
+                        <div style={{ fontSize: '18px' }}>
                         {repo.description}
                         </div>
                         <div className={repoStyles.info}>
-                        <span style={{ marginRight: '1rem' }}>{repo.forkCount} 🍴</span>
-                        <span style={{ marginRight: '1rem' }}>{repo.stargazers.totalCount} ⭐</span>
-                        <span style={{ marginRight: '1rem' }}>{t('github.updated')} {repo.updatedAt}</span>
-                        <span>{repo.name}</span>
+                        <span style={{ marginRight: '1rem' }}>{repo.forkCount}🍴</span>
+                        <span style={{ marginRight: '1rem' }}>{repo.stargazers.totalCount}⭐</span>
+                        <span style={{ marginRight: '1rem', display:'block'}}>{t('github.updated')} {repo.updatedAt}</span>
                         </div>
                     </div>
-                    <div style={{ flex: '1', flexBasis: '10%' }}>
+                    <div style={{ flex: '1', flexBasis: '100%'}}>
                         <img
                           className={repoStyles.image}
                           src={repo.openGraphImageUrl}

@@ -5,26 +5,22 @@
 }
 .main-border {
     color: var(--element-color);
-    width: 80%;
+    width: 90%;
     border: solid;
     border-width: 1px;
     border-color: var(--element-color);
     padding: 1rem;
     margin-bottom: 1rem;
 }
-.image {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 .info {
     color: var(--element-color);
-    display: flex;
+    display: inline-block;
     flex-direction: row;
     justify-content: flex-start;
     font-size: 0.75rem;
     margin-right: 2rem;
     margin-bottom: 2rem;
+    font-size: 18px;
 }
 .read-me {
     color: var(--element-color);
@@ -37,7 +33,10 @@
 
 .image {
     display: flex;
-    width: 100%;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-between;
+    width: 95%;
     height: auto;
 }
 .content {

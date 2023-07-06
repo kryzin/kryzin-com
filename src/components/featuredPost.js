@@ -20,7 +20,7 @@ const MainPost = () => {
                         }
                         frontmatter {
                             tags
-                            date
+                            date(formatString: "DD MMMM")
                             featured {
                                 childImageSharp {
                                     gatsbyImageData

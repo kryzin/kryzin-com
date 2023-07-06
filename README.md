@@ -6,6 +6,8 @@
 
 **Adding next:**
 
+- logo for page meta
+
 **Might add in the future:**
 
 - Some basic cookie policy in footer + settings + pop-up banner
