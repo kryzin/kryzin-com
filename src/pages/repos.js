@@ -11,11 +11,11 @@ const GitRepos = () => {
     const data = useStaticQuery(
         graphql`
           query MyQuery {
-            allGithubData {
+            allGithubData (sort: {data: {user: {repositories: {nodes: {updatedAt: ASC}}}}}){
               nodes {
                 data {
                   user {
-                    repositories {
+                    repositories{
                       nodes {
                         description
                         forkCount
