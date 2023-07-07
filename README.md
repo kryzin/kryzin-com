@@ -1,8 +1,8 @@
 # [KRYZIN - made with Gatsby](https://kryzin.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/057db4e3-0b0b-4fa6-9ff0-df60a20f3780/deploy-status)](https://app.netlify.com/sites/kryzin/deploys)
-[![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
-[![gatsby version](https://badge.fury.io/js/gatsby.svg)](https://badge.fury.io/js/gatsby)
+![npm version](https://badge.fury.io/js/npm)
+![gatsby version](https://badge.fury.io/js/gatsby)
 
 ## Currently working on
 
