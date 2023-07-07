@@ -1,19 +1,17 @@
 # [KRYZIN - made with Gatsby](https://kryzin.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/057db4e3-0b0b-4fa6-9ff0-df60a20f3780/deploy-status)](https://app.netlify.com/sites/kryzin/deploys)
+[![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
 
 ## Currently working on
 
 **Adding next:**
 
-- logo for page meta
-- footnotes to p1
 - migrate from react-helmet -> Gatsby Head API
 
 **Might add in the future:**
 
 - Some basic cookie policy in footer + settings + pop-up banner
-- quiz on home page
 - Breadcrumbs
 
 ## Quick start
