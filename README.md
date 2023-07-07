@@ -7,6 +7,8 @@
 **Adding next:**
 
 - logo for page meta
+- footnotes to p1
+- migrate from react-helmet -> Gatsby Head API
 
 **Might add in the future:**
 

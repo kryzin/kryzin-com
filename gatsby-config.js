@@ -131,6 +131,14 @@ module.exports = {
         plugins: [
           `gatsby-remark-emoji`,
           {
+            resolve: `gatsby-remark-text-decoration`,
+            options: {
+              addTags: {
+                "mytag" : "style='padding: 2px'"
+              }
+            }
+          },
+          {
             resolve: `gatsby-remark-relative-images`,
           },
           {

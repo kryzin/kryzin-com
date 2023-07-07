@@ -116,19 +116,19 @@ const BlogPost = (props) => {
       <div>
         <span className={postStyles.shareBtn}>
           <FacebookShareButton
-            url={url}
+            url={url + slug}
             quote={'Dummy text!'}
           >
             <img src={Fb} height={16} alt="Facebook"/>
           </FacebookShareButton>
           <TwitterShareButton
-            url={url}
+            url={url + slug}
             quote={'Dummy text!'}
           >
             <img src={Tw} height={16} alt="Twitter"/>
           </TwitterShareButton>
           <LinkedinShareButton
-            url={url}
+            url={url + slug}
             quote={'Dummy text!'}
           >
             <img src={Li} height={16} alt="Linkedin"/>
