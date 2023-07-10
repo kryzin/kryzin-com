@@ -11,18 +11,9 @@
 const path = require('path');
 const _ = require("lodash")
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = path.basename(node.fileAbsolutePath, '.md');
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
-};
 
+// CREATE BLOG ARCHIVE PAGINATION SLUGS
+// CREATE POSTS SLUGS
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -94,3 +85,24 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 };
+
+// CREATE LOCALES SLUGS FOR:
+// ABOUT, 
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const locales = ["en", "pl", "no"];
+
+  Promise.all(
+    locales.map(locale => {
+
+      ["contact", "about", "repos"].forEach(page => {
+        const prefix = locale === "en" ? "" : `/${locale}`;
+        createPage({
+          path: `${prefix}/${page}`,
+          component: path.resolve(`./src/templates/${page}.js`),
+          context: { locale: locale }
+        });
+      })
+    })
+  )
+}

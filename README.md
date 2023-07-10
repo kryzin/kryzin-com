@@ -6,7 +6,16 @@
 
 **Adding next:**
 
-- migrate from react-helmet -> Gatsby Head API
+- center featured
+- Adding DatoCMS:
+  - format post content
+  - connect post metadata with query
+  - createPages for posts, tags pages, blog archive paginated
+  - translations on index, 404?
+  - navigation on pages (add prefixes)
+  - component translations based on pageContext??
+  - migrate posts to dato
+- website SEO translations
 
 **Might add in the future:**
 

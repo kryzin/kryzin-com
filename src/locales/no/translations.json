@@ -24,37 +24,13 @@
         "contact": "Kontakt",
         "about": "Om"
     },
-    "error": {
-        "404": "404: Side ikke funnet",
-        "404mess": "Sjekk mine siste blogginnlegg"
-    },
-    "about": {
-        "title": "Om",
-        "description": "All informasjonen du trenger om meg :)",
-        "content": "Karolina studerer for øyeblikket en Bachelor of Science-grad i datavitenskap ved UWM."
-    },
     "blog": {
         "title": "Blogg",
         "description": "For alle mine superintelligente artikler",
         "previous": "← Forrige innlegg",
         "next": "Neste innlegg →"
     },
-    "contact": {
-        "title": "Kontakt",
-        "description": "Følg meg på sosiale medier!",
-        "form": "Bruk dette skjemaet for å komme i kontakt!",
-        "name": "Ditt navn:",
-        "email": "Din Email:",
-        "mess": "Din melding:",
-        "send": "Send",
-        "find": "Du kan finne meg her:"
-    },
     "index": {
         "content": "??"
-    },
-    "github": {
-        "title": "Github Repos",
-        "description": "Mine nåværende prosjekter @Github",
-        "updated": "Oppdatert"
     }
 }

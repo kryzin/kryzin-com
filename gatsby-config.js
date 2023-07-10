@@ -23,6 +23,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.DATO_API_TOKEN,
+      },
+    },
+    {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: [`/about`, `/repos`, `/contact`],
@@ -38,52 +44,52 @@ module.exports = {
         color: `#EBA8DE`,
       }
     },
-    {
-      resolve: 'gatsby-plugin-local-search',
-      options: {
-        name: 'posts',
-        engine: 'flexsearch',
-        query: `
-          query {
-            allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-                edges {
-                    node {
-                        id
-                        excerpt
-                        fields {
-                            slug
-                        }
-                        frontmatter {
-                            tags
-                            date
-                            featured {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                            title
-                        }
-                        timeToRead
-                    }
-                }
-            }
-          }
-        `,
-        ref: 'slug',
-        index: ['tags', 'title'],
-        store:['title', 'excerpt', 'date', 'slug', 'id', 'tags', 'featured'],
-        normalizer: ({data}) => 
-          data.allMarkdownRemark.edges.map(item => ({
-            title: item.node.frontmatter.title,
-            excerpt: item.node.excerpt,
-            date: item.node.frontmatter.date,
-            slug: item.node.fields.slug,
-            id: item.node.id,
-            tags: item.node.frontmatter.tags,
-            featured: item.node.frontmatter.featured,
-          })),
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-local-search',
+    //   options: {
+    //     name: 'posts',
+    //     engine: 'flexsearch',
+    //     query: `
+    //       query {
+    //         allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+    //             edges {
+    //                 node {
+    //                     id
+    //                     excerpt
+    //                     fields {
+    //                         slug
+    //                     }
+    //                     frontmatter {
+    //                         tags
+    //                         date
+    //                         featured {
+    //                             childImageSharp {
+    //                                 gatsbyImageData
+    //                             }
+    //                         }
+    //                         title
+    //                     }
+    //                     timeToRead
+    //                 }
+    //             }
+    //         }
+    //       }
+    //     `,
+    //     ref: 'slug',
+    //     index: ['tags', 'title'],
+    //     store:['title', 'excerpt', 'date', 'slug', 'id', 'tags', 'featured'],
+    //     normalizer: ({data}) => 
+    //       data.allMarkdownRemark.edges.map(item => ({
+    //         title: item.node.frontmatter.title,
+    //         excerpt: item.node.excerpt,
+    //         date: item.node.frontmatter.date,
+    //         slug: item.node.fields.slug,
+    //         id: item.node.id,
+    //         tags: item.node.frontmatter.tags,
+    //         featured: item.node.frontmatter.featured,
+    //       })),
+    //   }
+    // },
     `gatsby-plugin-fix-fouc`,
     {
       resolve: 'gatsby-omni-font-loader',
