@@ -3,34 +3,16 @@
         "description": "Opprettet basert på veiledningen til Ibas Majid",
         "search": "Søk"
     },
-    "layout": {
-        "test": "testing i18n"
-    },
     "footer": {
         "devby": "Nettsted utviklet av "
     },
     "blogitems": {
-        "posted": "Publisert",
-        "read": "min lesing",
-        "more": "Les mer",
-        "home": "Nyeste innlegg:",
-        "back": "← Tilbake til Alle Innlegg",
-        "follow": "FØLG",
-        "tags": "EMNEKNAGGER",
-        "tag": "EMNEKNAGG"
+        "home": "Nyeste innlegg:"
     },
     "header": {
+        "blog": "Blogg",
         "home": "Startside",
         "contact": "Kontakt",
         "about": "Om"
-    },
-    "blog": {
-        "title": "Blogg",
-        "description": "For alle mine superintelligente artikler",
-        "previous": "← Forrige innlegg",
-        "next": "Neste innlegg →"
-    },
-    "index": {
-        "content": "??"
     }
 }

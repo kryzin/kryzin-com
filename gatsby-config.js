@@ -44,52 +44,51 @@ module.exports = {
         color: `#EBA8DE`,
       }
     },
-    // {
-    //   resolve: 'gatsby-plugin-local-search',
-    //   options: {
-    //     name: 'posts',
-    //     engine: 'flexsearch',
-    //     query: `
-    //       query {
-    //         allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-    //             edges {
-    //                 node {
-    //                     id
-    //                     excerpt
-    //                     fields {
-    //                         slug
-    //                     }
-    //                     frontmatter {
-    //                         tags
-    //                         date
-    //                         featured {
-    //                             childImageSharp {
-    //                                 gatsbyImageData
-    //                             }
-    //                         }
-    //                         title
-    //                     }
-    //                     timeToRead
-    //                 }
-    //             }
-    //         }
-    //       }
-    //     `,
-    //     ref: 'slug',
-    //     index: ['tags', 'title'],
-    //     store:['title', 'excerpt', 'date', 'slug', 'id', 'tags', 'featured'],
-    //     normalizer: ({data}) => 
-    //       data.allMarkdownRemark.edges.map(item => ({
-    //         title: item.node.frontmatter.title,
-    //         excerpt: item.node.excerpt,
-    //         date: item.node.frontmatter.date,
-    //         slug: item.node.fields.slug,
-    //         id: item.node.id,
-    //         tags: item.node.frontmatter.tags,
-    //         featured: item.node.frontmatter.featured,
-    //       })),
-    //   }
-    // },
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'posts',
+        engine: 'flexsearch',
+        query: `
+          query {
+            allDatoCmsPost(sort: {date: DESC}) {
+              edges {
+                node {
+                  id
+                  excerpt
+                  slug
+                  tags {
+                    name
+                  }
+                  date
+                  featuredLabel
+                  featured {
+                    gatsbyImageData(width: 750)
+                  }
+                  title
+                  readingTime
+                }
+              }
+            }
+          }
+        `,
+        ref: 'slug',
+        index: ['tags', 'title'],
+        store:['id', 'excerpt', 'slug', 'tags', 'date', 'featuredLabel', 'featured', 'title', 'readingTime'],
+        normalizer: ({data}) => 
+          data.allDatoCmsPost.edges.map(edge => ({
+            id: edge.node.id,
+            excerpt: edge.node.excerpt,
+            slug: edge.node.slug,
+            tags: edge.node.tags,
+            date: edge.node.date,
+            featuredLabel: edge.node.featuredLabel,
+            featured: edge.node.featured,
+            title: edge.node.title,
+            readingTime: edge.node.readingTime,
+          })),
+      }
+    },
     `gatsby-plugin-fix-fouc`,
     {
       resolve: 'gatsby-omni-font-loader',
@@ -160,6 +159,13 @@ module.exports = {
               showLineNumbers: false,
             },
           },
+          {
+            resolve: `gatsby-remark-images-datocms`,
+            options: {
+              apiToken: process.env.DATO_API_READ_ONLY,
+              maxWidth: 750,
+            },
+          }
         ],
       },
     },

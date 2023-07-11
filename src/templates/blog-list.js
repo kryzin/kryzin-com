@@ -7,16 +7,14 @@ import moment from 'moment';
 import PageButtons from '../components/pageButtons';
 import SearchBar from '../components/searchbar';
 import { useFlexSearch } from 'react-use-flexsearch';
-import { useTranslation } from 'react-i18next';
 import Metadata from "../components/metadata";
 import Transition from '../components/transitions';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const BlogItems = (props) => {
-    const { t } = useTranslation()
-
+    const labels = props.data.datoCmsPostPage
     const data = props.data
-    const items = data.allMarkdownRemark.edges
+    const items = data.allDatoCmsPost.edges
     const index = data.localSearchPosts.index
     const store = data.localSearchPosts.store
 
@@ -35,8 +33,8 @@ const BlogItems = (props) => {
 
     const unFlattenResults = results =>
     results.map(post => {
-        const { date, slug, tags, title, id, featured, excerpt} = post;
-        return {node: { id, excerpt, fields : { slug }, frontmatter: { title, date, tags, featured } }};
+        const { id, excerpt, slug, tags, date, featured, featuredLabel, title, readingTime } = post;
+        return {node: {id, excerpt, slug, tags, date, featured, featuredLabel, title, readingTime}};
     });
 
     const { search } = '/blog/';
@@ -48,8 +46,8 @@ const BlogItems = (props) => {
     return (
     <Transition>
     <Metadata
-        title={t('blog.title')}
-        description={t('blog.description')}
+        title={labels.blogTitle}
+        description={labels.description}
     />
         <div>
             <SearchBar
@@ -61,29 +59,29 @@ const BlogItems = (props) => {
             return (
                 <li className={blogStyles.post} key={edge.node.id}>
                 <h2>
-                    <Link to={`/blog/${edge.node.fields.slug}/`} className={blogStyles.postTitle}>
-                    {edge.node.frontmatter.title}
+                    <Link to={`/blog/${edge.node.slug}/`} className={blogStyles.postTitle}>
+                    {edge.node.title}
                     </Link>
                 </h2>
                 <div className={blogStyles.meta}>
                     <span>
-                    {t('blogitems.posted')} {FormatDate(edge.node.frontmatter.date)}{' '}
-                    <span> / </span> {edge.node.timeToRead} {t('blogitems.read')}
+                    {labels.posted} {FormatDate(edge.node.date)}{' '}
+                    <span> / </span> {edge.node.readingTime} {labels.readMore}
                     </span>
                 </div>
-                {edge.node.frontmatter.featured && (
-                    <Img
+                {edge.node.featured && (
+                    <GatsbyImage
                         className={blogStyles.featured}
-                        fluid={edge.node.frontmatter.featured.childImageSharp.fluid}
-                        alt={edge.node.frontmatter.altfeatured}
+                        image={edge.node.featured.gatsbyImageData}
+                        alt={edge.node.featuredLabel}
                     />
                 )}
                 <p className={blogStyles.excerpt}>
                     {edge.node.excerpt}
                 </p>
                 <div className={blogStyles.button}>
-                    <Link to={`/blog/${edge.node.fields.slug}/`}>
-                        {t('blogitems.more')}
+                    <Link to={`/blog/${edge.node.slug}/`}>
+                        {labels.readMore}
                     </Link>
                 </div>
                 </li>
@@ -98,39 +96,43 @@ const BlogItems = (props) => {
 
 
 export const blogListQuery = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
+  query blogListQuery(
+    $skip: Int!
+    $limit: Int!
+    $locale: String!
+    ) {
     localSearchPosts {
         index
         store
     }
-    allMarkdownRemark(
-      sort: { frontmatter: { date: DESC }}
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-            id
-            excerpt
-            fields {
+    allDatoCmsPost(
+        sort: {date: DESC}
+        limit: $limit
+        skip: $skip
+        ){
+        edges {
+            node {
+                excerpt
                 slug
-            }
-            frontmatter {
-                tags
+                tags {
+                    name
+                }
                 date
                 title
-                altfeatured
+                featuredLabel
                 featured {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
+                    gatsbyImageData(width: 750)
                 }
+                readingTime
             }
-            timeToRead
         }
-      }
+    }
+    datoCmsPostPage(locale: $locale){
+        blogTitle
+        description
+        readMore
+        readingTime
+        posted
     }
   }
 `

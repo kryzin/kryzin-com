@@ -9,9 +9,7 @@
 - center featured
 - Adding DatoCMS:
   - format post content
-  - connect post metadata with query
-  - createPages for posts, tags pages, blog archive paginated
-  - translations on index, 404?
+  - new homepage at /home, on index - use { t } translations
   - navigation on pages (add prefixes)
   - component translations based on pageContext??
   - migrate posts to dato

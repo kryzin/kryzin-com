@@ -3,34 +3,16 @@
         "description": "Stworzona na podstawie poradnika (Ibas Majid)",
         "search": "Szukaj"
     },
-    "layout": {
-        "test": "testowanie i18n"
-    },
     "footer": {
         "devby": "Strona stworzona przez "
     },
     "blogitems": {
-        "posted": "Dodany",
-        "read": "min czytania",
-        "more": "Czytaj dalej",
-        "home": "Najnowszy post:",
-        "back": "← Powrót do Wszystkich Postów",
-        "follow": "OBSERWUJ",
-        "tags": "TAGI",
-        "tag": "TAG"
+        "home": "Najnowszy post:"
     },
     "header": {
+        "blog": "Blog",
         "home": "Główna",
         "contact": "Kontakt",
         "about": "O mnie"
-    },
-    "blog": {
-        "title": "Blog",
-        "description": "Wszystkie moje artykuły",
-        "previous": "← Poprzedni Post",
-        "next": "Następny Post →"
-    },
-    "index": {
-        "content": "??"
     }
 }

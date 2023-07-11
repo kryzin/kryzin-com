@@ -140,7 +140,7 @@ const NavBar = () => {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href='/blog'><Link to="/blog/" activeClassName={headerStyles.menuItem}>
-                            <h3>{t('blog.title')}</h3>
+                            <h3>{t('header.blog')}</h3>
                         </Link></a>
                     </li>
                     <li class="nav-item">

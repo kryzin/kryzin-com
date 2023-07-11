@@ -7,7 +7,7 @@ import Footer from "./footer";
 import { motion } from 'framer-motion';
 import { withTrans } from '../i18n/withTrans';
 
-const Layout = ({ children, t, i18n }) => {
+const Layout = ({ children, pageContext }) => {
 
   return (
     <div className={layoutStyles.container}>

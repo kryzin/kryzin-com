@@ -4,15 +4,14 @@ import React from 'react';
 import * as blogStyles from '../styles/blog.module.scss';
 import '../styles/style.scss';
 import moment from 'moment';
-import { useTranslation } from 'react-i18next';
 import Metadata from "../components/metadata";
 import Transition from '../components/transitions';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 
 const BlogTags = (props) => {
-    const { t } = useTranslation()
-    const items = props.data.allMarkdownRemark.edges
+    const labels = props.data.datoCmsPostPage
+    const items = props.data.allDatoCmsPost.edges
     const { tag } = props.pageContext
 
     const FormatDate = date => {
@@ -33,44 +32,44 @@ const BlogTags = (props) => {
     return (
         <Transition>
         <Metadata
-            title={t('blog.title')}
-            description={t('blog.description')}
+            title={labels.blogTitle}
+            description={labels.description}
         />
             <div>
             <div>
                 <Link to='/blog/' className={blogStyles.previous}>
-                    {t('blogitems.back')}
+                    {labels.back}
                 </Link>
             </div>
-            <h1 className={blogStyles.title}>{t('blogitems.tag')}: {tag}</h1>
+            <h1 className={blogStyles.title}>{labels.tag}: {tag}</h1>
             <ul className={blogStyles.posts}>
                 {posts && posts.map((edge) => {
                 return (
                     <li className={blogStyles.post} key={edge.node.id}>
                     <h2>
-                        <Link to={`/blog/${edge.node.fields.slug}/`}>
-                        {edge.node.frontmatter.title}
+                        <Link to={`/blog/${edge.node.slug}/`}>
+                        {edge.node.title}
                         </Link>
                     </h2>
                     <div className={blogStyles.meta}>
                         <span>
-                        {t('blogitems.posted')} {FormatDate(edge.node.frontmatter.date)}{' '}
-                        <span> / </span> {edge.node.timeToRead} {t('blogitems.read')}
+                        {labels.posted} {FormatDate(edge.node.date)}{' '}
+                        <span> / </span> {edge.node.readingTime} {labels.readingTime}
                         </span>
                     </div>
-                    {edge.node.frontmatter.featured && (
-                        <Img
+                    {edge.node.featured && (
+                        <GatsbyImage
                             className={blogStyles.featured}
-                            fluid={edge.node.frontmatter.featured.childImageSharp.fluid}
-                            alt={edge.node.frontmatter.altfeatured}
+                            image={edge.node.featured.gatsbyImageData}
+                            alt={edge.node.featuredLabel}
                         />
                     )}
                     <p className={blogStyles.excerpt}>
                         {edge.node.excerpt}
                     </p>
                     <div className={blogStyles.button}>
-                        <Link to={`/blog/${edge.node.fields.slug}/`}>
-                            {t('blogitems.more')}
+                        <Link to={`/blog/${edge.node.slug}/`}>
+                            {labels.readMore}
                         </Link>
                     </div>
                     </li>
@@ -83,35 +82,40 @@ const BlogTags = (props) => {
 }
 
 export const blogListQuery = graphql`
-  query blogListQuery($tag: String) {
-    allMarkdownRemark(
-      sort: { frontmatter: { date: DESC }}
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+  query blogListQuery(
+    $tag: String
+    $locale: String!
+    ) {
+    allDatoCmsPost(
+      sort: { date: DESC }
+      filter: { tags: {elemMatch: {name: {eq: $tag}}}}
         ) {
-      totalCount
       edges {
         node {
             id
             excerpt
-            fields {
-                slug
+            slug
+            tags {
+                name
             }
-            frontmatter {
-                tags
-                date
-                title
-                altfeatured
-                featured {
-                    childImageSharp {
-                        fluid(maxWidth: 750) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
+            date
+            title
+            featuredLabel
+            featured {
+                gatsbyImageData(width: 750)
             }
-            timeToRead
+            readingTime
         }
       }
+    }
+    datoCmsPostPage(locale: $locale) { 
+        readMore
+        posted
+        readingTime
+        tag
+        back
+        blogTitle
+        description
     }
   }
 `

@@ -3,34 +3,16 @@
         "description": "Created based on tutorial by Ibas Majid",
         "search": "Search"
     },
-    "layout": {
-        "test": "testing i18n"
-    },
     "footer": {
         "devby": "Site developed by "
     },
     "blogitems": {
-        "posted": "Posted on",
-        "read": "min read",
-        "more": "Read more",
-        "home": "Newest post:",
-        "back": "← Back to All Posts",
-        "follow": "FOLLOW",
-        "tags": "TAGS",
-        "tag": "TAG"
+        "home": "Newest post:"
     },
     "header": {
+        "blog": "Blog",
         "home": "Home",
         "contact": "Contact",
         "about": "About"
-    },
-    "blog": {
-        "title": "Blog",
-        "description": "For all my super smart articles",
-        "previous": "← Previous Post",
-        "next": "Next Post →"
-    },
-    "index": {
-        "content": "??"
     }
 }

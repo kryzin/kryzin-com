@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { Link, graphql } from 'gatsby';
 import * as postStyles from '../styles/blogPost.module.scss';
-import Img from 'gatsby-image';
 
 import Comments from '../components/comments';
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'; 
@@ -9,67 +8,68 @@ import Fb from '../images/facebook.png';
 import Li from '../images/linkedin.png';
 import Tw from '../images/twitter.png';
 import Author from '../images/profile.png';
-import { useTranslation } from 'react-i18next';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { StructuredText } from 'react-datocms/structured-text';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
 
 export const query = graphql`
-  query{
-    allMarkdownRemark(
-      sort: {frontmatter: {date: DESC}}
-      ) {
+  query($locale: String!) {
+    allDatoCmsPost(sort: {date: DESC}) {
       edges {
-        node {
-          html
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
-            tags
-            altfeatured
-            featured {
-              childImageSharp {
-                fluid(maxWidth: 750) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
         next {
-          fields {
-            slug
-          }
+          slug
         }
         previous {
-          fields {
-            slug
+          slug
+        }
+        node {
+          title
+          slug
+          readingTime
+          date(formatString: "DD MMMM YYYY")
+          featuredLabel
+          featured {
+            gatsbyImageData(width: 750)
+          }
+          tags {
+            name
+          }
+          markdown {
+            value
           }
         }
       }
+    }
+    datoCmsPostPage(locale: $locale) {
+      back
+      follow
+      next
+      posted
+      previous
+      readingTime
+      tags
     }
   }
 `;
 
 const BlogPost = (props) => {
-  const { t } = useTranslation()
+  const labels = props.data.datoCmsPostPage
   const slug = props.pageContext.slug
-  const posting = props.data.allMarkdownRemark.edges.find(
-    edge => edge.node.fields.slug === slug
+  const posting = props.data.allDatoCmsPost.edges.find(
+    edge => edge.node.slug === slug
   ).node;
-  const allPosts = props.data.allMarkdownRemark.edges
-  const currentIndex = allPosts.findIndex(post => post.node.fields.slug === slug)
+  const allPosts = props.data.allDatoCmsPost.edges
+  const currentIndex = allPosts.findIndex(post => post.node.slug === slug)
   const next = useRef(null);
   const previous = useRef(null);
+  const tags = props.data.allDatoCmsPost.edges.flatMap(edge => edge.node.tags.map(tag => tag.name));
 
   if (currentIndex > 0){
-    next.current = JSON.stringify(allPosts[currentIndex - 1].node.fields.slug).replace(`"`,'').replace(`"`,'');
+    next.current = JSON.stringify(allPosts[currentIndex - 1].node.slug).replace(`"`,'').replace(`"`,'');
   }
   if (currentIndex < allPosts.length - 1) {
-    previous.current = JSON.stringify(allPosts[currentIndex + 1].node.fields.slug).replace(`"`,'').replace(`"`,'');
+    previous.current = JSON.stringify(allPosts[currentIndex + 1].node.slug).replace(`"`,'').replace(`"`,'');
   }
 
   return (
@@ -77,59 +77,52 @@ const BlogPost = (props) => {
       <div className={postStyles.content}>
         <div>
           <Link to='/blog/' className={postStyles.previous}>
-            {t('blogitems.back')}
+            {labels.back}
           </Link>
         </div>
-        <h1>{posting.frontmatter.title}</h1>
+        <h1>{posting.title}</h1>
         <div className={postStyles.meta}>
-          <p>{t('blogitems.posted')} {posting.frontmatter.date}{' '}
-          <span> / </span> {posting.timeToRead} {t('blogitems.read')}
+          <p>{labels.posted} {posting.date}{' '}
+          <span> / </span> {posting.readingTime} {labels.readingTime}
           <br/>
-            {t('blogitems.tags')}:
-              {posting.frontmatter.tags.map((tag) => {
+            {labels.tags}:
+              {tags.map((tag) => {
                 return (<>  <Link to={`/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
             </p>
         </div>
         <div className={postStyles.authorContainer}>
           <img className={postStyles.authorPic} src={Author} alt="author of the post"/>
           <div className={postStyles.authorDescrip}>
-            <p>Karolina Ryzińska · <Link to='/contact' className={postStyles.link}>{t('blogitems.follow')}</Link></p>
+            <p>Karolina Ryzińska · <Link to='/contact' className={postStyles.link}>{labels.follow}</Link></p>
           </div>
         </div>
         {
-          posting.frontmatter.featured && (
-            <Img
+          posting.featured && (
+            <GatsbyImage
               className={postStyles.featured}
-              fluid={posting.frontmatter.featured.childImageSharp.fluid}
-              alt={posting.frontmatter.altfeatured}
+              image={posting.featured.gatsbyImageData}
+              alt={posting.featuredLabel}
             />
           )
         }
         <div className={postStyles.html}>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: posting.html,
-          }}
-        ></div>
+        <StructuredText data={posting.markdown}/>
         </div>
       </div>
       <div>
         <span className={postStyles.shareBtn}>
           <FacebookShareButton
             url={url + slug}
-            quote={'Dummy text!'}
           >
             <img src={Fb} height={16} alt="Facebook"/>
           </FacebookShareButton>
           <TwitterShareButton
             url={url + slug}
-            quote={'Dummy text!'}
           >
             <img src={Tw} height={16} alt="Twitter"/>
           </TwitterShareButton>
           <LinkedinShareButton
             url={url + slug}
-            quote={'Dummy text!'}
           >
             <img src={Li} height={16} alt="Linkedin"/>
           </LinkedinShareButton>
@@ -139,14 +132,14 @@ const BlogPost = (props) => {
         <div className={postStyles.previous}>
           {previous.current !== null && (
             <Link to={`/blog/${previous.current}`}>
-              {t('blog.previous')}
+              {labels.previous}
             </Link>
           )}
         </div>
         <div className={postStyles.next}>
           {next.current !== null && (
             <Link to={`/blog/${next.current}`}>
-              {t('blog.next')}
+              {labels.previous}
             </Link>
           )}
         </div>
