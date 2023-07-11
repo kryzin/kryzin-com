@@ -10,6 +10,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 
 const BlogTags = (props) => {
+    const prefix = props.pageContext.locale === 'en' ? "" : props.pageContext.locale
     const labels = props.data.datoCmsPostPage
     const items = props.data.allDatoCmsPost.edges
     const { tag } = props.pageContext
@@ -37,7 +38,7 @@ const BlogTags = (props) => {
         />
             <div>
             <div>
-                <Link to='/blog/' className={blogStyles.previous}>
+                <Link to={`/${prefix}/blog/`} className={blogStyles.previous}>
                     {labels.back}
                 </Link>
             </div>
@@ -47,7 +48,7 @@ const BlogTags = (props) => {
                 return (
                     <li className={blogStyles.post} key={edge.node.id}>
                     <h2>
-                        <Link to={`/blog/${edge.node.slug}/`}>
+                        <Link to={`/${prefix}/blog/${edge.node.slug}/`}>
                         {edge.node.title}
                         </Link>
                     </h2>
@@ -68,7 +69,7 @@ const BlogTags = (props) => {
                         {edge.node.excerpt}
                     </p>
                     <div className={blogStyles.button}>
-                        <Link to={`/blog/${edge.node.slug}/`}>
+                        <Link to={`/${prefix}/blog/${edge.node.slug}/`}>
                             {labels.readMore}
                         </Link>
                     </div>

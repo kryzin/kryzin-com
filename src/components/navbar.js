@@ -52,7 +52,7 @@ const NavBar = (locale) => {
     preferredLanguage.current = datoLanguage
     localStorage.setItem('current-language', preferredLanguage.current)
     i18n.changeLanguage(preferredLanguage.current)
-    prefix.current = preferredLanguage.current
+    prefix.current = preferredLanguage.current === 'en' ? "" : preferredLanguage.current
     SetLanguage(preferredLanguage.current.toUpperCase());
   }, [preferredLanguage, datoLanguage, i18n])
 
