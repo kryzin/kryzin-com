@@ -12,6 +12,7 @@ import Transition from '../components/transitions';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 const BlogItems = (props) => {
+    const prefix = props.pageContext.locale
     const labels = props.data.datoCmsPostPage
     const data = props.data
     const items = data.allDatoCmsPost.edges
@@ -59,7 +60,7 @@ const BlogItems = (props) => {
             return (
                 <li className={blogStyles.post} key={edge.node.id}>
                 <h2>
-                    <Link to={`/blog/${edge.node.slug}/`} className={blogStyles.postTitle}>
+                    <Link to={`/${prefix}/blog/${edge.node.slug}/`} className={blogStyles.postTitle}>
                     {edge.node.title}
                     </Link>
                 </h2>
@@ -80,7 +81,7 @@ const BlogItems = (props) => {
                     {edge.node.excerpt}
                 </p>
                 <div className={blogStyles.button}>
-                    <Link to={`/blog/${edge.node.slug}/`}>
+                    <Link to={`${prefix}/blog/${edge.node.slug}/`}>
                         {labels.readMore}
                     </Link>
                 </div>

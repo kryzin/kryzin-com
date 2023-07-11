@@ -5,8 +5,13 @@ import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import NavBar from './navbar';
 
-const Header = () => {
+const Header = (locale) => {
   const { t } = useTranslation()
+  const lang =  typeof window !== 'undefined' ? localStorage.getItem('current-language'): locale.locale;
+  const { i18n } = useTranslation()
+  if (i18n.language !== lang){
+    i18n.changeLanguage(lang)
+  }
 
   return (
     <header className={headerStyles.header}>
@@ -18,7 +23,7 @@ const Header = () => {
           {t('site.description')}
         </div>
       </div>
-        <NavBar/>
+        <NavBar locale={locale}/>
     </header>
   );
 };

@@ -27,7 +27,7 @@ const Contact = (props) => {
               <input type="email" name="email" id="email"/>
             </p>
             <p>
-              <label>{contact.mess} </label>
+              <label>{contact.message} </label>
               <textarea name="message" id="message"></textarea>
             </p>
             <p className={formStyles.btnContainer}>

@@ -6,14 +6,11 @@
 
 **Adding next:**
 
-- center featured
 - Adding DatoCMS:
+  - author to dato
   - format post content
   - new homepage at /home, on index - use { t } translations
-  - navigation on pages (add prefixes)
-  - component translations based on pageContext??
   - migrate posts to dato
-- website SEO translations
 
 **Might add in the future:**
 

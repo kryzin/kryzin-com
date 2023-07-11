@@ -7,13 +7,12 @@ import SettingsDark from '../images/settings_dark.png';
 import DismissLight from '../images/menu_light.png';
 import DismissDark from '../images/menu_dark.png';
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { motion, useScroll } from 'framer-motion';
+import { useLocation } from '@reach/router';
 
-
-const NavBar = () => {
-  
+const NavBar = (locale) => {
   const { t } = useTranslation()
   const { i18n } = useTranslation()
   const [language, SetLanguage] = useState('EN');
@@ -22,6 +21,10 @@ const NavBar = () => {
   const [settings, SetSettings] = useState(SettingsLight);
   const preferredTheme = useRef('dark');
   const preferredLanguage = useRef('en');
+  const location = useLocation();
+  const prefix = useRef('');
+  const pathname = useRef(location.pathname);
+  const datoLanguage = locale.locale.locale ? locale.locale.locale : preferredLanguage.current;
 
   useEffect (() => {
     if (!localStorage.getItem('current-theme')){
@@ -46,41 +49,44 @@ const NavBar = () => {
       SetDismiss(DismissLight);
       document.documentElement.classList = '';
     }
+    preferredLanguage.current = datoLanguage
+    localStorage.setItem('current-language', preferredLanguage.current)
+    i18n.changeLanguage(preferredLanguage.current)
+    prefix.current = preferredLanguage.current
+    SetLanguage(preferredLanguage.current.toUpperCase());
+  }, [preferredLanguage, datoLanguage, i18n])
 
-    if (!localStorage.getItem('current-language')){
-      if (!localStorage.getItem('gatsby-i18next-language')){
-        preferredLanguage.current = 'en';
-        localStorage.setItem('current-language', preferredLanguage.current);
+  // useEffect(() => {
+    // setPathname(location.pathname)
+    // if (pathname.startsWith('/pl/') || pathname.startsWith('/no/')) {
+    //   setPathname(location.pathname.substring(3))
+    // } else {
+    //   setPathname(location.pathname.substring(1))
+    // }
+  // }, [location, pathname]);
+  
+  function handleLanguage () {
+    console.log("handle  " + pathname.current)
+    if (pathname.current.startsWith('/pl/') || pathname.current.startsWith('/no/')) {
+      pathname.current = pathname.current.substring(3)
+    }
+    if (language === 'PL'){
+      prefix.current = ""
+      navigate(pathname.current)
+    } else if (language === 'NO') {
+      prefix.current = 'pl'
+      if (pathname.current === '') {
+        navigate(pathname.current)
       } else {
-        if (!localStorage.getItem('current-language')){
-          preferredLanguage.current = localStorage.getItem('gatsby-i18next-language');
-          localStorage.setItem('current-language', preferredLanguage.current);
-        }
-        else {
-          preferredLanguage.current = localStorage.getItem('current-language');
-        } 
+        navigate('/pl' + pathname.current)
       }
     } else {
-      
-    }
-    
-    i18n.changeLanguage(preferredLanguage.current)
-    SetLanguage(preferredLanguage.current.toUpperCase());
-  }, [preferredLanguage, i18n])
-
-  function handleLanguage () {
-    if (language === 'PL'){
-      localStorage.setItem('current-language', 'en');
-      i18n.changeLanguage('en');
-      SetLanguage('EN');
-    } else if (language === 'NO') {
-      localStorage.setItem('current-language', 'pl');
-      i18n.changeLanguage('pl');
-      SetLanguage('PL');
-    } else {
-      localStorage.setItem('current-language', 'no');
-      i18n.changeLanguage('no');
-      SetLanguage('NO');
+      prefix.current = 'no'
+      if (pathname.current === '') {
+        navigate(pathname.current)
+      } else {
+        navigate('/no' + pathname.current)
+      }
     }
   }
 
@@ -139,22 +145,22 @@ const NavBar = () => {
                         </Link></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/blog'><Link to="/blog/" activeClassName={headerStyles.menuItem}>
+                        <a class="nav-link" href='/blog'><Link to={`/${prefix.current}/blog`} activeClassName={headerStyles.menuItem}>
                             <h3>{t('header.blog')}</h3>
                         </Link></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/contact'><Link to="/contact/" activeClassName={headerStyles.menuItem}>
+                        <a class="nav-link" href='/contact'><Link to={`/${prefix.current}/contact/`} activeClassName={headerStyles.menuItem}>
                             <h3>{t('header.contact')}</h3>
                         </Link></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/about'><Link to="/about/" activeClassName={headerStyles.menuItem}>
+                        <a class="nav-link" href='/about'><Link to={`/${prefix.current}/about`} activeClassName={headerStyles.menuItem}>
                             <h3>{t('header.about')}</h3>
                         </Link></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/repos'><Link to="/repos/" activeClassName={headerStyles.menuItem}>
+                        <a class="nav-link" href='/repos'><Link to={`/${prefix.current}/repos`} activeClassName={headerStyles.menuItem}>
                             <h3>Github</h3>
                         </Link></a>
                     </li>

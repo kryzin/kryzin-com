@@ -12,7 +12,7 @@ const Layout = ({ children, pageContext }) => {
   return (
     <div className={layoutStyles.container}>
       <div className={layoutStyles.content}>
-        <Header />
+        <Header locale={pageContext.locale}/>
         <div className={layoutStyles.mainContent}>
           <motion.main
             initial={{ opacity: 0, x: -200 }}
@@ -29,7 +29,7 @@ const Layout = ({ children, pageContext }) => {
           </motion.main>
         </div>
       </div>
-      <Footer />
+      <Footer locale={pageContext.locale}/>
     </div>
   )
 }

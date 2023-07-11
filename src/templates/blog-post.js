@@ -54,6 +54,7 @@ export const query = graphql`
 `;
 
 const BlogPost = (props) => {
+  const prefix = props.pageContext.locale
   const labels = props.data.datoCmsPostPage
   const slug = props.pageContext.slug
   const posting = props.data.allDatoCmsPost.edges.find(
@@ -76,7 +77,7 @@ const BlogPost = (props) => {
     <>
       <div className={postStyles.content}>
         <div>
-          <Link to='/blog/' className={postStyles.previous}>
+          <Link to={`/${prefix}/blog/`} className={postStyles.previous}>
             {labels.back}
           </Link>
         </div>
@@ -87,13 +88,13 @@ const BlogPost = (props) => {
           <br/>
             {labels.tags}:
               {tags.map((tag) => {
-                return (<>  <Link to={`/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
+                return (<>  <Link to={`/${prefix}/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
             </p>
         </div>
         <div className={postStyles.authorContainer}>
           <img className={postStyles.authorPic} src={Author} alt="author of the post"/>
           <div className={postStyles.authorDescrip}>
-            <p>Karolina Ryzińska · <Link to='/contact' className={postStyles.link}>{labels.follow}</Link></p>
+            <p>Karolina Ryzińska · <Link to={`/${prefix}/contact`} className={postStyles.link}>{labels.follow}</Link></p>
           </div>
         </div>
         {
@@ -131,14 +132,14 @@ const BlogPost = (props) => {
       <div className={postStyles.navContainer}>
         <div className={postStyles.previous}>
           {previous.current !== null && (
-            <Link to={`/blog/${previous.current}`}>
+            <Link to={`/${prefix}/blog/${previous.current}`}>
               {labels.previous}
             </Link>
           )}
         </div>
         <div className={postStyles.next}>
           {next.current !== null && (
-            <Link to={`/blog/${next.current}`}>
+            <Link to={`/${prefix}/blog/${next.current}`}>
               {labels.previous}
             </Link>
           )}
