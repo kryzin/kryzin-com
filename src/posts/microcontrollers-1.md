@@ -1,4 +1,5 @@
 ---
+slug: "microcontrollers-1"
 title: "Microcontrollers 101"
 date: "2023-05-18"
 featured: "../images/post-0000.jpg"

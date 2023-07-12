@@ -51,41 +51,40 @@ module.exports = {
         engine: 'flexsearch',
         query: `
           query {
-            allDatoCmsPost(sort: {date: DESC}) {
+            allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
               edges {
-                node {
-                  id
-                  excerpt
-                  slug
-                  tags {
-                    name
+                  node {
+                      id
+                      excerpt
+                      frontmatter {
+                          slug
+                          tags
+                          date
+                          featured {
+                              childImageSharp {
+                                  gatsbyImageData
+                              }
+                          }
+                          title
+                      }
+                      timeToRead
                   }
-                  date
-                  featuredLabel
-                  featured {
-                    gatsbyImageData(width: 750)
-                  }
-                  title
-                  readingTime
-                }
               }
             }
           }
         `,
         ref: 'slug',
         index: ['tags', 'title'],
-        store:['id', 'excerpt', 'slug', 'tags', 'date', 'featuredLabel', 'featured', 'title', 'readingTime'],
+        store:['title', 'excerpt', 'date', 'slug', 'id', 'tags', 'featured'],
         normalizer: ({data}) => 
-          data.allDatoCmsPost.edges.map(edge => ({
-            id: edge.node.id,
-            excerpt: edge.node.excerpt,
-            slug: edge.node.slug,
-            tags: edge.node.tags,
-            date: edge.node.date,
-            featuredLabel: edge.node.featuredLabel,
-            featured: edge.node.featured,
-            title: edge.node.title,
-            readingTime: edge.node.readingTime,
+          data.allMarkdownRemark.edges.map(item => ({
+            title: item.node.frontmatter.title,
+            excerpt: item.node.excerpt,
+            date: item.node.frontmatter.date,
+            slug: item.node.frontmatter.slug,
+            id: item.node.id,
+            tags: item.node.frontmatter.tags,
+            featured: item.node.frontmatter.featured,
           })),
       }
     },
@@ -135,14 +134,6 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-emoji`,
-          {
-            resolve: `gatsby-remark-text-decoration`,
-            options: {
-              addTags: {
-                "mytag" : "style='padding: 2px'"
-              }
-            }
-          },
           {
             resolve: `gatsby-remark-relative-images`,
           },

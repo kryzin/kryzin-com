@@ -8,7 +8,6 @@ import Fb from '../images/facebook.png';
 import Li from '../images/linkedin.png';
 import Tw from '../images/twitter.png';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { StructuredText } from 'react-datocms/structured-text';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -17,32 +16,6 @@ export const query = graphql`
     datoCmsSiteInfo {
       authorIcon {
         gatsbyImageData(width: 200)
-      }
-    }
-    allDatoCmsPost(sort: {date: DESC}) {
-      edges {
-        next {
-          slug
-        }
-        previous {
-          slug
-        }
-        node {
-          title
-          slug
-          readingTime
-          date(formatString: "DD MMMM YYYY")
-          featuredLabel
-          featured {
-            gatsbyImageData(width: 750)
-          }
-          tags {
-            name
-          }
-          markdown {
-            value
-          }
-        }
       }
     }
     datoCmsPostPage(locale: $locale) {
@@ -54,6 +27,38 @@ export const query = graphql`
       readingTime
       tags
     }
+    allMarkdownRemark(
+      sort: {frontmatter: {date: DESC}}
+      ) {
+      edges {
+        node {
+          html
+          timeToRead
+          frontmatter {
+            date(formatString: "DD MMMM, YYYY")
+            slug
+            title
+            tags
+            altfeatured
+            featured {
+              childImageSharp {
+                gatsbyImageData(width: 750)
+              }
+            }
+          }
+        }
+        next {
+          frontmatter {
+            slug
+          }
+        }
+        previous {
+          frontmatter {
+            slug
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -61,23 +66,22 @@ const BlogPost = (props) => {
   const prefix = props.pageContext.locale
   const labels = props.data.datoCmsPostPage
   const slug = props.pageContext.slug
-  const posting = props.data.allDatoCmsPost.edges.find(
-    edge => edge.node.slug === slug
+
+  const posting = props.data.allMarkdownRemark.edges.find(
+    edge => edge.node.frontmatter.slug === slug
   ).node;
-  const allPosts = props.data.allDatoCmsPost.edges
-  const currentIndex = allPosts.findIndex(post => post.node.slug === slug)
+  const allPosts = props.data.allMarkdownRemark.edges
+  const currentIndex = allPosts.findIndex(post => post.node.frontmatter.slug === slug)
   const next = useRef(null);
   const previous = useRef(null);
-  // const allTags = props.data.allDatoCmsPost.edges.flatMap(edge => edge.node.tags.map(tag => tag.name));
-  const tags = props.data.allDatoCmsPost.edges[currentIndex].node.tags.map(tag => tag.name);
 
   if (currentIndex > 0){
-    next.current = JSON.stringify(allPosts[currentIndex - 1].node.slug).replace(`"`,'').replace(`"`,'');
+    next.current = JSON.stringify(allPosts[currentIndex - 1].node.frontmatter.slug).replace(`"`,'').replace(`"`,'');
   }
   if (currentIndex < allPosts.length - 1) {
-    previous.current = JSON.stringify(allPosts[currentIndex + 1].node.slug).replace(`"`,'').replace(`"`,'');
+    previous.current = JSON.stringify(allPosts[currentIndex + 1].node.frontmatter.slug).replace(`"`,'').replace(`"`,'');
   }
-  console.log(posting.markdown.value.document.children)
+
   return (
     <>
       <div className={postStyles.content}>
@@ -86,13 +90,13 @@ const BlogPost = (props) => {
             {labels.back}
           </Link>
         </div>
-        <h1>{posting.title}</h1>
+        <h1>{posting.frontmatter.title}</h1>
         <div className={postStyles.meta}>
-          <p>{labels.posted} {posting.date}{' '}
-          <span> / </span> {posting.readingTime} {labels.readingTime}
+          <p>{labels.posted} {posting.frontmatter.date}{' '}
+          <span> / </span> {posting.frontmatter.timeToRead} {labels.readingTime}
           <br/>
             {labels.tags}:
-              {tags.map((tag) => {
+            {posting.frontmatter.tags.map((tag) => {
                 return (<>  <Link to={`/${prefix}/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
             </p>
         </div>
@@ -106,18 +110,18 @@ const BlogPost = (props) => {
           </div>
         </div>
         {
-          posting.featured && (
+          posting.frontmatter.featured && (
             <GatsbyImage
               className={postStyles.featured}
-              image={posting.featured.gatsbyImageData}
-              alt={posting.featuredLabel}
+              image={posting.frontmatter.featured.childImageSharp.gatsbyImageData}
+              alt={posting.frontmatter.altfeatured}
             />
           )
         }
         <div className={postStyles.html}>
-        <StructuredText
-        data={posting.markdown}
-        />
+          <div dangerouslySetInnerHTML={{
+            __html: posting.html,
+          }}></div>
         </div>
       </div>
       <div>

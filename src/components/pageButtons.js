@@ -4,14 +4,14 @@ import * as navStyles from '../styles/blog.module.scss';
 
 
 const PageButtons = (props) => {
+    const prefix = typeof window !== 'undefined' ? localStorage.getItem('current-language') : 'en';
     const currentPage = props.props.pageContext.currentPage
     const numPages = props.props.pageContext.numberOfPages
     const isFirst = currentPage === 1;
     const isLast = currentPage === numPages;
-    const prev = currentPage === 2 ? "/blog" : `/blog/${currentPage - 1}`;
+    const prev = currentPage === 2 ? `/${prefix}/blog` : `/${prefix}/blog/${currentPage - 1}`;
     const next = currentPage + 1;
-    const prefix = typeof window !== 'undefined' ? localStorage.getItem('current-language') : 'en';
-
+    
 
     return (
         <div className={navStyles.btnContainer}>

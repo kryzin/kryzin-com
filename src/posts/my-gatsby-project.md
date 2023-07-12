@@ -1,4 +1,5 @@
 ---
+slug: "my-gatsby-project"
 title: "What I implemented on my website :)"
 date: "2023-07-06"
 tags: ["gatsby","react"]

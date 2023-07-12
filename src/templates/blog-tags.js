@@ -12,7 +12,8 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 const BlogTags = (props) => {
     const prefix = props.pageContext.locale
     const labels = props.data.datoCmsPostPage
-    const items = props.data.allDatoCmsPost.edges
+
+    const items = props.data.allMarkdownRemark.edges
     const { tag } = props.pageContext
 
     const FormatDate = date => {
@@ -48,28 +49,28 @@ const BlogTags = (props) => {
                 return (
                     <li className={blogStyles.post} key={edge.node.id}>
                     <h2>
-                        <Link to={`/${prefix}/blog/${edge.node.slug}/`}>
-                        {edge.node.title}
+                        <Link to={`/${prefix}/blog/${edge.node.frontmatter.slug}/`}>
+                        {edge.node.frontmatter.title}
                         </Link>
                     </h2>
                     <div className={blogStyles.meta}>
                         <span>
-                        {labels.posted} {FormatDate(edge.node.date)}{' '}
-                        <span> / </span> {edge.node.readingTime} {labels.readingTime}
+                        {labels.posted} {FormatDate(edge.node.frontmatter.date)}{' '}
+                        <span> / </span> {edge.node.timeToRead} {labels.readingTime}
                         </span>
                     </div>
-                    {edge.node.featured && (
+                    {edge.node.frontmatter.featured && (
                         <GatsbyImage
                             className={blogStyles.featured}
-                            image={edge.node.featured.gatsbyImageData}
-                            alt={edge.node.featuredLabel}
+                            image={edge.node.frontmatter.featured.childImageSharp.gatsbyImageData}
+                            alt={edge.node.frontmatter.altfeatured}
                         />
                     )}
                     <p className={blogStyles.excerpt}>
                         {edge.node.excerpt}
                     </p>
                     <div className={blogStyles.button}>
-                        <Link to={`/${prefix}/blog/${edge.node.slug}/`}>
+                        <Link to={`/${prefix}/blog/${edge.node.frontmatter.slug}/`}>
                             {labels.readMore}
                         </Link>
                     </div>
@@ -87,28 +88,6 @@ export const blogListQuery = graphql`
     $tag: String
     $locale: String!
     ) {
-    allDatoCmsPost(
-      sort: { date: DESC }
-      filter: { tags: {elemMatch: {name: {eq: $tag}}}}
-        ) {
-      edges {
-        node {
-            id
-            excerpt
-            slug
-            tags {
-                name
-            }
-            date
-            title
-            featuredLabel
-            featured {
-                gatsbyImageData(width: 750)
-            }
-            readingTime
-        }
-      }
-    }
     datoCmsPostPage(locale: $locale) { 
         readMore
         posted
@@ -118,6 +97,31 @@ export const blogListQuery = graphql`
         blogTitle
         description
     }
+    allMarkdownRemark(
+        sort: { frontmatter: { date: DESC }}
+        filter: { frontmatter: { tags: { in: [$tag] } } }
+          ) {
+        totalCount
+        edges {
+          node {
+              id
+              excerpt
+              frontmatter {
+                  slug
+                  tags
+                  date
+                  title
+                  altfeatured
+                  featured {
+                      childImageSharp {
+                        gatsbyImageData(width: 750)
+                      }
+                  }
+              }
+              timeToRead
+          }
+        }
+      }
   }
 `
 

@@ -11,9 +11,18 @@
 const path = require('path');
 const _ = require("lodash")
 
+// exports.onCreateNode = ({ node, actions }) => {
+//   const { createNodeField } = actions;
+//   if (node.internal.type === 'MarkdownRemark') {
+//     const slug = path.basename(node.fileAbsolutePath, '.md');
+//     createNodeField({
+//       node,
+//       name: 'slug',
+//       value: slug,
+//     });
+//   }
+// };
 
-// CREATE LOCALES SLUGS FOR:
-// ABOUT, 
 exports.createPages = async ({ graphql, actions }) => { 
   const templates = {
     post: path.resolve('./src/templates/blog-post.js'),
@@ -26,26 +35,30 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all(
     locales.map(async (locale) => {
       const response = await graphql(`
-        query($locale: String!) {
-          allDatoCmsPost(
-            locale: $locale
-            sort: {date: DESC}
-          ) {
+        query {
+          posts: allMarkdownRemark (
+            sort: { frontmatter: { date: DESC }}
+            limit: 1000
+            filter: {frontmatter: {slug: {ne: null}}}
+          ){
             edges {
               node {
-                slug
+                frontmatter {
+                  date
+                  slug
+                }
               }
             }
           }
-          tags: allDatoCmsTag {
-            nodes {
-              name
+          tags: allMarkdownRemark(limit: 1000) {
+            group(field: { frontmatter: { tags: SELECT } }){
+              fieldValue
             }
           }
-        }
-      `, {locale});
+        }`);
       if (response.errors) return Promise.reject(response.errors);
-      const posts = response.data.allDatoCmsPost.edges
+      const posts = response.data.posts.edges
+
       const prefix = `/${locale}`;
 
       ["contact", "about", "repos"].forEach(page => {
@@ -58,23 +71,23 @@ exports.createPages = async ({ graphql, actions }) => {
 
       posts.forEach((edge) => {
         createPage({
-          path: `${prefix}/blog/${edge.node.slug}`,
+          path: `${prefix}/blog/${edge.node.frontmatter.slug}`,
           component: templates.post,
           context: {
             locale: locale,
-            slug: edge.node.slug,
+            slug: edge.node.frontmatter.slug,
           },
         });
       });
 
-      const tags = response.data.tags.nodes || []
+      const tags = response.data.tags.group
       tags.forEach(tag => {
         createPage({
-          path: `${prefix}/blog/tags/${tag.name}/`,
+          path: `${prefix}/blog/tags/${tag.fieldValue}/`,
           component: templates.tagList,
           context: {
             locale: locale,
-            tag: tag.name,
+            tag: tag.fieldValue,
           },
         })
       })

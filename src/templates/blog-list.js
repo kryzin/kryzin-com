@@ -14,8 +14,9 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 const BlogItems = (props) => {
     const prefix = props.pageContext.locale
     const labels = props.data.datoCmsPostPage
+
     const data = props.data
-    const items = data.allDatoCmsPost.edges
+    const items = data.allMarkdownRemark.edges
     const index = data.localSearchPosts.index
     const store = data.localSearchPosts.store
 
@@ -34,11 +35,11 @@ const BlogItems = (props) => {
 
     const unFlattenResults = results =>
     results.map(post => {
-        const { id, excerpt, slug, tags, date, featured, featuredLabel, title, readingTime } = post;
-        return {node: {id, excerpt, slug, tags, date, featured, featuredLabel, title, readingTime}};
+        const { date, slug, tags, title, id, featured, excerpt} = post;
+        return {node: { id, excerpt, frontmatter: { slug, title, date, tags, featured } }};
     });
 
-    const { search } = '/blog/';
+    const { search } = `/${prefix}/blog/`;
     const query = new URLSearchParams(search).get('s')
     const [searchQuery, setSearchQuery] = useState(query || '');
     const results = useFlexSearch(searchQuery, index, store);
@@ -60,28 +61,28 @@ const BlogItems = (props) => {
             return (
                 <li className={blogStyles.post} key={edge.node.id}>
                 <h2>
-                    <Link to={`/${prefix}/blog/${edge.node.slug}/`} className={blogStyles.postTitle}>
-                    {edge.node.title}
+                    <Link to={`/${prefix}/blog/${edge.node.frontmatter.slug}/`} className={blogStyles.postTitle}>
+                    {edge.node.frontmatter.title}
                     </Link>
                 </h2>
                 <div className={blogStyles.meta}>
                     <span>
-                    {labels.posted} {FormatDate(edge.node.date)}{' '}
-                    <span> / </span> {edge.node.readingTime} {labels.readMore}
+                    {labels.posted} {FormatDate(edge.node.frontmatter.date)}{' '}
+                    <span> / </span> {edge.node.timeToRead} {labels.readMore}
                     </span>
                 </div>
-                {edge.node.featured && (
+                {edge.node.frontmatter.featured && (
                     <GatsbyImage
                         className={blogStyles.featured}
-                        image={edge.node.featured.gatsbyImageData}
-                        alt={edge.node.featuredLabel}
+                        image={edge.node.frontmatter.featured.childImageSharp.gatsbyImageData}
+                        alt={edge.node.frontmatter.altfeatured}
                     />
                 )}
                 <p className={blogStyles.excerpt}>
                     {edge.node.excerpt}
                 </p>
                 <div className={blogStyles.button}>
-                    <Link to={`/${prefix}/blog/${edge.node.slug}/`}>
+                    <Link to={`/${prefix}/blog/${edge.node.frontmatter.slug}/`}>
                         {labels.readMore}
                     </Link>
                 </div>
@@ -106,28 +107,6 @@ export const blogListQuery = graphql`
         index
         store
     }
-    allDatoCmsPost(
-        sort: {date: DESC}
-        limit: $limit
-        skip: $skip
-        ){
-        edges {
-            node {
-                excerpt
-                slug
-                tags {
-                    name
-                }
-                date
-                title
-                featuredLabel
-                featured {
-                    gatsbyImageData(width: 750)
-                }
-                readingTime
-            }
-        }
-    }
     datoCmsPostPage(locale: $locale){
         blogTitle
         description
@@ -135,6 +114,32 @@ export const blogListQuery = graphql`
         readingTime
         posted
     }
+    allMarkdownRemark(
+        sort: { frontmatter: { date: DESC }}
+        limit: $limit
+        skip: $skip
+        filter: {frontmatter: {slug: {ne: null}}}
+      ) {
+        edges {
+          node {
+              id
+              excerpt
+              frontmatter {
+                  slug
+                  tags
+                  date
+                  title
+                  altfeatured
+                  featured {
+                      childImageSharp {
+                        gatsbyImageData(width: 750)
+                      }
+                  }
+              }
+              timeToRead
+          }
+        }
+      }
   }
 `
 

@@ -1,4 +1,5 @@
 ---
+slug: "microcontrollers-5"
 title: "Chess Clock on an LCD screen"
 date: "2023-05-22"
 tags: ["microcontrollers","c","lcd", "chess"]

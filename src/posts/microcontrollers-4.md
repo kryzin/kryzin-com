@@ -1,4 +1,5 @@
 ---
+slug: "microcontrollers-4"
 title: "Simulating a microwave LCD screen"
 date: "2023-05-21"
 tags: ["microcontrollers","c","lcd"]

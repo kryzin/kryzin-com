@@ -1,4 +1,5 @@
 ---
+slug: "microcontrollers-3"
 title: "Playing with 16x2 LCD"
 date: "2023-05-20"
 tags: ["microcontrollers","c","lcd"]
