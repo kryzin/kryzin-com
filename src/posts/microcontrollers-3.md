@@ -7,7 +7,7 @@ altfeatured: "lcd screen on a microcontroller"
 featured: "../images/post-0003.jpg"
 ---
 
-I'm going to try to simulate an animation on a 16x2 LCD screen using custom character creators :smile:.
+I'm going to try to simulate an animation on a 16x2 LCD screen using custom character creators :smile:
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ void CreateCustomCharacter (unsigned char *Pattern, const char Location)
     }//Setting pattern from hex format
 }
 
-// declare custom characters
+//Declare custom characters
 unsigned char a0[] = {0x00,0x00,0x04,0x04,0x0E,0x04,0x04,0x00};
 unsigned char a1[] = {0x00,0x04,0x04,0x00,0x1B,0x00,0x04,0x04};
 unsigned char a2[] = {0x04,0x04,0x04,0x0A,0x11,0x0A,0x04,0x04};
@@ -51,8 +51,8 @@ unsigned char a4[] = {0x04,0x11,0x00,0x00,0x00,0x00,0x11,0x0A};
 ### Iteration
 
 To use our custom characters we need to pass them through our `CreateCustomCharacter() function that assigns them their 'place' on the LCD screen.
-Then in an inifinite loop we first run our 'stop-motion' animation: the 5 custom character are displayed on the top line on the screen one at a time while moving 1 space to the right with each character.
-Since the LCD funtions default to putting everything you tell them on the first far-left free space, we add spaces to play with the index.
+Then in an infinite loop, we first run our 'stop-motion' animation: the 5 custom characters are displayed on the top line on the screen one at a time while moving 1 space to the right with each character.
+Since the LCD functions default to putting everything you tell them on the first far-left free space, we add spaces to play with the index.
 
 ```c
 CreateCustomCharacter(a0, 0);
@@ -67,7 +67,7 @@ CreateCustomCharacter(a4, 8);
 CreateCustomCharacter(a1, 9);
 CreateCustomCharacter(a2, 10);
 
-LCD_ClearScreen (  ); //Clear lcd
+LCD_ClearScreen (  ); //Clear LCD
 
 while (1) {
     int a = 0;
@@ -92,6 +92,6 @@ while (1) {
 
 ## Conclusion
 
-The see the animation you would have to run it yourself, but this is the text that displays after (running on a simulator for PIC18F4620):
+The see the animation You would have to run it yourself, but this is the text that displays after (running on a simulator for PIC18F4620):
 
 ![simulator LCD screen](../images/post-0002.jpg)

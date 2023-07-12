@@ -5,23 +5,23 @@ date: "2023-05-18"
 featured: "../images/post-0000.jpg"
 altfeatured: "microcontrollers"
 tags: ["pic24", 'microcontrollers', 'c']
+locale: 'en'
 ---
-
 
 ## Introduction
 
-As an introduction to working with microcontrollers I'll showcase 9 simple programs written in `c`.
+As an introduction to working with microcontrollers, I'll showcase 9 simple programs written in `c`.
 
-Our microcontroller will switch trought these 9 programs with button `S4` - next program - and `S3` - previous program.
+Our microcontroller will switch through these 9 programs with button `S4` - next program - and `S3` - previous program.
 
-1. 8-bit counter that count up in binary code (0-255)
+1. 8-bit counter that counts up in binary code (0-255)
 2. Reverse of p1 - count down in binary
 3. 8-bit count up in Gray code
 4. Reverse of p3 - count down in Gray
 5. 2x4-bit count up in BCD code (0-99)
 6. Reverse of p5 - count down in BCD
 7. 3-bit snake moving side-to-side (3 LEDs next to each other moving in a block in an infinite loop)
-8. Stack building up ('move' a LED from right to left and keep it at the end util all LEDs are on)
+8. Stack building up ('move' a LED from right to left and keep it at the end until all LEDs are on)
 9. 6-bit random number generator with a `seed = 1110011`
 
 ## Prerequisites
@@ -90,14 +90,14 @@ int main ( void ){
 
 ### Count-up in binary
 
-The PIC24 default config on MPLAB x IDE includes `LATA` - which controlls all 8 LEDs at the same time by converting a given value into binary and displaying it. Which means making a binary counter doesn't even inolve using binary code lol.
+The PIC24 default config on MPLAB x IDE includes `LATA` - which controls all 8 LEDs at the same time by converting a given value into binary and displaying it. This means making a binary counter doesn't even involve using binary code lol.
 
-The `delay()` function is called so we are able to see the LEDs changing - without it the microcontroller work a little too fast.
+The `delay()` function is called so we can see the LEDs changing - without it the microcontroller works a little too fast.
 
 ```c
 void count_up(){//abort counting when either button is pressed
     for(int i = 0; i <= 255; i++){ //count up 0-255
-        LATA = i; //display i on leds
+        LATA = i; //display i on LEDs
         delay(200); //wait - otherwise too quick
         if(BUTTON_IsPressed(BUTTON_S3) | BUTTON_IsPressed(BUTTON_S4)){
             Break;
@@ -124,7 +124,7 @@ void count_down(){
 
 ### Count-up in Gray
 
-As you've seen it the linked above tutorial, converting a decimal number to Gray involves moving bits.
+As you've seen in the linked above tutorial, converting a decimal number to Gray involves moving bits.
 
 ```c
 void count_up_gray(){
@@ -141,7 +141,7 @@ void count_up_gray(){
 
 ### Count-down in Gray
 
-Again lets just reverse the for-loop.
+Again let's just reverse the for-loop.
 
 ```c
 void count_down_gray(){
@@ -158,14 +158,14 @@ void count_down_gray(){
 
 ### Count-up in BCD
 
-This one is a little trickier - BCD is a binary-coded decimal, which uses 4 bits to code a sigle digit. That's why our counter is 2x4 - so we have a tens and an ints value. When displaying it on 8 LEDs we first push the tens to the far-left 4 bits and then add the ints.
+This one is a little trickier - BCD is a binary-coded decimal, which uses 4 bits to code a single digit. That's why our counter is 2x4 - so we have tens and an ints value. When displaying it on 8 LEDs we first push the tens to the far-left 4 bits and then add the ints.
 
 ```c
 void count_up_bcd(){
     for(int i = 0; i < 100; i++) { //count up 0-99
         int bcd1 = i / 10; //tens
         int bcd2 = i % 10; //units
-        LATA = (bcd1 << 4) | bcd2; //tens go on first 4 leds, then units
+        LATA = (bcd1 << 4) | bcd2; //tens go on first 4 LEDs, then units
         delay(250);
         if(BUTTON_IsPressed(BUTTON_S3) | BUTTON_IsPressed(BUTTON_S4)){
             break;
@@ -181,7 +181,7 @@ void count_down_bcd(){
     for(int i = 99; i >= 0; i--) { //count down 99-0
         int bcd1 = i / 10; //tens
         int bcd2 = i % 10; //units
-        LATA = (bcd1 << 4) | bcd2; //tens go on first 4 leds, then units
+        LATA = (bcd1 << 4) | bcd2; //tens go on first 4 LEDs, then units
         delay(250);
         if(BUTTON_IsPressed(BUTTON_S3) | BUTTON_IsPressed(BUTTON_S4)){
             break;
@@ -192,7 +192,7 @@ void count_down_bcd(){
 
 ### 3-bit Snake
 
-First I declared a list of `numbers` that containt all possible positions of the "snake". Since its a 3-bit block moving on an 8-bit space we only have 6 possible combinations.
+First I declared a list of `numbers` that contains all possible positions of the "snake". Since it's a 3-bit block moving on an 8-bit space we only have 6 possible combinations.
 To control which position to display we have `index` - it's passed to the numbers list - and to control the direction of reading the list we have `direction` - either to the left or to the right.
 
 ```c
@@ -219,15 +219,15 @@ void snake(){
 ### Stack
 
 I first divided my LEDs into two groups - one that is mounted on the stack `baza` and one that will be 'moving'. To showcase the moving part I declared `index` that will represent the currently moving LED. `base_index` is the index of the far-left free bit (free meaning not turned on) and will change once a moving bit stops at that index.
-We are displaying the mounted LEDs and the moving one - until all LEDs are on and display reaches `=255`.
+We are displaying the mounted LEDs and the moving one - until all LEDs are on and the display reaches `=255`.
 
 ```c
 void stack(){
     int index = 0; // power of 2 (for "units")
-    int baza = 0; // value already on the end of stack
+    int baza = 0; // value already on the end of the stack
     int base_index = 7; // power of saved value
     int display = 0;
-    while(display < 256){ //stop when stack is full = all leds on
+    while(display < 256){ //stop when stack is full = all LEDs on
         display = baza + (1 << index); // "saved" on stack + moving
         LATA = display;
         delay(250);
@@ -261,7 +261,7 @@ void pseudo()
         LATA = new_num; //display
         
         if(BUTTON_IsPressed(BUTTON_S5)){ //if S5 - generate new
-            seed = new_num; //next num will be based on previous num
+            seed = new_num; //next num will be based on the previous num
             new_num = (a * seed + 1) % m;
             LATA = new_num;
         }

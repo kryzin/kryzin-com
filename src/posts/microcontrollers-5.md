@@ -3,17 +3,17 @@ slug: "microcontrollers-5"
 title: "Chess Clock on an LCD screen"
 date: "2023-05-22"
 tags: ["microcontrollers","c","lcd", "chess"]
-altfeatured: "Chess Clock with LCD display"
+altfeatured: "Chess Clock with LCD"
 featured: "../images/post-0006.jpg"
 ---
 
-This is the code for a Chess Clock - with a timer for each player, turn indicators and switches.
+This is the code for a Chess Clock - with a timer for each player, turn indicators, and switches.
 
 ## Implementation
 
-### Base - setting game time
+### Base-setting game time
 
-Using the ADC channel (same as in this post! - [Temp measure on PIC24](https://kryzin.netlify.app/blog/microcontrollers-2/)) we can switch between 3 pre-set game times: 5min, 3min and 1min. The time is displayed on the sreen.
+Using the ADC channel (same as in this post! - [Temp measure on PIC24](https://kryzin.netlify.app/blog/microcontrollers-2/)) we can switch between 3 pre-set game times: 5min, 3min, and 1min. The time is displayed on the screen.
 
 ```c
 #define TIME_5 300 // 5 min
@@ -25,13 +25,13 @@ int main ( void ){
     TIMER_SetConfiguration ( TIMER_CONFIGURATION_RTCC ) ;
     ADC_SetConfiguration ( ADC_CONFIGURATION_AUTO_SAMPLE_CONVERT ) ;
     int setting_time; // one of the options - 1,3,5
-    int time; //read from adc
+    int time; //read from ADC
     char message[10];
 
     while (1) {
         // read time setting 
         time = ADC_ReadPercentage(ADC_CHANNEL_POTENTIOMETER);
-        // set time based on setting
+        //Set time based on setting
         if (time >= 66){ //move adc to the right for max time
             LCD_ClearScreen ( ) ;
             snprintf( message, sizeof(message), "time:5min" );
@@ -62,10 +62,10 @@ int main ( void ){
 
 ### Game Timer
 
-This one was a little trickier. I feel like I added way to many side variables but couldn't figure out how to lower the number without loosing functionality.
-Let's try to get throught this: `t1` and `t2` are the main variables keeping each player's time left - we set them to the chosen game time.
+This one was a little trickier. I feel like I added way too many side variables but couldn't figure out how to lower the number without losing functionality.
+Let's try to get through this: `t1` and `t2` are the main variables keeping each player's time left - we set them to the chosen game time.
 The `sec`/`sec2` and `min`/`min2` are for timer display formatting.
-Player 1 sits on the left, player 2 on the right. In the `while` loop we are are checking if either timer run out and if so we turn on an alarm and display ending message. If those `if` statements were omitted we start counting down time left of the active player - display shows both timers, and 4 far-right or far-left LEDs are turned on depending on which player is acitve.
+Player 1 sits on the left, and Player 2 on the right. In the `while` loop we are checking if either timer runs out and if so we turn on an alarm and display an ending message. If those `if` statements were omitted we start counting down the time left of the active player - the display shows both timers, and 4 far-right or far-left LEDs are turned on depending on which player is active.
 Each player has a button to press after making a move - `S3` for player 1 and `S4` for player 2.
 
 ```c
@@ -83,7 +83,7 @@ void start_game(int t){
             LCD_ClearScreen ( ) ;
             LCD_PutString ( "PLAYER1 LOST", sizeof(message2));
             for ( int i = 0; i <= 5; i++){
-                //flash fancy leds when time ends
+                //flash fancy LEDs when time ends
                 LATA = 170;
                 delay(300);
                 LATA = 85;
@@ -97,7 +97,7 @@ void start_game(int t){
             LCD_ClearScreen ( ) ;
             LCD_PutString ( "PLAYER2 LOST", sizeof(message2));
             for ( int i = 0; i <= 5; i++){
-                //flash fancy leds when time ends
+                //flash fancy LEDs when time ends
                 LATA = 170;
                 delay(300);
                 LATA = 85;
@@ -109,7 +109,7 @@ void start_game(int t){
         }
         
         if (player == 1){ //if it is p1’s turn
-            LATA = 240; //4 leds on the left
+            LATA = 240; //4 LEDs on the left
             int min2 = sec2 / 60; //for LCD
             sec2 %= 60; //for LCD
             //t is the time setting (5,3,1)
@@ -119,7 +119,7 @@ void start_game(int t){
                 int min = sec / 60;
                 sec %= 60;
                 char time_str2[19]; // display timers
-                snprintf(time_str2, //sorry for the formating
+                snprintf(time_str2, //sorry for the formatting
                          sizeof(time_str2), //limited space and
                          "%02d:%02d %02d:%02d", //long line
                          min, sec, min2, sec2);
@@ -133,7 +133,7 @@ void start_game(int t){
             }
         }
         if (player == 2){ //if it is p2’s turn
-            LATA = 15; //4 leds on the right
+            LATA = 15; //4 LEDs on the right
             int min = sec / 60;
             sec %= 60;
             //t is the time setting
@@ -143,7 +143,7 @@ void start_game(int t){
                 int min2 = sec2 / 60;
                 sec2 %= 60;
                 char time_str2[19];
-                snprintf(time_str2, //sorry for the formating
+                snprintf(time_str2, //sorry for the formatting
                          sizeof(time_str2), //limited space and
                          "%02d:%02d %02d:%02d", //long line
                          min, sec, min2, sec2);

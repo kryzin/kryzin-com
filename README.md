@@ -6,14 +6,7 @@
 
 **Adding next:**
 
-- Adding DatoCMS:
-  - featured post on home
-
-**Might add in the future:**
-
-- Some basic cookie policy in footer + settings + pop-up banner
-- Breadcrumbs
-- version badges for README
+- posts translated + pass the right ones to templates in gatsby-node
 
 ## Quick start
 
