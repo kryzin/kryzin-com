@@ -54,7 +54,7 @@ export const query = graphql`
 `;
 
 const BlogPost = (props) => {
-  const prefix = props.pageContext.locale === 'en' ? "" : props.pageContext.locale
+  const prefix = props.pageContext.locale
   const labels = props.data.datoCmsPostPage
   const slug = props.pageContext.slug
   const posting = props.data.allDatoCmsPost.edges.find(
@@ -64,7 +64,8 @@ const BlogPost = (props) => {
   const currentIndex = allPosts.findIndex(post => post.node.slug === slug)
   const next = useRef(null);
   const previous = useRef(null);
-  const tags = props.data.allDatoCmsPost.edges.flatMap(edge => edge.node.tags.map(tag => tag.name));
+  // const allTags = props.data.allDatoCmsPost.edges.flatMap(edge => edge.node.tags.map(tag => tag.name));
+  const tags = props.data.allDatoCmsPost.edges[currentIndex].node.tags.map(tag => tag.name);
 
   if (currentIndex > 0){
     next.current = JSON.stringify(allPosts[currentIndex - 1].node.slug).replace(`"`,'').replace(`"`,'');
@@ -77,7 +78,7 @@ const BlogPost = (props) => {
     <>
       <div className={postStyles.content}>
         <div>
-          <Link to={`${prefix}/blog/`} className={postStyles.previous}>
+          <Link to={`/${prefix}/blog/`} className={postStyles.previous}>
             {labels.back}
           </Link>
         </div>
@@ -88,13 +89,13 @@ const BlogPost = (props) => {
           <br/>
             {labels.tags}:
               {tags.map((tag) => {
-                return (<>  <Link to={`${prefix}/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
+                return (<>  <Link to={`/${prefix}/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
             </p>
         </div>
         <div className={postStyles.authorContainer}>
           <img className={postStyles.authorPic} src={Author} alt="author of the post"/>
           <div className={postStyles.authorDescrip}>
-            <p>Karolina Ryzińska · <Link to={`${prefix}/contact`} className={postStyles.link}>{labels.follow}</Link></p>
+            <p>Karolina Ryzińska · <Link to={`/${prefix}/contact`} className={postStyles.link}>{labels.follow}</Link></p>
           </div>
         </div>
         {
@@ -132,14 +133,14 @@ const BlogPost = (props) => {
       <div className={postStyles.navContainer}>
         <div className={postStyles.previous}>
           {previous.current !== null && (
-            <Link to={`${prefix}/blog/${previous.current}`}>
+            <Link to={`/${prefix}/blog/${previous.current}`}>
               {labels.previous}
             </Link>
           )}
         </div>
         <div className={postStyles.next}>
           {next.current !== null && (
-            <Link to={`${prefix}/blog/${next.current}`}>
+            <Link to={`/${prefix}/blog/${next.current}`}>
               {labels.previous}
             </Link>
           )}

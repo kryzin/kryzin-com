@@ -22,7 +22,7 @@ const NavBar = (locale) => {
   const preferredTheme = useRef('dark');
   const preferredLanguage = useRef('en');
   const location = useLocation();
-  const prefix = useRef('');
+  const prefix = useRef('en');
   const pathname = useRef(location.pathname);
   const datoLanguage = locale.locale.locale ? locale.locale.locale : preferredLanguage.current;
 
@@ -52,26 +52,16 @@ const NavBar = (locale) => {
     preferredLanguage.current = datoLanguage
     localStorage.setItem('current-language', preferredLanguage.current)
     i18n.changeLanguage(preferredLanguage.current)
-    prefix.current = preferredLanguage.current === 'en' ? "" : preferredLanguage.current
+    prefix.current = preferredLanguage.current
     SetLanguage(preferredLanguage.current.toUpperCase());
   }, [preferredLanguage, datoLanguage, i18n])
-
-  // useEffect(() => {
-    // setPathname(location.pathname)
-    // if (pathname.startsWith('/pl/') || pathname.startsWith('/no/')) {
-    //   setPathname(location.pathname.substring(3))
-    // } else {
-    //   setPathname(location.pathname.substring(1))
-    // }
-  // }, [location, pathname]);
   
   function handleLanguage () {
     console.log("handle  " + pathname.current)
-    if (pathname.current.startsWith('/pl/') || pathname.current.startsWith('/no/')) {
-      pathname.current = pathname.current.substring(3)
-    }
+    pathname.current = pathname.current.substring(3)
+
     if (language === 'PL'){
-      prefix.current = ""
+      prefix.current = "en"
       navigate(pathname.current)
     } else if (language === 'NO') {
       prefix.current = 'pl'

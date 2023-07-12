@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
       `, {locale});
       if (response.errors) return Promise.reject(response.errors);
       const posts = response.data.allDatoCmsPost.edges
-      const prefix = locale === "en" ? "" : `/${locale}`;
+      const prefix = `/${locale}`;
 
       ["contact", "about", "repos"].forEach(page => {
         createPage({

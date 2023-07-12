@@ -10,6 +10,8 @@ const PageButtons = (props) => {
     const isLast = currentPage === numPages;
     const prev = currentPage === 2 ? "/blog" : `/blog/${currentPage - 1}`;
     const next = currentPage + 1;
+    const prefix = typeof window !== 'undefined' ? localStorage.getItem('current-language') : 'en';
+
 
     return (
         <div className={navStyles.btnContainer}>
@@ -24,13 +26,13 @@ const PageButtons = (props) => {
         </div>
         <div className={navStyles.btnActive}>
             <span>
-                <Link to={currentPage === 1 ? "/blog" : `/blog/${currentPage}`}>{currentPage}</Link>
+                <Link to={currentPage === 1 ? `/${prefix}/blog` : `/${prefix}/blog/${currentPage}`}>{currentPage}</Link>
             </span>
         </div>
         <div className={navStyles.btn}>
             {!isLast && (
             <span>
-                <Link to={`/blog/${next}`} rel="next">
+                <Link to={`/${prefix}/blog/${next}`} rel="next">
                 <p className={navStyles.btnLabel}>Next</p>
                 </Link>
             </span>

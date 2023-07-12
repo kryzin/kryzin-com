@@ -10,7 +10,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 
 const BlogTags = (props) => {
-    const prefix = props.pageContext.locale === 'en' ? "" : props.pageContext.locale
+    const prefix = props.pageContext.locale
     const labels = props.data.datoCmsPostPage
     const items = props.data.allDatoCmsPost.edges
     const { tag } = props.pageContext
