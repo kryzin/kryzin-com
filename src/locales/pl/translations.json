@@ -6,13 +6,16 @@
     "footer": {
         "devby": "Strona stworzona przez "
     },
-    "blogitems": {
-        "home": "Najnowszy post:"
-    },
     "header": {
         "blog": "Blog",
         "home": "Główna",
         "contact": "Kontakt",
         "about": "O mnie"
+    },
+    "blog": {
+        "home": "Najnowszy Post:",
+        "posted": "Dodany",
+        "read": "czytania",
+        "more": "Czytaj Dalej"
     }
 }

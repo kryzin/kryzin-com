@@ -7,11 +7,7 @@
 **Adding next:**
 
 - Adding DatoCMS:
-  - ADD 'en' PREFIXES CAUSE SOMETHING IS BROKEN
-  - author to dato
-  - format post content
-  - new homepage at /home, on index - use { t } translations
-  - migrate posts to dato
+  - featured post on home
 
 **Might add in the future:**
 

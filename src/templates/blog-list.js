@@ -68,7 +68,7 @@ const BlogItems = (props) => {
                 <div className={blogStyles.meta}>
                     <span>
                     {labels.posted} {FormatDate(edge.node.frontmatter.date)}{' '}
-                    <span> / </span> {edge.node.timeToRead} {labels.readMore}
+                    <span> / </span> {edge.node.timeToRead} min {labels.readingTime}
                     </span>
                 </div>
                 {edge.node.frontmatter.featured && (

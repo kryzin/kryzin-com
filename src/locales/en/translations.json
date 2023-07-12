@@ -6,13 +6,16 @@
     "footer": {
         "devby": "Site developed by "
     },
-    "blogitems": {
-        "home": "Newest post:"
-    },
     "header": {
         "blog": "Blog",
         "home": "Home",
         "contact": "Contact",
         "about": "About"
+    },
+    "blog": {
+        "home": "Newest Post:",
+        "posted": "Posted on",
+        "read": "read",
+        "more": "Read More"
     }
 }
