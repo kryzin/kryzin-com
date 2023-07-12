@@ -7,7 +7,6 @@ import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 're
 import Fb from '../images/facebook.png';
 import Li from '../images/linkedin.png';
 import Tw from '../images/twitter.png';
-import Author from '../images/profile.png';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms/structured-text';
 
@@ -15,6 +14,11 @@ const url = typeof window !== 'undefined' ? window.location.href : '';
 
 export const query = graphql`
   query($locale: String!) {
+    datoCmsSiteInfo {
+      authorIcon {
+        gatsbyImageData(width: 200)
+      }
+    }
     allDatoCmsPost(sort: {date: DESC}) {
       edges {
         next {
@@ -73,7 +77,7 @@ const BlogPost = (props) => {
   if (currentIndex < allPosts.length - 1) {
     previous.current = JSON.stringify(allPosts[currentIndex + 1].node.slug).replace(`"`,'').replace(`"`,'');
   }
-
+  console.log(posting.markdown.value.document.children)
   return (
     <>
       <div className={postStyles.content}>
@@ -93,7 +97,10 @@ const BlogPost = (props) => {
             </p>
         </div>
         <div className={postStyles.authorContainer}>
-          <img className={postStyles.authorPic} src={Author} alt="author of the post"/>
+          <GatsbyImage 
+            className={postStyles.authorPic}
+            image={props.data.datoCmsSiteInfo.authorIcon.gatsbyImageData}
+          />
           <div className={postStyles.authorDescrip}>
             <p>Karolina Ryzińska · <Link to={`/${prefix}/contact`} className={postStyles.link}>{labels.follow}</Link></p>
           </div>
@@ -108,7 +115,9 @@ const BlogPost = (props) => {
           )
         }
         <div className={postStyles.html}>
-        <StructuredText data={posting.markdown}/>
+        <StructuredText
+        data={posting.markdown}
+        />
         </div>
       </div>
       <div>

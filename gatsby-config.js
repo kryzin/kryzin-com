@@ -159,13 +159,6 @@ module.exports = {
               showLineNumbers: false,
             },
           },
-          // {
-          //   resolve: `gatsby-remark-images-datocms`,
-          //   options: {
-          //     apiToken: process.env.DATO_API_READ_ONLY,
-          //     maxWidth: 750,
-          //   },
-          // }
         ],
       },
     },
