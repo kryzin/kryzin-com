@@ -1,4 +1,5 @@
 ---
+slug: "microcontrollers-2"
 title: "Measuring temperature with Microcontrollers"
 date: "2023-05-19"
 tags: ["microcontrollers","c"]

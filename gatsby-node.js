@@ -11,86 +11,104 @@
 const path = require('path');
 const _ = require("lodash")
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = path.basename(node.fileAbsolutePath, '.md');
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
-};
+// exports.onCreateNode = ({ node, actions }) => {
+//   const { createNodeField } = actions;
+//   if (node.internal.type === 'MarkdownRemark') {
+//     const slug = path.basename(node.fileAbsolutePath, '.md');
+//     createNodeField({
+//       node,
+//       name: 'slug',
+//       value: slug,
+//     });
+//   }
+// };
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
+exports.createPages = async ({ graphql, actions }) => { 
   const templates = {
     post: path.resolve('./src/templates/blog-post.js'),
     postList: path.resolve('./src/templates/blog-list.js'),
     tagList: path.resolve('./src/templates/blog-tags.js')
   }
+  const { createPage } = actions;
+  const locales = ["en", "pl", "no"];
 
-  const response = await graphql(`
-    query {
-      posts: allMarkdownRemark (
-        sort: { frontmatter: { date: DESC }}
-        limit: 1000
-      ){
-        edges {
-          node {
-            fields {
-              slug
+  await Promise.all(
+    locales.map(async (locale) => {
+      const response = await graphql(`
+        query {
+          posts: allMarkdownRemark (
+            sort: { frontmatter: { date: DESC }}
+            limit: 1000
+            filter: {frontmatter: {slug: {ne: null}}}
+          ){
+            edges {
+              node {
+                frontmatter {
+                  date
+                  slug
+                }
+              }
             }
           }
-        }
-      }
-      tags: allMarkdownRemark(limit: 1000) {
-        group(field: { frontmatter: { tags: SELECT } }){
-          fieldValue
-        }
-      }
-    }
-  `);
+          tags: allMarkdownRemark(limit: 1000) {
+            group(field: { frontmatter: { tags: SELECT } }){
+              fieldValue
+            }
+          }
+        }`);
+      if (response.errors) return Promise.reject(response.errors);
+      const posts = response.data.posts.edges
 
-  if (response.errors) return Promise.reject(response.errors)
-  const posts = response.data.posts.edges
+      const prefix = `/${locale}`;
 
-  posts.forEach((edge) => {
-    createPage({
-      path: `/blog/${edge.node.fields.slug}`,
-      component: templates.post,
-      context: {
-        slug: edge.node.fields.slug,
-      },
-    });
-  });
+      ["contact", "about", "repos"].forEach(page => {
+        createPage({
+          path: `${prefix}/${page}`,
+          component: path.resolve(`./src/templates/${page}.js`),
+          context: { locale: locale }
+        });
+      })
 
-  const tags = response.data.tags.group
-  tags.forEach(tag => {
-    createPage({
-      path: `/blog/tags/${_.kebabCase(tag.fieldValue)}/`,
-      component: templates.tagList,
-      context: {
-        tag: tag.fieldValue,
-      },
+      posts.forEach((edge) => {
+        createPage({
+          path: `${prefix}/blog/${edge.node.frontmatter.slug}`,
+          component: templates.post,
+          context: {
+            locale: locale,
+            slug: edge.node.frontmatter.slug,
+          },
+        });
+      });
+
+      const tags = response.data.tags.group
+      tags.forEach(tag => {
+        createPage({
+          path: `${prefix}/blog/tags/${tag.fieldValue}/`,
+          component: templates.tagList,
+          context: {
+            locale: locale,
+            tag: tag.fieldValue,
+          },
+        })
+      })
+
+      const postsPerPage = 10
+      const numberOfPages = Math.ceil(posts.length / postsPerPage)
+
+      Array.from({ length: numberOfPages }).forEach((_, index) => {
+        createPage({
+          path: index === 0 ? `${prefix}/blog` : `${prefix}/blog/${index + 1}`,
+          component: templates.postList,
+          context: {
+            locale: locale,
+            limit: postsPerPage,
+            skip: index * postsPerPage,
+            numberOfPages: numberOfPages,
+            currentPage: index + 1,
+          },
+        })
+      })
+
     })
-  })
-
-  const postsPerPage = 10
-  const numberOfPages = Math.ceil(posts.length / postsPerPage)
-
-  Array.from({ length: numberOfPages }).forEach((_, index) => {
-    createPage({
-      path: index === 0 ? `/blog` : `blog/${index + 1}`,
-      component: templates.postList,
-      context: {
-        limit: postsPerPage,
-        skip: index * postsPerPage,
-        numberOfPages: numberOfPages,
-        currentPage: index + 1,
-      },
-    })
-  })
-};
+  )
+}

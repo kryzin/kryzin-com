@@ -3,58 +3,16 @@
         "description": "Stworzona na podstawie poradnika (Ibas Majid)",
         "search": "Szukaj"
     },
-    "layout": {
-        "test": "testowanie i18n"
-    },
     "footer": {
         "devby": "Strona stworzona przez "
     },
     "blogitems": {
-        "posted": "Dodany",
-        "read": "min czytania",
-        "more": "Czytaj dalej",
-        "home": "Najnowszy post:",
-        "back": "← Powrót do Wszystkich Postów",
-        "follow": "OBSERWUJ",
-        "tags": "TAGI",
-        "tag": "TAG"
+        "home": "Najnowszy post:"
     },
     "header": {
+        "blog": "Blog",
         "home": "Główna",
         "contact": "Kontakt",
         "about": "O mnie"
-    },
-    "error": {
-        "404": "404: Nie Znaleziono Strony",
-        "404mess": "Sprawdź moje ostatnie posty"
-    },
-    "about": {
-        "title": "O mnie",
-        "description": ":)",
-        "content": "Karolina jest studentką Informatyki na UWM."
-    },
-    "blog": {
-        "title": "Blog",
-        "description": "Wszystkie moje artykuły",
-        "previous": "← Poprzedni Post",
-        "next": "Następny Post →"
-    },
-    "contact": {
-        "title": "Kontakt",
-        "description": "Zaobserwuj mnie!",
-        "form": "Użyj formy żeby się ze mną skontaktować!",
-        "name": "Twoje Imię:",
-        "email": "Twój Email:",
-        "mess": "Twoja Wiadomość:",
-        "send": "Wyślij",
-        "find": "Możesz znależć mnie też na:"
-    },
-    "index": {
-        "content": "??"
-    },
-    "github": {
-        "title": "Repozytoria na Githubie",
-        "description": "Aktualne projekty @Github",
-        "updated": "Ostatnia aktualizacja"
     }
 }

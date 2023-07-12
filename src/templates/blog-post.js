@@ -1,20 +1,32 @@
 import React, { useRef } from 'react';
 import { Link, graphql } from 'gatsby';
 import * as postStyles from '../styles/blogPost.module.scss';
-import Img from 'gatsby-image';
 
 import Comments from '../components/comments';
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'; 
 import Fb from '../images/facebook.png';
 import Li from '../images/linkedin.png';
 import Tw from '../images/twitter.png';
-import Author from '../images/profile.png';
-import { useTranslation } from 'react-i18next';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const url = typeof window !== 'undefined' ? window.location.href : '';
 
 export const query = graphql`
-  query{
+  query($locale: String!) {
+    datoCmsSiteInfo {
+      authorIcon {
+        gatsbyImageData(width: 200)
+      }
+    }
+    datoCmsPostPage(locale: $locale) {
+      back
+      follow
+      next
+      posted
+      previous
+      readingTime
+      tags
+    }
     allMarkdownRemark(
       sort: {frontmatter: {date: DESC}}
       ) {
@@ -22,30 +34,26 @@ export const query = graphql`
         node {
           html
           timeToRead
-          fields {
-            slug
-          }
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
+            slug
             title
             tags
             altfeatured
             featured {
               childImageSharp {
-                fluid(maxWidth: 750) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 750)
               }
             }
           }
         }
         next {
-          fields {
+          frontmatter {
             slug
           }
         }
         previous {
-          fields {
+          frontmatter {
             slug
           }
         }
@@ -55,81 +63,81 @@ export const query = graphql`
 `;
 
 const BlogPost = (props) => {
-  const { t } = useTranslation()
+  const prefix = props.pageContext.locale
+  const labels = props.data.datoCmsPostPage
   const slug = props.pageContext.slug
+
   const posting = props.data.allMarkdownRemark.edges.find(
-    edge => edge.node.fields.slug === slug
+    edge => edge.node.frontmatter.slug === slug
   ).node;
   const allPosts = props.data.allMarkdownRemark.edges
-  const currentIndex = allPosts.findIndex(post => post.node.fields.slug === slug)
+  const currentIndex = allPosts.findIndex(post => post.node.frontmatter.slug === slug)
   const next = useRef(null);
   const previous = useRef(null);
 
   if (currentIndex > 0){
-    next.current = JSON.stringify(allPosts[currentIndex - 1].node.fields.slug).replace(`"`,'').replace(`"`,'');
+    next.current = JSON.stringify(allPosts[currentIndex - 1].node.frontmatter.slug).replace(`"`,'').replace(`"`,'');
   }
   if (currentIndex < allPosts.length - 1) {
-    previous.current = JSON.stringify(allPosts[currentIndex + 1].node.fields.slug).replace(`"`,'').replace(`"`,'');
+    previous.current = JSON.stringify(allPosts[currentIndex + 1].node.frontmatter.slug).replace(`"`,'').replace(`"`,'');
   }
 
   return (
     <>
       <div className={postStyles.content}>
         <div>
-          <Link to='/blog/' className={postStyles.previous}>
-            {t('blogitems.back')}
+          <Link to={`/${prefix}/blog/`} className={postStyles.previous}>
+            {labels.back}
           </Link>
         </div>
         <h1>{posting.frontmatter.title}</h1>
         <div className={postStyles.meta}>
-          <p>{t('blogitems.posted')} {posting.frontmatter.date}{' '}
-          <span> / </span> {posting.timeToRead} {t('blogitems.read')}
+          <p>{labels.posted} {posting.frontmatter.date}{' '}
+          <span> / </span> {posting.frontmatter.timeToRead} {labels.readingTime}
           <br/>
-            {t('blogitems.tags')}:
-              {posting.frontmatter.tags.map((tag) => {
-                return (<>  <Link to={`/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
+            {labels.tags}:
+            {posting.frontmatter.tags.map((tag) => {
+                return (<>  <Link to={`/${prefix}/blog/tags/${tag}`} className={postStyles.tags}>{tag}</Link></>);})}
             </p>
         </div>
         <div className={postStyles.authorContainer}>
-          <img className={postStyles.authorPic} src={Author} alt="author of the post"/>
+          <GatsbyImage 
+            className={postStyles.authorPic}
+            image={props.data.datoCmsSiteInfo.authorIcon.gatsbyImageData}
+          />
           <div className={postStyles.authorDescrip}>
-            <p>Karolina Ryzińska · <Link to='/contact' className={postStyles.link}>{t('blogitems.follow')}</Link></p>
+            <p>Karolina Ryzińska · <Link to={`/${prefix}/contact`} className={postStyles.link}>{labels.follow}</Link></p>
           </div>
         </div>
         {
           posting.frontmatter.featured && (
-            <Img
+            <GatsbyImage
               className={postStyles.featured}
-              fluid={posting.frontmatter.featured.childImageSharp.fluid}
+              image={posting.frontmatter.featured.childImageSharp.gatsbyImageData}
               alt={posting.frontmatter.altfeatured}
             />
           )
         }
         <div className={postStyles.html}>
-        <div
-          dangerouslySetInnerHTML={{
+          <div dangerouslySetInnerHTML={{
             __html: posting.html,
-          }}
-        ></div>
+          }}></div>
         </div>
       </div>
       <div>
         <span className={postStyles.shareBtn}>
           <FacebookShareButton
             url={url + slug}
-            quote={'Dummy text!'}
           >
             <img src={Fb} height={16} alt="Facebook"/>
           </FacebookShareButton>
           <TwitterShareButton
             url={url + slug}
-            quote={'Dummy text!'}
           >
             <img src={Tw} height={16} alt="Twitter"/>
           </TwitterShareButton>
           <LinkedinShareButton
             url={url + slug}
-            quote={'Dummy text!'}
           >
             <img src={Li} height={16} alt="Linkedin"/>
           </LinkedinShareButton>
@@ -138,15 +146,15 @@ const BlogPost = (props) => {
       <div className={postStyles.navContainer}>
         <div className={postStyles.previous}>
           {previous.current !== null && (
-            <Link to={`/blog/${previous.current}`}>
-              {t('blog.previous')}
+            <Link to={`/${prefix}/blog/${previous.current}`}>
+              {labels.previous}
             </Link>
           )}
         </div>
         <div className={postStyles.next}>
           {next.current !== null && (
-            <Link to={`/blog/${next.current}`}>
-              {t('blog.next')}
+            <Link to={`/${prefix}/blog/${next.current}`}>
+              {labels.previous}
             </Link>
           )}
         </div>

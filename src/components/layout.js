@@ -7,12 +7,12 @@ import Footer from "./footer";
 import { motion } from 'framer-motion';
 import { withTrans } from '../i18n/withTrans';
 
-const Layout = ({ children, t, i18n }) => {
+const Layout = ({ children, pageContext }) => {
 
   return (
     <div className={layoutStyles.container}>
       <div className={layoutStyles.content}>
-        <Header />
+        <Header locale={pageContext.locale}/>
         <div className={layoutStyles.mainContent}>
           <motion.main
             initial={{ opacity: 0, x: -200 }}
@@ -29,7 +29,7 @@ const Layout = ({ children, t, i18n }) => {
           </motion.main>
         </div>
       </div>
-      <Footer />
+      <Footer locale={pageContext.locale}/>
     </div>
   )
 }

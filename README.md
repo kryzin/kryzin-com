@@ -6,15 +6,18 @@
 
 **Adding next:**
 
-- logo for page meta
-- footnotes to p1
-- migrate from react-helmet -> Gatsby Head API
+- Adding DatoCMS:
+  - ADD 'en' PREFIXES CAUSE SOMETHING IS BROKEN
+  - author to dato
+  - format post content
+  - new homepage at /home, on index - use { t } translations
+  - migrate posts to dato
 
 **Might add in the future:**
 
 - Some basic cookie policy in footer + settings + pop-up banner
-- quiz on home page
 - Breadcrumbs
+- version badges for README
 
 ## Quick start
 

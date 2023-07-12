@@ -3,58 +3,16 @@
         "description": "Created based on tutorial by Ibas Majid",
         "search": "Search"
     },
-    "layout": {
-        "test": "testing i18n"
-    },
     "footer": {
         "devby": "Site developed by "
     },
     "blogitems": {
-        "posted": "Posted on",
-        "read": "min read",
-        "more": "Read more",
-        "home": "Newest post:",
-        "back": "← Back to All Posts",
-        "follow": "FOLLOW",
-        "tags": "TAGS",
-        "tag": "TAG"
+        "home": "Newest post:"
     },
     "header": {
+        "blog": "Blog",
         "home": "Home",
         "contact": "Contact",
         "about": "About"
-    },
-    "error": {
-        "404": "404: Page Not Found",
-        "404mess": "Check my latest blog posts"
-    },
-    "about": {
-        "title": "About",
-        "description": "All the info you need about me :)",
-        "content": "Karolina is currently doing a Bachelor of Science degree in Computer Science at UWM."
-    },
-    "blog": {
-        "title": "Blog",
-        "description": "For all my super smart articles",
-        "previous": "← Previous Post",
-        "next": "Next Post →"
-    },
-    "contact": {
-        "title": "Contact",
-        "description": "Follow me on my socials!",
-        "form": "Use this form to get in touch!",
-        "name": "Your Name:",
-        "email": "Your Email:",
-        "mess": "Your Message:",
-        "send": "Send",
-        "find": "You can find me here:"
-    },
-    "index": {
-        "content": "??"
-    },
-    "github": {
-        "title": "Github Repos",
-        "description": "My current projects @Github",
-        "updated": "Updated"
     }
 }

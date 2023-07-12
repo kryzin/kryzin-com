@@ -23,6 +23,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.DATO_API_TOKEN,
+      },
+    },
+    {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: [`/about`, `/repos`, `/contact`],
@@ -46,26 +52,24 @@ module.exports = {
         query: `
           query {
             allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-                edges {
-                    node {
-                        id
-                        excerpt
-                        fields {
-                            slug
-                        }
-                        frontmatter {
-                            tags
-                            date
-                            featured {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                            title
-                        }
-                        timeToRead
-                    }
-                }
+              edges {
+                  node {
+                      id
+                      excerpt
+                      frontmatter {
+                          slug
+                          tags
+                          date
+                          featured {
+                              childImageSharp {
+                                  gatsbyImageData
+                              }
+                          }
+                          title
+                      }
+                      timeToRead
+                  }
+              }
             }
           }
         `,
@@ -77,7 +81,7 @@ module.exports = {
             title: item.node.frontmatter.title,
             excerpt: item.node.excerpt,
             date: item.node.frontmatter.date,
-            slug: item.node.fields.slug,
+            slug: item.node.frontmatter.slug,
             id: item.node.id,
             tags: item.node.frontmatter.tags,
             featured: item.node.frontmatter.featured,
@@ -130,14 +134,6 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-emoji`,
-          {
-            resolve: `gatsby-remark-text-decoration`,
-            options: {
-              addTags: {
-                "mytag" : "style='padding: 2px'"
-              }
-            }
-          },
           {
             resolve: `gatsby-remark-relative-images`,
           },
