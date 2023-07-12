@@ -9,7 +9,7 @@ const NotFound = () => {
     <>
       <h1 className={styles.content}>404: Page Not Found</h1>
       <p>
-        <Link to="/blog/">Check my latest blog posts</Link>
+        <Link to="/en/blog/">Check my latest blog posts</Link>
       </p>
     </>
   );

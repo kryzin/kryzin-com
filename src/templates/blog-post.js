@@ -93,7 +93,7 @@ const BlogPost = (props) => {
         <h1>{posting.frontmatter.title}</h1>
         <div className={postStyles.meta}>
           <p>{labels.posted} {posting.frontmatter.date}{' '}
-          <span> / </span> {posting.frontmatter.timeToRead} {labels.readingTime}
+          <span> / </span> {posting.timeToRead} min {labels.readingTime}
           <br/>
             {labels.tags}:
             {posting.frontmatter.tags.map((tag) => {

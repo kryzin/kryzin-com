@@ -62,9 +62,13 @@ const NavBar = (locale) => {
 
     if (language === 'PL'){
       prefix.current = "en"
+      localStorage.setItem('current-language', prefix.current)
+      SetLanguage(prefix.current.toUpperCase());
       navigate(pathname.current)
     } else if (language === 'NO') {
       prefix.current = 'pl'
+      localStorage.setItem('current-language', prefix.current)
+      SetLanguage(prefix.current.toUpperCase());
       if (pathname.current === '') {
         navigate(pathname.current)
       } else {
@@ -72,6 +76,8 @@ const NavBar = (locale) => {
       }
     } else {
       prefix.current = 'no'
+      localStorage.setItem('current-language', prefix.current)
+      SetLanguage(prefix.current.toUpperCase());
       if (pathname.current === '') {
         navigate(pathname.current)
       } else {

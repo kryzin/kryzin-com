@@ -6,13 +6,16 @@
     "footer": {
         "devby": "Nettsted utviklet av "
     },
-    "blogitems": {
-        "home": "Nyeste innlegg:"
-    },
     "header": {
         "blog": "Blogg",
         "home": "Startside",
         "contact": "Kontakt",
         "about": "Om"
+    },
+    "blog": {
+        "home": "Nyeste innlegg:",
+        "posted": "Publisert",
+        "read": "lesing",
+        "more": "Les Mer"
     }
 }
