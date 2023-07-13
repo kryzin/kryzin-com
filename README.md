@@ -8,6 +8,7 @@
 
 - posts translated + pass the right ones to templates in gatsby-node
 - maybe add slugs for other locales to frontmatter for lang switching on post's site
+- fix navigation on language change when on homepage
 
 ## Quick start
 
