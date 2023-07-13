@@ -1,19 +1,20 @@
 ---
 slug: "microcontrollers-4"
-title: "Simulating a microwave LCD screen"
+title: "Simulating a Microwave LCD screen"
 date: "2023-05-21"
 tags: ["microcontrollers","c","lcd"]
 altfeatured: "microwave oven"
 featured: "../images/post-0005.jpg"
+locale: "en"
 ---
 
-I'm trying to get better at managing LCD screens so today I'll try creating a microwave oven display. Complete with choosing the power, setting the time and the countdown timer.
+I'm trying to get better at managing LCD screens so today I'll try creating a microwave oven display. Complete with choosing the power, setting the time, and the countdown timer.
 
 ## Implementation
 
 ### Timer func
 
-Given a previously set time length the timer with count down and change the display screen each second - showing a formatted time left. If a `S4` button is pressed - the timer will pause and go back to the main function (from then it can either restart or reset to 0).
+Given a previously set time length the timer with count down and change the display screen each second - showing a formatted time left. If an `S4` button is pressed - the timer will pause and go back to the main function (from then it can either restart or reset to 0).
 
 ```c
 int time = 0; //count down time
@@ -37,8 +38,8 @@ void timer(int t){
     //timer-end alarm
     if (t == 0){
        time = 0;
-       for ( i = 0; i <= 5; i++){ //flash fancy leds when alarm goes off
-        LATA = 170; // blink all even leds or all not even
+       for ( i = 0; i <= 5; i++){ //flash fancy LEDs when alarm goes off
+        LATA = 170; // blink all even LEDs or all not even
         delay(300);
         LATA = 85;
         delay(300);
@@ -50,7 +51,7 @@ void timer(int t){
 
 ### Main - choosing power
 
-In an inifite loop in `main()` I declared `program=0` and `power[11]` (to use in formatting `sprintf`). Choosing the power starts when button `S3` is pressed. In a simple switch case we set the LEDs to showcase the power and also display it on screen. If we are satisfied with the power, we press `S4` to exit the loop.
+In an infinite loop in `main()` I declared `program=0` and `power[11]` (to use in formatting `sprintf`). Choosing the power starts when the button `S3` is pressed. In a simple switch case, we set the LEDs to showcase the power and also display it on the screen. If we are satisfied with the power, we press `S4` to exit the loop.
 
 ```c
 if (BUTTON_IsPressed ( BUTTON_S3 )){
@@ -59,9 +60,9 @@ if (BUTTON_IsPressed ( BUTTON_S3 )){
                 //choosing the power (800W-0,600W-1,350W-2,200W-3)
                 switch (program){
                     case 0:
-                        LATA = 255; //max power = max leds
+                        LATA = 255; //max power = max LEDs
                         snprintf(power, sizeof(power), "Power 800W");
-                        LCD_ClearScreen ( ) ; //clear lcd screen
+                        LCD_ClearScreen ( ) ; //clear LCD screen
                         LCD_PutString ( power, sizeof(power)); //display
                         break;
                     case 1:
@@ -96,7 +97,7 @@ if (BUTTON_IsPressed ( BUTTON_S3 )){
 
 ### Main - setting and running the timer
 
-Pressing `S6` adds 1min to the clock, pressing `S5` adds 10seconds, pressing `S4` starts the timer and pressing it for longer than 2s resets the clock to 0.
+Pressing `S6` adds 1min to the clock, pressing `S5` adds 10 seconds, pressing `S4` starts the timer, and pressing it for longer than 2s resets the clock to 0.
 
 ```c
 if (BUTTON_IsPressed ( BUTTON_S6 )){ //S6 add 1min to timer
@@ -132,4 +133,4 @@ if (BUTTON_IsPressed ( BUTTON_S4 )){
 }
 ```
 
-Next post will also focus on LCD screens - I'll be implementing a chess clock.
+The next post will also focus on LCD screens - I'll be implementing a chess clock.

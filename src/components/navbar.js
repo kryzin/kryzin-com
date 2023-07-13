@@ -58,13 +58,19 @@ const NavBar = (locale) => {
   
   function handleLanguage () {
     console.log("handle  " + pathname.current)
-    pathname.current = pathname.current.substring(3)
+
+    if (pathname.current.startsWith("/pl/") ||
+      pathname.current.startsWith("/no/") ||
+      pathname.current.startsWith("/en/")){
+
+      pathname.current = pathname.current.substring(3)
+    }
 
     if (language === 'PL'){
       prefix.current = "en"
       localStorage.setItem('current-language', prefix.current)
       SetLanguage(prefix.current.toUpperCase());
-      navigate(pathname.current)
+      navigate('/en' + pathname.current)
     } else if (language === 'NO') {
       prefix.current = 'pl'
       localStorage.setItem('current-language', prefix.current)

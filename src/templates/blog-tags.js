@@ -99,7 +99,7 @@ export const blogListQuery = graphql`
     }
     allMarkdownRemark(
         sort: { frontmatter: { date: DESC }}
-        filter: { frontmatter: { tags: { in: [$tag] } } }
+        filter: { frontmatter: { tags: { in: [$tag] }, locale: {eq: $locale} } }
           ) {
         totalCount
         edges {

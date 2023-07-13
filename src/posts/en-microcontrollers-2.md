@@ -1,27 +1,28 @@
 ---
 slug: "microcontrollers-2"
-title: "Measuring temperature with Microcontrollers"
+title: "Measuring Temperature with Microcontrollers"
 date: "2023-05-19"
 tags: ["microcontrollers","c"]
 altfeatured: "technical drawing of a TC1047A temp sensor"
 featured: "../images/post-0004.png"
+locale: "en"
 ---
 
 Working on PIC24FJ128GA010 I wrote a program that checks the current temperature and if it reaches a certain limit (25 degrees Celcius) it triggers an alarm (flashing LEDs).
 
 ## Prerequisites
 
-Instead of actually working with a TC1047A temperature meter the code uses the manual Potentiometer (I have commented out input from the temp meter)
+Instead of working with a TC1047A temperature meter, the code uses the manual Potentiometer (I have commented out input from the temp meter)
 I will also implement simple tests (to test `LED_10` and to test all LEDs) and a manual switch for the alarm.
 
 ## Implementation
 
 ### Base
 
-To keep track of the alarm I declared two bool variables, `alarm` that sets true once the temperature reaches our limit and `was_alarm` that sets true after one alarm trigger and resets if the temperature goes down. `manual` controls if the alarm trigger is active. The `S3` button controls the LED_10 test, `S6` controls the all LEDs test and `S4` controls manual/auto alarm trigger.
+To keep track of the alarm I declared two bool variables, `alarm` that sets true once the temperature reaches our limit and `was_alarm` that sets true after one alarm trigger and resets if the temperature goes down. `manual` controls if the alarm trigger is active. The `S3` button controls the LED_10 test, `S6` controls all LEDs test, and `S4` controls the manual/auto alarm trigger.
 If we are not in manual mode, we read the temperature from the ADC channel, format it using `sprintf` and display it on the LCD screen. If the measured temperature is higher than our limit, we set the alarm to true.
 All the `if` statements should be put in an infinite loop.
-Under the temp input there is a commented out input from the actual temp sensor.
+Under the temp input, there is a commented-out input from the actual temp sensor.
 
 ```c
 //main() in main.c
@@ -39,13 +40,13 @@ if (BUTTON_IsPressed ( BUTTON_S3 )){
      was_alarm = false;
      test_d10(); //start testing d10
 }
-// test all leds
+//Test all LEDs
 if (BUTTON_IsPressed ( BUTTON_S6 )){
      //reset alarm
      manual = false;
      alarm = false;
      was_alarm = false;
-     test_all(); //start testing all leds
+     test_all(); //start testing all LEDs
 }
 // manual control = on
 if (BUTTON_IsPressed ( BUTTON_S4 )){
@@ -66,13 +67,13 @@ if (manual == false){//check if manual control
 }
 ```
 
-### The alarm
+### The Alarm
 
-Still in an infinite loop, this is how our alarm works. If we should initiate it, first the LED_10 is flashing for 3s and then all LEDs turn on. After the alarm we set `was_alarm` to true.
+Still, in an infinite loop, this is how our alarm works. If we should initiate it, first the LED_10 is flashing for 3s, and then all LEDs turn on. After the alarm, we set `was_alarm` to true.
 
 ```c
 //main()
-// initiate alarm
+//Initiate alarm
         if (alarm == true){
             if (was_alarm == false){
                 for (int i = 0; i <= 6; i++){ //blink for 3s(250*2*6=3000)
@@ -104,7 +105,7 @@ void test_d10(){
       
         if (BUTTON_IsPressed ( BUTTON_S3 )){
             Break;
-        } //check if we want to exit test
+        } //check if we want to exit the test
         
         LED_Off(LED_D10); //blink off
         delay(300);
