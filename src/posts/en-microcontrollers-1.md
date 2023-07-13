@@ -5,7 +5,7 @@ date: "2023-05-18"
 featured: "../images/post-0000.jpg"
 altfeatured: "microcontrollers"
 tags: ["pic24", 'microcontrollers', 'c']
-locale: 'en'
+locale: "en"
 ---
 
 ## Introduction

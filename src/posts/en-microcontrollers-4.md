@@ -5,6 +5,7 @@ date: "2023-05-21"
 tags: ["microcontrollers","c","lcd"]
 altfeatured: "microwave oven"
 featured: "../images/post-0005.jpg"
+locale: "en"
 ---
 
 I'm trying to get better at managing LCD screens so today I'll try creating a microwave oven display. Complete with choosing the power, setting the time, and the countdown timer.

@@ -118,7 +118,7 @@ export const blogListQuery = graphql`
         sort: { frontmatter: { date: DESC }}
         limit: $limit
         skip: $skip
-        filter: {frontmatter: {slug: {ne: null}}}
+        filter: {frontmatter: {slug: {ne: null}, locale: {eq: $locale}}}
       ) {
         edges {
           node {

@@ -5,6 +5,7 @@ date: "2023-05-19"
 tags: ["microcontrollers","c"]
 altfeatured: "technical drawing of a TC1047A temp sensor"
 featured: "../images/post-0004.png"
+locale: "en"
 ---
 
 Working on PIC24FJ128GA010 I wrote a program that checks the current temperature and if it reaches a certain limit (25 degrees Celcius) it triggers an alarm (flashing LEDs).

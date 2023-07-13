@@ -35,17 +35,17 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all(
     locales.map(async (locale) => {
       const response = await graphql(`
-        query {
+        query NodeQuery($locale: String){
           posts: allMarkdownRemark (
             sort: { frontmatter: { date: DESC }}
             limit: 1000
-            filter: {frontmatter: {slug: {ne: null}}}
+            filter: {frontmatter: {slug: {ne: null}, locale: {eq: $locale}}}
           ){
             edges {
               node {
                 frontmatter {
-                  date
                   slug
+                  locale
                 }
               }
             }
@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
               fieldValue
             }
           }
-        }`);
+        }`,  {locale: locale});
       if (response.errors) return Promise.reject(response.errors);
       const posts = response.data.posts.edges
 

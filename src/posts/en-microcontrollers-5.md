@@ -5,6 +5,7 @@ date: "2023-05-22"
 tags: ["microcontrollers","c","lcd", "chess"]
 altfeatured: "Chess Clock with LCD"
 featured: "../images/post-0006.jpg"
+locale: "en"
 ---
 
 This is the code for a Chess Clock - with a timer for each player, turn indicators, and switches.

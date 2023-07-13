@@ -5,6 +5,7 @@ date: "2023-05-20"
 tags: ["microcontrollers","c","lcd"]
 altfeatured: "lcd screen on a microcontroller"
 featured: "../images/post-0003.jpg"
+locale: "en"
 ---
 
 I'm going to try to simulate an animation on a 16x2 LCD screen using custom character creators :smile:

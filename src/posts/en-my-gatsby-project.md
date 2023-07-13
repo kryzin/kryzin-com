@@ -5,6 +5,7 @@ date: "2023-07-06"
 tags: ["gatsby","react"]
 altfeatured: "gatsby logo"
 featured: "../images/post-0001.jpg"
+locale: "en"
 ---
 
 This is more or less the full list of all my changes to the gatsby-starter
@@ -42,6 +43,7 @@ This is more or less the full list of all my changes to the gatsby-starter
 - page with my public Github repos with descriptions
 - Deployed on Netlify
 - auto Lighthouse report
+- DatoCMS Management
 
 ## Smaller stuff
 
