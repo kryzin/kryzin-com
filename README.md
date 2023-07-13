@@ -6,9 +6,11 @@
 
 **Adding next:**
 
+- gifs on homepage and 404
 - posts translated + pass the right ones to templates in gatsby-node
 - maybe add slugs for other locales to frontmatter for lang switching on post's site
 - fix navigation on language change when on homepage
+  - add nav links on home to direct to specific lang homepages
 
 ## Quick start
 

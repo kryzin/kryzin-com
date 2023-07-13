@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       const prefix = `/${locale}`;
 
-      ["contact", "about", "repos"].forEach(page => {
+      ["contact", "about", "repos", "home"].forEach(page => {
         createPage({
           path: `${prefix}/${page}`,
           component: path.resolve(`./src/templates/${page}.js`),

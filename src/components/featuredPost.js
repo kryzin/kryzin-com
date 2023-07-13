@@ -7,13 +7,14 @@ import React from "react";
 
 const MainPost = (props) => {
     const prefix = props.pageContext
+    const locale = prefix
     const { t } = useTranslation()
     const data = useStaticQuery(
         graphql`
-          query {
+          query MainPostQuery{
             allMarkdownRemark(
-                sort: {frontmatter: {date: DESC}}
                 filter: {frontmatter: {slug: {ne: null}}}
+                sort: {frontmatter: {date: DESC}}
                 ) {
                 edges {
                     node {
@@ -22,6 +23,7 @@ const MainPost = (props) => {
                         frontmatter {
                             slug
                             tags
+                            locale
                             date(formatString: "DD MMMM")
                             featured {
                                 childImageSharp {
@@ -35,9 +37,11 @@ const MainPost = (props) => {
                 }
             }
           }
-        `
+        `, {locale}
     );
-    const posts = data.allMarkdownRemark.edges[0].node
+    console.log(data.allMarkdownRemark.edges)
+    const posts = data.allMarkdownRemark.edges.find((edge) => edge.node.frontmatter.locale === prefix).node
+    console.log(locale)
     console.log('POSTS ' + JSON.stringify(posts))
 
     return (
